@@ -1,6 +1,9 @@
-//お知らせなど'use client';
+
+'use client';
 
 import { motion } from 'framer-motion';
+
+const MotionH1 = motion('h1');
 
 const dummyNews = [
   {
@@ -26,14 +29,14 @@ const dummyNews = [
 export default function NewsPage() {
   return (
     <section className="bg-white max-w-4xl mx-auto py-16 px-6 sm:px-12 text-black">
-      <motion.h1
+      <MotionH1
         className="text-3xl sm:text-4xl font-bold mb-10 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         お知らせ一覧
-      </motion.h1>
+      </MotionH1>
 
       <div className="space-y-6">
         {dummyNews.map((news) => (
