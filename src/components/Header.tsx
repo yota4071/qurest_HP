@@ -38,9 +38,11 @@ export default function Header() {
             placeholder="検索"
             className="border border-gray-300 rounded px-2 py-1 text-sm"
           />
-          <button className="border border-gray-500 text-gray-800 rounded px-3 py-1 hover:bg-gray-100 transition text-sm">
-            お問い合わせ
-          </button>
+          <Link href="/contact">
+            <button className="border border-gray-500 text-gray-800 rounded px-3 py-1 hover:bg-gray-100 transition text-sm">
+              お問い合わせ
+            </button>
+          </Link>
         </div>
       </div>
     </header>
