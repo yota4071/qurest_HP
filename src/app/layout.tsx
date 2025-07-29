@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "YourCompany",
   description: "革新的なソリューションを提供する企業サイト",
 };
-
+//変更点
 export default function RootLayout({
   children,
 }: Readonly<{
