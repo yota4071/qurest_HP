@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const services = [
     {
@@ -50,17 +51,17 @@ const achievements = [
     {
         id: 2,
         client: '物流業B社',
-        project: 'IoT配送最適化システム',
-        description: 'GPS・センサーデータを活用した配送ルート最適化',
-        results: ['配送効率35%向上', '燃料コスト25%削減', 'CO2排出量30%減'],
+        project: 'スマート農業システム',
+        description: 'IoTセンサーを活用した農作物の生育管理システムの構築',
+        results: ['農業100%の自動化', '燃料コスト25%削減', 'CO2排出量30%減'],
         period: '2023年1月 - 2023年8月',
         technologies: ['IoT Sensors', 'GPS Tracking', 'Machine Learning', 'AWS'],
     },
     {
         id: 3,
         client: '小売業C社',
-        project: 'ECサイトリニューアル',
-        description: 'レスポンシブ対応とパフォーマンス最適化',
+        project: 'NomNomの制作',
+        description: 'キッチンカー管理アプリの開発と運用支援',
         results: ['売上120%向上', 'CV率80%改善', 'サイト速度70%高速化'],
         period: '2022年10月 - 2023年3月',
         technologies: ['Next.js', 'TypeScript', 'Stripe', 'Vercel'],
@@ -314,9 +315,11 @@ export default function ServicePage() {
             <p className="text-xl mb-8 opacity-90">
               お客様の課題に最適なソリューションをご提案いたします
             </p>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
-              お問い合わせ
-            </button>
+            <Link href="/contact">
+              <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+                お問い合わせ
+              </button>
+            </Link>
           </motion.div>
         </div>
       </section>
