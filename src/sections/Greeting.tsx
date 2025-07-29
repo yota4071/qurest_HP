@@ -41,7 +41,7 @@ export default function Greeting() {
             お客様と社会の期待に応えるべく、挑戦を恐れず、常に未来を見据えて進化し続けます。
             今後とも変わらぬご支援を賜りますよう、お願い申し上げます。
             <br /><br />
-            <strong>代表取締役　山田 太郎</strong>
+            <strong>代表取締役　小澤 瑶太</strong>
           </motion.p>
         </div>
 

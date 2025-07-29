@@ -40,14 +40,14 @@ const values = [
 
 const timeline = [
   {
-    year: '2020',
-    title: '会社設立の構想',
-    description: '代表の若宮修太が、社会課題をテクノロジーで解決するビジョンを描く'
+    year: '2022',
+    title: 'メンバーの出会い',
+    description: '現メンバーが大学のサークルで出会う'
   },
   {
     year: '2021',
-    title: 'プロトタイプ開発',
-    description: '初期メンバーとともにAIソリューションのプロトタイプを開発開始'
+    title: '役員Wakaが落単',
+    description: '役員Wakaが大学の単位を落とし、就職活動を断念。起業を決意'
   },
   {
     year: '2022',
@@ -55,17 +55,17 @@ const timeline = [
     description: '市場調査と事業計画の策定、初期資金の調達を実施'
   },
   {
-    year: '2023',
-    title: 'パートナーシップ構築',
-    description: '主要技術パートナーとの提携、開発チームの拡充'
+    year: '2024/08',
+    title: '研究室で新たな出会い',
+    description: '大学の研究室で新たな出会いに恵まれる'
   },
   {
-    year: '2024',
+    year: '2025/08',
     title: 'サービス開始',
-    description: '正式サービス開始、初期顧客への導入とフィードバック収集'
+    description: 'キッチンカー管理アプリNomNomの正式サービス開始'
   },
   {
-    year: '2025',
+    year: '2025/03',
     title: '会社設立',
     description: 'Qurest Group正式設立、大阪支社開設'
   }
@@ -73,18 +73,18 @@ const timeline = [
 
 const team = [
   {
-    name: 'Shuta Wakamiya',
+    name: 'Oz',
     position: '代表取締役CEO',
     description: 'テクノロジーとビジネスの架け橋として、会社全体の戦略を牽引。10年以上のIT業界経験を持つ。',
     image: '/team/ceo.jpg',
-    expertise: ['事業戦略', 'テクノロジー', 'リーダーシップ']
+    expertise: ['事業戦略', 'テクノロジー', '要件定義']
   },
   {
-    name: 'Reiya',
+    name: 'Waka',
     position: '取締役CTO',
     description: '技術面のリーダーとして、イノベーティブなソリューションの開発を統括。',
     image: '/team/cto.jpg',
-    expertise: ['AI/ML', 'システム設計', '技術戦略']
+    expertise: ['BadRam', 'システム設計', '技術戦略']
   }
 ];
 
@@ -314,8 +314,8 @@ export default function CompanyIntroduction() {
               {[
                 { label: '会社名', value: 'Qurest Inc.' },
                 { label: '設立', value: '2025年4月1日' },
-                { label: '代表取締役', value: 'Shuta Wakamiya' },
-                { label: '取締役', value: 'Reiya' },
+                { label: '代表取締役', value: 'Oz' },
+                { label: '取締役', value: 'Waka' },
                 { label: '従業員数', value: '6名' },
                 { label: '資本金', value: '1億円' },
                 { label: '主要取引銀行', value: '三井住友銀行' },
