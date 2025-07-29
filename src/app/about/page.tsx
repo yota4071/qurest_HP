@@ -100,7 +100,7 @@ export default function CompanyIntroduction() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Quest Inc.
+            Qurest Inc.
           </motion.h1>
           
           <motion.p
@@ -118,7 +118,7 @@ export default function CompanyIntroduction() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            私たちQuestは、テクノロジーと創造性を融合させ、社会課題の解決に取り組む企業です。
+            私たちQurestは、テクノロジーと創造性を融合させ、社会課題の解決に取り組む企業です。
             AI・IoT・Web技術を駆使して、持続可能で豊かな未来の実現を目指しています。
           </motion.p>
         </div>
@@ -187,7 +187,7 @@ export default function CompanyIntroduction() {
               Company History
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Questの歩みと成長の軌跡
+              Qurestの歩みと成長の軌跡
             </p>
           </motion.div>
 
@@ -241,7 +241,7 @@ export default function CompanyIntroduction() {
               Leadership Team
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Questを牽引するリーダーシップチーム
+              Qurestを牽引するリーダーシップチーム
             </p>
           </motion.div>
 
@@ -299,7 +299,7 @@ export default function CompanyIntroduction() {
               Company Overview
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Questの基本情報
+              Qurestの基本情報
             </p>
           </motion.div>
 
@@ -312,7 +312,7 @@ export default function CompanyIntroduction() {
           >
             <div className="grid md:grid-cols-2 gap-0">
               {[
-                { label: '会社名', value: 'Quest Inc.' },
+                { label: '会社名', value: 'Qurest Inc.' },
                 { label: '設立', value: '2025年4月1日' },
                 { label: '代表取締役', value: 'Shuta Wakamiya' },
                 { label: '取締役', value: 'Reiya' },
@@ -382,7 +382,7 @@ export default function CompanyIntroduction() {
               一緒に未来を創りませんか？
             </h2>
             <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
-              Questでは、志を共にする仲間を募集しています。
+              Qurestでは、志を共にする仲間を募集しています。
               あなたの力で、正しい未来を創造しましょう。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

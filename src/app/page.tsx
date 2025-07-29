@@ -165,7 +165,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-gray-900">
-                Questの強み
+                Qurestの強み
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 長年の経験と技術力で、お客様のプロジェクトを成功に導きます
@@ -208,7 +208,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
-                数字で見るQuest
+                数字で見るQurest
               </h2>
               <p className="text-lg text-blue-100 max-w-3xl mx-auto">
                 これまでの実績と信頼の証
@@ -288,12 +288,12 @@ export default function Home() {
         <footer className="bg-gray-900 text-white py-12 px-6 sm:px-12">
           <div className="max-w-7xl mx-auto text-center">
             <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-4">Quest Inc.</h3>
+              <h3 className="text-2xl font-bold mb-4">Qurest Inc.</h3>
               <p className="text-gray-400">正しい未来を創造する</p>
             </div>
             <div className="border-t border-gray-700 pt-8">
               <p className="text-gray-400 text-sm">
-                © 2025 Quest Inc. All rights reserved.
+                © 2025 Qurest Inc. All rights reserved.
               </p>
             </div>
           </div>
