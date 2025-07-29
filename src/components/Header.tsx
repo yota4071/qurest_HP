@@ -6,14 +6,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 w-full z-50 flex justify-center px-4 sm:px-8 py-4 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md' : 'bg-white'
-      }`}
+      className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 sm:px-8 py-4 transition-all duration-300 bg-white"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
