@@ -10,12 +10,12 @@ export default function Header() {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 sm:px-8 py-4 transition-all duration-300 bg-white"
+      className="fixed top-0 left-0 w-full z-50 flex justify-center px-4 sm:px-8 py-4 transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <div className="w-full max-w-7xl bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between">
+      <div className="w-full max-w-7xl glass-morphism rounded-2xl shadow-xl border border-white/30 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between">
 
         {/* ロゴとキャッチコピー */}
         <Link href="/" className="flex items-center gap-4 cursor-pointer group">
@@ -26,10 +26,10 @@ export default function Header() {
             <Image src="/Qurest.png" alt="Logo" width={40} height={40} />
           </motion.div>
           <div className="flex flex-col text-sm">
-            <span className="text-xs text-blue-500 font-medium group-hover:text-blue-600 transition-colors">
+            <span className="text-xs text-gradient-luxury font-medium group-hover:opacity-80 transition-opacity">
               正しい未来を
             </span>
-            <span className="text-lg font-bold bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent">
+            <span className="text-xl font-display font-bold text-gradient-elegant">
               Qurest
             </span>
           </div>
@@ -49,23 +49,27 @@ export default function Header() {
         <div className="hidden sm:flex sm:items-center gap-6 text-sm">
           {/* ナビゲーションリンク */}
           <nav className="flex gap-6">
-            <Link href="/news" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              News
+            <Link href="/news" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
+              <span>News</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Company
+            <Link href="/about" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
+              <span>Company</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/service" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Service
+            <Link href="/service" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
+              <span>Service</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/recruit" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-              Recruit
+            <Link href="/recruit" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
+              <span>Recruit</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </nav>
 
           {/* 右側メニュー */}
           <div className="flex items-center gap-4">
-            <span className="text-gray-600 text-xs font-medium px-3 py-1 bg-gray-50 rounded-full">
+            <span className="text-charcoal text-xs font-medium px-4 py-2 bg-gradient-to-r from-accent-platinum to-warm-gray rounded-full border border-accent-platinum">
               Qurest Group
             </span>
             <div className="flex items-center gap-2 text-xs">
@@ -75,8 +79,8 @@ export default function Header() {
             </div>
             <Link href="/contact">
               <motion.button 
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full px-6 py-2 font-medium shadow-md hover:shadow-lg transition-all"
-                whileHover={{ scale: 1.05 }}
+                className="bg-gradient-to-r from-accent-gold to-yellow-400 text-deep-navy rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 お問い合わせ
