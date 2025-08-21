@@ -157,7 +157,7 @@ export default function Home() {
               stagger={0.2}
               className="grid gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 mb-20"
             >
-              {realServices.map((service, index) => (
+              {realServices.map((service) => (
                 <motion.div
                   key={service.id}
                   className="luxury-card hover-lift p-12 group relative overflow-hidden cursor-pointer min-h-[400px] flex flex-col justify-between"
@@ -249,7 +249,7 @@ export default function Home() {
               stagger={0.15}
               className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             >
-              {realCapabilities.map((capability, index) => (
+              {realCapabilities.map((capability) => (
                 <motion.div
                   key={capability.id}
                   className="text-center p-10 luxury-card hover-lift group relative overflow-hidden cursor-pointer min-h-[300px] flex flex-col justify-center"
@@ -419,7 +419,7 @@ export default function Home() {
               <p className="responsive-text-lg text-white/70 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-0 font-display tracking-wide mb-12">
                 Contact us for project inquiries
                 <br className="hidden md:block" />
-                We're waiting for your new ideas
+                We&apos;re waiting for your new ideas
               </p>
               
               <div className="flex flex-col sm:flex-row gap-8 justify-center">

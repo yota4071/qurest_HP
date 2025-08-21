@@ -14,7 +14,7 @@ export function useScrollAnimation(threshold = 0.1, triggerOnce = true) {
   return { ref, isInView };
 }
 
-export function useStaggeredAnimation(items: any[], delay = 0.1) {
+export function useStaggeredAnimation(items: unknown[], delay = 0.1) {
   return items.map((_, index) => ({
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },

@@ -5,10 +5,6 @@
 import Hero from "@/sections/Hero";
 import Greeting from "@/sections/Greeting";
 import NewsPage from "@/app/news/page";
-import RecruitPreview from "@/components/RecruitPreview";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import FloatingElements from "@/components/FloatingElements";
-import ParallaxWrapper from "@/components/ParallaxWrapper";
 import AbstractBackground from "@/components/AbstractBackground";
 import ScrollReveal, { ScrollRevealStagger } from "@/components/ScrollReveal";
 import Link from "next/link";
@@ -163,7 +159,7 @@ export default function Home() {
               stagger={0.2}
               className="grid gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 mb-20"
             >
-              {realServices.map((service, index) => (
+              {realServices.map((service) => (
                 <motion.div
                   key={service.id}
                   className="luxury-card hover-lift p-12 group relative overflow-hidden cursor-pointer min-h-[400px] flex flex-col justify-between"
@@ -255,7 +251,7 @@ export default function Home() {
               stagger={0.15}
               className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             >
-              {realCapabilities.map((capability, index) => (
+              {realCapabilities.map((capability) => (
                 <motion.div
                   key={capability.id}
                   className="text-center p-10 luxury-card hover-lift group relative overflow-hidden cursor-pointer min-h-[300px] flex flex-col justify-center"

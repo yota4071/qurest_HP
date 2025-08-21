@@ -8,7 +8,7 @@ interface FloatingElementProps {
   total: number;
 }
 
-const FloatingElement = ({ index, total }: FloatingElementProps) => {
+const FloatingElement = ({ index }: FloatingElementProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [mounted, setMounted] = useState(false);
   

@@ -300,7 +300,7 @@ export default function RecruitPage() {
                         </div>
 
                         <div>
-                          <h4 className="font-display text-lg font-bold text-white mb-4">What You'll Learn</h4>
+                          <h4 className="font-display text-lg font-bold text-white mb-4">What You&apos;ll Learn</h4>
                           <div className="space-y-2">
                             {position.whatYouLearn.map((learn, idx) => (
                               <div key={idx} className="flex items-start gap-2 text-sm text-white/70">
@@ -424,7 +424,7 @@ export default function RecruitPage() {
                 </h2>
                 <p className="text-white/70 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
                   We are waiting for your participation in this special project that will change your student life.<br />
-                  Let's start by having a casual chat!
+                  Let&apos;s start by having a casual chat!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
                   <Link href="/en/contact">

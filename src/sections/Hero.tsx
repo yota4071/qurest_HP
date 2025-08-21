@@ -114,22 +114,15 @@ export default function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
     },
   };
+
 
   const titleVariants = {
     hidden: { opacity: 0, y: 80 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 1.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
     },
   };
 
