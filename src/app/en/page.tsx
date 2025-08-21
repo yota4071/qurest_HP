@@ -1,14 +1,8 @@
-// app/page.tsx
-
 'use client';
 
 import Hero from "@/sections/Hero";
 import Greeting from "@/sections/Greeting";
-import NewsPage from "@/app/news/page";
-import RecruitPreview from "@/components/RecruitPreview";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import FloatingElements from "@/components/FloatingElements";
-import ParallaxWrapper from "@/components/ParallaxWrapper";
+import NewsPage from "@/app/en/news/page";
 import AbstractBackground from "@/components/AbstractBackground";
 import ScrollReveal, { ScrollRevealStagger } from "@/components/ScrollReveal";
 import Link from "next/link";
@@ -18,7 +12,7 @@ const realServices = [
   {
     id: 1,
     title: 'Nom!Nom!',
-    description: '立命館大学OICキャンパスのキッチンカー評価プラットフォーム',
+    description: 'Food truck rating platform for Ritsumeikan University OIC Campus',
     abstractElement: (
       <div className="absolute inset-0 opacity-30">
         <div className="w-full h-full bg-gradient-to-br from-accent-highlight/40 to-accent-glow/40 blur-xl" />
@@ -27,13 +21,13 @@ const realServices = [
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bangers text-2xl text-accent-neon/50">Nom!</div>
       </div>
     ),
-    features: ['キッチンカー検索', 'レビューシステム', '学生コミュニティ'],
-    status: 'ローンチ予定'
+    features: ['Food Truck Search', 'Review System', 'Student Community'],
+    status: 'Launch Ready'
   },
   {
     id: 2,
     title: 'Nom!Nom! Mobile App',
-    description: 'モバイルアプリ版の開発でより便利なユーザー体験を実現',
+    description: 'Mobile app development for better user experience',
     abstractElement: (
       <div className="absolute inset-0 opacity-30">
         <div className="w-full h-full bg-gradient-to-br from-accent-abstract/40 to-accent-neon/40 blur-2xl" />
@@ -42,31 +36,31 @@ const realServices = [
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bangers text-xl text-accent-glow/50">Mobile</div>
       </div>
     ),
-    features: ['プッシュ通知', 'オフライン閲覧', '位置情報連携'],
-    status: '開発中'
+    features: ['Push Notifications', 'Offline Viewing', 'Location Integration'],
+    status: 'In Development'
   },
   {
     id: 3,
-    title: 'Nom!Nom! 全国版',
-    description: '全国の大学キャンパスで利用可能な拡張バージョン',
+    title: 'Nom!Nom! Nationwide',
+    description: 'Scalable version for university campuses nationwide',
     abstractElement: (
       <div className="absolute inset-0 opacity-30">
         <div className="w-full h-full bg-gradient-to-br from-white/20 to-gray-400/20 blur-3xl" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 border border-white/30 rounded-full" />
         <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-white animate-ping" />
-        <div className="absolute bottom-1/4 left-1/4 font-bangers text-lg text-white/50">全国</div>
+        <div className="absolute bottom-1/4 left-1/4 font-bangers text-lg text-white/50">Nation</div>
       </div>
     ),
-    features: ['マルチキャンパス対応', 'スケーラブル設計', '大学連携機能'],
-    status: '計画中'
+    features: ['Multi-Campus Support', 'Scalable Design', 'University Partnerships'],
+    status: 'Planned'
   },
 ];
 
 const realCapabilities = [
   {
     id: 1,
-    title: 'ユーザー体験設計',
-    description: '学生にとって使いやすいインターフェースと機能を追求',
+    title: 'User Experience Design',
+    description: 'Creating intuitive interfaces and features for students',
     abstractElement: (
       <div className="w-16 h-16 mx-auto mb-4 relative">
         <div className="absolute inset-0 border border-accent-glow rounded animate-pulse" />
@@ -77,8 +71,8 @@ const realCapabilities = [
   },
   {
     id: 2,
-    title: 'コミュニティ構築',
-    description: '学生間の情報共有とコミュニケーションを促進',
+    title: 'Community Building',
+    description: 'Facilitating information sharing and communication among students',
     abstractElement: (
       <div className="w-16 h-16 mx-auto mb-4 relative">
         <div className="absolute top-2 left-2 w-3 h-3 bg-accent-neon/60 rounded-full animate-bounce" />
@@ -90,8 +84,8 @@ const realCapabilities = [
   },
   {
     id: 3,
-    title: 'データ活用',
-    description: 'ユーザーレビューを分析してサービスを改善',
+    title: 'Data Analysis',
+    description: 'Analyzing user reviews to improve services',
     abstractElement: (
       <div className="w-16 h-16 mx-auto mb-4 relative">
         <div className="absolute inset-0 border-2 border-white/20" />
@@ -102,8 +96,8 @@ const realCapabilities = [
   },
   {
     id: 4,
-    title: '技術革新',
-    description: '最新のウェブ技術とモバイル技術を組み合わせ',
+    title: 'Technology Innovation',
+    description: 'Combining latest web and mobile technologies',
     abstractElement: (
       <div className="w-16 h-16 mx-auto mb-4 relative">
         <div className="absolute inset-0 border border-accent-highlight transform rotate-45 animate-spin" style={{ animationDuration: '3s' }} />
@@ -116,17 +110,17 @@ const realCapabilities = [
 export default function Home() {
   return (
     <>
-      {/* ヒーローセクション */}
+      {/* Hero Section */}
       <Hero />
       
-      {/* ニュースセクション */}
+      {/* News Section */}
       <NewsPage />
 
-      {/* メインコンテンツ */}
+      {/* Main Content */}
       <main className="relative bg-black">
         <AbstractBackground intensity="medium" />
 
-        {/* 代表挨拶セクション */}
+        {/* Greeting Section */}
         <Greeting />
 
         {/* Services Section */}
@@ -153,9 +147,9 @@ export default function Home() {
                 OUR PROJECTS
               </h2>
               <p className="responsive-text-lg text-white/70 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-0 font-display tracking-wide">
-                現在開発中のプロジェクトと
+                Current development projects and
                 <br className="hidden md:block" />
-                今後のサービス展開予定
+                future service expansion plans
               </p>
             </ScrollReveal>
 
@@ -185,8 +179,8 @@ export default function Home() {
                     <div className="space-y-4">
                       <div className="mb-4">
                         <span className={`px-3 py-1 text-xs font-bold tracking-wider uppercase ${
-                          service.status === 'ローンチ予定' ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' :
-                          service.status === '開発中' ? 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30' :
+                          service.status === 'Launch Ready' ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' :
+                          service.status === 'In Development' ? 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30' :
                           'bg-accent-glow/20 text-accent-glow border border-accent-glow/30'
                         }`}>
                           {service.status}
@@ -211,7 +205,7 @@ export default function Home() {
             </ScrollRevealStagger>
 
             <ScrollReveal delay={0.3} className="text-center">
-              <Link href="/service">
+              <Link href="/en/service">
                 <motion.button
                   className="btn-primary px-16 py-6 text-lg font-black tracking-[0.15em]"
                   whileHover={{ scale: 1.08, y: -5 }}
@@ -245,9 +239,9 @@ export default function Home() {
                 HOW WE WORK
               </h2>
               <p className="responsive-text-lg text-white/70 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-0 font-display tracking-wide">
-                ユーザー中心のサービス設計と
+                User-centered service design and
                 <br className="hidden md:block" />
-                最新技術を組み合わせたアプローチ
+                an approach combining cutting-edge technology
               </p>
             </ScrollReveal>
 
@@ -297,9 +291,9 @@ export default function Home() {
                 PROJECT PROGRESS
               </h2>
               <p className="responsive-text-lg text-white/70 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-0 font-display tracking-wide">
-                現在進行中のプロジェクトの状況と
+                Current status of ongoing projects and
                 <br className="hidden md:block" />
-                これからの展開について
+                future development plans
               </p>
             </ScrollReveal>
 
@@ -330,7 +324,7 @@ export default function Home() {
                   </div>
                   
                   <div className="text-white/60 text-xs group-hover:text-white/90 transition-colors duration-300">
-                    立命館大学OIC向け
+                    For Ritsumeikan University OIC
                   </div>
                   
                   <motion.div 
@@ -363,7 +357,7 @@ export default function Home() {
                   </div>
                   
                   <div className="text-white/60 text-xs group-hover:text-white/90 transition-colors duration-300">
-                    アプリ化・全国展開
+                    App Development & Nationwide Expansion
                   </div>
                   
                   <motion.div 
@@ -396,7 +390,7 @@ export default function Home() {
                   </div>
                   
                   <div className="text-white/60 text-xs group-hover:text-white/90 transition-colors duration-300">
-                    ローンチ前のため未定
+                    TBD - Pre-launch
                   </div>
                   
                   <motion.div 
@@ -423,13 +417,13 @@ export default function Home() {
                 CONNECT WITH US
               </h2>
               <p className="responsive-text-lg text-white/70 max-w-4xl mx-auto leading-relaxed font-light px-4 sm:px-0 font-display tracking-wide mb-12">
-                プロジェクトのご相談やお問い合わせはこちらから
+                Contact us for project inquiries
                 <br className="hidden md:block" />
-                新しいアイデアをお待ちしています
+                We're waiting for your new ideas
               </p>
               
               <div className="flex flex-col sm:flex-row gap-8 justify-center">
-                <Link href="/contact">
+                <Link href="/en/contact">
                   <motion.button
                     className="btn-primary px-16 py-6 text-lg font-black tracking-[0.15em]"
                     whileHover={{ scale: 1.08, y: -5 }}
@@ -438,7 +432,7 @@ export default function Home() {
                     CONTACT US
                   </motion.button>
                 </Link>
-                <Link href="/about">
+                <Link href="/en/about">
                   <motion.button
                     className="btn-secondary px-16 py-6 text-lg font-black tracking-[0.15em]"
                     whileHover={{ scale: 1.08, y: -5 }}

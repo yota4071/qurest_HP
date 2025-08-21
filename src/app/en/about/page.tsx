@@ -8,32 +8,32 @@ const projectValues = [
   {
     id: 1,
     title: 'Student First',
-    subtitle: '学生第一',
-    description: '学生のニーズと課題を最優先に考え、真に役立つソリューションを提供します',
+    subtitle: 'Students Priority',
+    description: 'We prioritize student needs and challenges, providing truly useful solutions',
     icon: '🎓',
     color: 'from-accent-neon to-accent-glow'
   },
   {
     id: 2,
     title: 'Community',
-    subtitle: 'コミュニティ',
-    description: 'キャンパス内でのつながりを大切にし、学生同士の交流を促進します',
+    subtitle: 'Building Connections',
+    description: 'We value connections within campus and facilitate student interactions',
     icon: '🤝',
     color: 'from-accent-highlight to-accent-abstract'
   },
   {
     id: 3,
     title: 'Innovation',
-    subtitle: '革新性',
-    description: '新しい技術と創造性で、学生生活をより豊かにする体験を創造します',
+    subtitle: 'Creative Solutions',
+    description: 'We create experiences that enrich student life through new technology and creativity',
     icon: '💡',
     color: 'from-accent-glow to-accent-neon'
   },
   {
     id: 4,
     title: 'Growth',
-    subtitle: '成長',
-    description: 'プロジェクトを通じて学生としてもエンジニアとしても成長し続けます',
+    subtitle: 'Continuous Development',
+    description: 'We continue to grow both as students and engineers through our projects',
     icon: '🌱',
     color: 'from-accent-abstract to-accent-highlight'
   }
@@ -41,60 +41,61 @@ const projectValues = [
 
 const projectHistory = [
   {
-    year: '2024年秋',
-    title: 'プロジェクト発案',
-    description: 'OICキャンパスのキッチンカー情報不足の課題に気づき、Nom!Nom!プロジェクトを発案'
+    year: 'Fall 2024',
+    title: 'Project Conception',
+    description: 'Identified the lack of food truck information at OIC Campus and conceived the Nom!Nom! project'
   },
   {
-    year: '2024年10月',
-    title: 'チーム結成',
-    description: '研究室や授業で出会ったメンバーがチームを結成し、プロトタイプ開発開始'
+    year: 'October 2024',
+    title: 'Team Formation',
+    description: 'Team members who met in research labs and classes formed a team and began prototype development'
   },
   {
-    year: '2024年12月',
-    title: 'プロトタイプ完成',
-    description: '基本機能を実装したプロトタイプが完成、初期ユーザビリティテスト実施'
+    year: 'December 2024',
+    title: 'Prototype Completion',
+    description: 'Completed prototype with basic functionality and conducted initial usability testing'
   },
   {
-    year: '2025年1月',
-    title: 'プラットフォーム完成',
-    description: 'レビューシステムや検索機能など本格的な機能を実装完了'
+    year: 'January 2025',
+    title: 'Platform Completion',
+    description: 'Completed implementation of full-scale features including review system and search functionality'
   },
   {
-    year: '2025年2月',
-    title: 'ローンチ準備',
-    description: '最終テストとシステム調整を行い、正式ローンチに向けた準備を進行中'
+    year: 'February 2025',
+    title: 'Launch Preparation',
+    description: 'Currently conducting final testing and system adjustments for official launch'
   },
   {
-    year: '2025年春',
-    title: 'サービス開始予定',
-    description: 'Nom!Nom!の正式サービス開始、モバイルアプリ開発も並行して進行予定'
+    year: 'Spring 2025',
+    title: 'Service Launch (Planned)',
+    description: 'Planned official launch of Nom!Nom! with parallel mobile app development'
   }
 ];
 
 const team = [
   {
     name: 'Oz',
-    position: 'プロジェクトリーダー',
-    description: 'Nom!Nom!プロジェクトの企画・運営を担当。新しいプロダクトのアイデア創出から営業戦略まで幅広く手がけ、プロジェクト全体の方向性を決定している。企業との連携や事業展開においても中心的な役割を果たしている。',
+    position: 'Project Leader',
+    description: 'Handles planning and operation of the Nom!Nom! project. From product ideation to business strategy, he manages a wide range of activities and determines the overall direction of the project. He also plays a central role in corporate partnerships and business development.',
     image: '/team/ceo.jpg',
-    expertise: ['プロダクト企画', '営業戦略', '事業開発']
+    expertise: ['Product Planning', 'Business Strategy', 'Business Development']
   },
   {
     name: 'Waka',
-    position: 'テクニカルリーダー',
-    description: 'Nom!Nom!の技術開発を担当。システム設計からフロントエンド・バックエンド開発まで幅広い技術領域をカバーし、プロジェクトの技術的な実現を支えている。',
+    position: 'Technical Leader',
+    description: 'Responsible for technical development of Nom!Nom!. Covers a wide range of technical domains from system design to frontend and backend development, supporting the technical realization of the project.',
     image: '/team/cto.jpg',
-    expertise: ['システム設計', 'Web開発', '技術戦略']
+    expertise: ['System Design', 'Web Development', 'Technical Strategy']
   }
 ];
 
-export default function CompanyIntroduction() {
+export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <AbstractBackground intensity="low" />
+      
       <div className="relative z-20">
-        {/* ヒーローセクション */}
+        {/* Hero Section */}
         <section className="section-padding">
           <div className="max-w-6xl mx-auto text-center">
             <motion.div
@@ -132,13 +133,13 @@ export default function CompanyIntroduction() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              立命館大学OICキャンパスの学生が立ち上げたプロジェクトチーム。<br />
-              キッチンカー評価プラットフォーム「Nom!Nom!」の開発・運営を行っています。
+              A project team founded by students at Ritsumeikan University OIC Campus.<br />
+              We develop and operate the food truck rating platform &quot;Nom!Nom!&quot;.
             </motion.p>
           </div>
         </section>
 
-        {/* プロジェクト価値観セクション */}
+        {/* Project Values Section */}
         <section className="section-padding bg-black relative overflow-hidden">
           <div className="max-w-7xl mx-auto relative z-20">
             <motion.div
@@ -152,7 +153,7 @@ export default function CompanyIntroduction() {
                 OUR VALUES
               </h2>
               <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトの行動指針となる4つの価値観
+                Four core values that guide the Nom!Nom! project
               </p>
             </motion.div>
 
@@ -187,7 +188,7 @@ export default function CompanyIntroduction() {
           </div>
         </section>
 
-        {/* プロジェクト履歴セクション */}
+        {/* Project History Section */}
         <section className="section-padding bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-20">
             <motion.div
@@ -201,7 +202,7 @@ export default function CompanyIntroduction() {
                 PROJECT HISTORY
               </h2>
               <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトの歩みと成長の軌跡
+                The journey and growth trajectory of the Nom!Nom! project
               </p>
             </motion.div>
 
@@ -241,7 +242,7 @@ export default function CompanyIntroduction() {
           </div>
         </section>
 
-        {/* チームセクション */}
+        {/* Team Section */}
         <section className="section-padding bg-black relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-20">
             <motion.div
@@ -255,7 +256,7 @@ export default function CompanyIntroduction() {
                 PROJECT TEAM
               </h2>
               <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトを牽引するコアメンバー
+                Core members leading the Nom!Nom! project
               </p>
             </motion.div>
 
@@ -300,7 +301,7 @@ export default function CompanyIntroduction() {
           </div>
         </section>
 
-        {/* プロジェクト概要セクション */}
+        {/* Project Overview Section */}
         <section className="section-padding bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-20">
             <motion.div
@@ -314,7 +315,7 @@ export default function CompanyIntroduction() {
                 PROJECT OVERVIEW
               </h2>
               <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトの基本情報
+                Basic information about the Nom!Nom! project
               </p>
             </motion.div>
 
@@ -327,14 +328,14 @@ export default function CompanyIntroduction() {
             >
               <div className="grid md:grid-cols-2 gap-0">
                 {[
-                  { label: 'プロジェクト名', value: 'Nom!Nom!' },
-                  { label: '開始日', value: '2024年秋' },
-                  { label: 'プロジェクトリーダー', value: 'Oz' },
-                  { label: 'テクニカルリーダー', value: 'Waka' },
-                  { label: 'メンバー数', value: '約６名' },
-                  { label: 'ステータス', value: 'ローンチ準備中' },
-                  { label: '対象キャンパス', value: '立命館大学OICキャンパス' },
-                  { label: 'サービス内容', value: 'キッチンカー評価プラットフォームの開発・運営' }
+                  { label: 'Project Name', value: 'Nom!Nom!' },
+                  { label: 'Start Date', value: 'Fall 2024' },
+                  { label: 'Project Leader', value: 'Oz' },
+                  { label: 'Technical Leader', value: 'Waka' },
+                  { label: 'Team Size', value: 'Approximately 6 members' },
+                  { label: 'Status', value: 'Launch Preparation' },
+                  { label: 'Target Campus', value: 'Ritsumeikan University OIC Campus' },
+                  { label: 'Service Content', value: 'Development and operation of food truck rating platform' }
                 ].map((item, index) => (
                   <div
                     key={index}
@@ -351,7 +352,7 @@ export default function CompanyIntroduction() {
               </div>
             </motion.div>
 
-            {/* 大学連携情報 */}
+            {/* University Partnership Information */}
             <motion.div
               className="mt-12 luxury-card p-8"
               initial={{ opacity: 0, y: 20 }}
@@ -364,16 +365,16 @@ export default function CompanyIntroduction() {
               </h3>
               <div className="text-center">
                 <div className="space-y-2 text-white/70">
-                  <p className="text-lg font-semibold text-accent-neon">立命館大学 情報理工学部</p>
-                  <p>研究室・授業で出会ったメンバーで構成</p>
-                  <p>大学の協力のもと、学生主導で進めるプロジェクト</p>
+                  <p className="text-lg font-semibold text-accent-neon">Ritsumeikan University, College of Information Science and Engineering</p>
+                  <p>Composed of members who met in research labs and classes</p>
+                  <p>A student-led project with university cooperation</p>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* CTAセクション */}
+        {/* CTA Section */}
         <section className="section-padding bg-black relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-accent-highlight/10 to-accent-glow/10" />
           <div className="max-w-4xl mx-auto text-center relative z-20">
@@ -387,11 +388,11 @@ export default function CompanyIntroduction() {
                 JOIN OUR PROJECT
               </h2>
               <p className="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
-                Nom!Nom!プロジェクトでは、情熱を共にする学生メンバーを募集しています。<br />
-                あなたの力で、学生生活をより豊かにしませんか？
+                The Nom!Nom! project is recruiting passionate student members.<br />
+                Would you like to enrich student life with your skills?
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/recruit">
+                <Link href="/en/recruit">
                   <motion.button
                     className="btn-primary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -400,7 +401,7 @@ export default function CompanyIntroduction() {
                     JOIN US
                   </motion.button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/en/contact">
                   <motion.button
                     className="btn-secondary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
                     whileHover={{ scale: 1.05, y: -2 }}

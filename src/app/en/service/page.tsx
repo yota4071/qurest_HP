@@ -9,12 +9,12 @@ const currentProjects = [
   {
     id: 1,
     title: 'Nom!Nom!',
-    description: '立命館大学OICキャンパス向けキッチンカー評価プラットフォーム',
-    longDescription: '学生がキッチンカーを簡単に検索・評価できるプラットフォームです。立命館大学の協力のもと、学生のランチタイムをより充実させることを目的としています。多くの企業からも興味を示していただいており、学生の皆さんにとって素晴らしいガクチカにもなる注目のプロジェクトです。',
-    status: 'ローンチ準備中',
-    features: ['キッチンカー検索機能', 'レビュー・評価システム', '学生コミュニティ機能', 'お気に入り機能', '営業時間・位置情報表示'],
+    description: 'Food truck rating platform for Ritsumeikan University OIC Campus',
+    longDescription: 'A platform that allows students to easily search and rate food trucks. With the cooperation of Ritsumeikan University, we aim to enrich students\' lunch time. Many companies have also shown interest, making it a notable project that serves as excellent material for job interviews (gaku-chika).',
+    status: 'Launch Ready',
+    features: ['Food Truck Search', 'Review & Rating System', 'Student Community Features', 'Favorites Function', 'Operating Hours & Location Display'],
     technologies: ['React', 'Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Vercel'],
-    highlights: ['大学公認プロジェクト', '複数企業が興味を示している', '学生主導の開発', 'ガクチカに最適'],
+    highlights: ['University-approved project', 'Multiple companies showing interest', 'Student-led development', 'Perfect for gaku-chika'],
     color: 'from-accent-neon to-accent-glow',
     abstractElement: (
       <div className="absolute inset-0 opacity-20">
@@ -28,12 +28,12 @@ const currentProjects = [
   {
     id: 2,
     title: 'Nom!Nom! Mobile App',
-    description: 'iOS・Android対応のモバイルアプリケーション開発',
-    longDescription: 'Webプラットフォームの成功を受けて、より便利なモバイル体験を提供するためのアプリ開発プロジェクトです。プッシュ通知やオフライン機能など、モバイル特有の機能を活用します。',
-    status: '開発中',
-    features: ['プッシュ通知', 'オフライン閲覧', '位置情報連携', 'カメラ機能', 'ソーシャル共有'],
+    description: 'iOS & Android mobile application development',
+    longDescription: 'Following the success of the web platform, we are developing a mobile app project to provide a more convenient mobile experience. We will utilize mobile-specific features such as push notifications and offline functionality.',
+    status: 'In Development',
+    features: ['Push Notifications', 'Offline Viewing', 'Location Integration', 'Camera Feature', 'Social Sharing'],
     technologies: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Push Notifications', 'Maps API'],
-    highlights: ['クロスプラットフォーム開発', 'モバイルUX最適化', '最新技術の習得', 'アプリストア公開予定'],
+    highlights: ['Cross-platform development', 'Mobile UX optimization', 'Learning cutting-edge technology', 'App store release planned'],
     color: 'from-accent-highlight to-accent-abstract',
     abstractElement: (
       <div className="absolute inset-0 opacity-20">
@@ -45,13 +45,13 @@ const currentProjects = [
   },
   {
     id: 3,
-    title: 'Nom!Nom! 全国展開',
-    description: '全国の大学キャンパス向けスケーラブル版の企画・開発',
-    longDescription: 'OICキャンパスでの実績をもとに、全国の大学で利用できるプラットフォームへの拡張を計画しています。各大学の特色に合わせたカスタマイズや、大学間の連携機能も検討中です。',
-    status: '企画中',
-    features: ['マルチキャンパス対応', '大学個別カスタマイズ', '統合管理システム', '分析ダッシュボード', 'API提供'],
+    title: 'Nom!Nom! Nationwide',
+    description: 'Planning and development of scalable version for university campuses nationwide',
+    longDescription: 'Based on our success at OIC Campus, we are planning to expand to a platform that can be used at universities nationwide. We are also considering customization for each university\'s characteristics and inter-university collaboration features.',
+    status: 'Planning',
+    features: ['Multi-Campus Support', 'University-Specific Customization', 'Integrated Management System', 'Analytics Dashboard', 'API Provision'],
     technologies: ['Microservices', 'GraphQL', 'Redis', 'AWS', 'Docker', 'Kubernetes'],
-    highlights: ['スケーラビリティ設計', '企業との連携強化', 'データ分析活用', '全国規模展開'],
+    highlights: ['Scalability design', 'Enhanced corporate partnerships', 'Data analytics utilization', 'Nationwide expansion'],
     color: 'from-white to-gray-400',
     abstractElement: (
       <div className="absolute inset-0 opacity-20">
@@ -67,38 +67,38 @@ const developmentPhases = [
   {
     id: 1,
     phase: 'Phase 1',
-    title: 'プロトタイプ開発',
-    description: '基本機能の実装とユーザビリティテスト',
+    title: 'Prototype Development',
+    description: 'Implementation of basic features and usability testing',
     status: 'completed',
-    duration: '2024年10月 - 12月',
-    deliverables: ['基本UI実装', 'データベース設計', 'ユーザー認証機能', '初期テスト']
+    duration: 'October - December 2024',
+    deliverables: ['Basic UI implementation', 'Database design', 'User authentication', 'Initial testing']
   },
   {
     id: 2,
     phase: 'Phase 2',
-    title: 'プラットフォーム完成',
-    description: '本格的な機能実装とシステム最適化',
+    title: 'Platform Completion',
+    description: 'Full-scale feature implementation and system optimization',
     status: 'completed',
-    duration: '2025年1月 - 2月',
-    deliverables: ['レビューシステム', '検索・フィルター機能', 'レスポンシブデザイン', 'セキュリティ強化']
+    duration: 'January - February 2025',
+    deliverables: ['Review system', 'Search & filter features', 'Responsive design', 'Security enhancement']
   },
   {
     id: 3,
     phase: 'Phase 3',
-    title: 'ローンチ準備',
-    description: 'プロダクション環境での最終テストと調整',
+    title: 'Launch Preparation',
+    description: 'Final testing and adjustments in production environment',
     status: 'in-progress',
-    duration: '2025年2月 - 3月',
-    deliverables: ['パフォーマンステスト', 'ユーザー受け入れテスト', '本番環境構築', 'ドキュメント整備']
+    duration: 'February - March 2025',
+    deliverables: ['Performance testing', 'User acceptance testing', 'Production environment setup', 'Documentation']
   },
   {
     id: 4,
     phase: 'Phase 4',
-    title: 'モバイルアプリ開発',
-    description: 'iOS・Android対応アプリケーション開発',
+    title: 'Mobile App Development',
+    description: 'iOS & Android application development',
     status: 'planned',
-    duration: '2025年3月 - 6月',
-    deliverables: ['モバイルUI設計', 'ネイティブ機能実装', 'アプリストア申請', 'プッシュ通知システム']
+    duration: 'March - June 2025',
+    deliverables: ['Mobile UI design', 'Native feature implementation', 'App store submission', 'Push notification system']
   }
 ];
 
@@ -126,9 +126,9 @@ export default function ServicePage() {
                 PROJECTS & DEVELOPMENT
               </h1>
               <p className="text-white/70 text-lg max-w-4xl mx-auto leading-relaxed font-display tracking-wide">
-                学生主導で進める革新的なプロジェクトと
+                Student-led innovative projects and
                 <br className="hidden md:block" />
-                最新技術を活用した開発プロセス
+                development processes utilizing cutting-edge technology
               </p>
             </motion.div>
 
@@ -192,8 +192,8 @@ export default function ServicePage() {
                               </p>
                             </div>
                             <span className={`px-4 py-2 text-xs font-bold tracking-wider uppercase ${
-                              project.status === 'ローンチ準備中' ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' :
-                              project.status === '開発中' ? 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30' :
+                              project.status === 'Launch Ready' ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' :
+                              project.status === 'In Development' ? 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30' :
                               'bg-accent-glow/20 text-accent-glow border border-accent-glow/30'
                             }`}>
                               {project.status}
@@ -367,11 +367,11 @@ export default function ServicePage() {
                   JOIN OUR TEAM
                 </h2>
                 <p className="text-white/70 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
-                  私たちと一緒にNom!Nom!を成功に導きませんか？<br />
-                  技術力を磨きながら、実際のプロダクト開発に携わることができます
+                  Would you like to lead Nom!Nom! to success with us?<br />
+                  You can develop your technical skills while working on actual product development
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <Link href="/recruit">
+                  <Link href="/en/recruit">
                     <motion.button
                       className="btn-primary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
                       whileHover={{ scale: 1.05, y: -2 }}
@@ -380,7 +380,7 @@ export default function ServicePage() {
                       JOIN US
                     </motion.button>
                   </Link>
-                  <Link href="/contact">
+                  <Link href="/en/contact">
                     <motion.button
                       className="btn-secondary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
                       whileHover={{ scale: 1.05, y: -2 }}

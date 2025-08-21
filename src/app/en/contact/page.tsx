@@ -46,8 +46,8 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Nom!Nom!プロジェクトに関するお問い合わせは<br />
-              下記のメールアドレスまでご連絡ください
+              For inquiries about the Nom!Nom! project,<br />
+              please contact us at the email address below
             </motion.p>
 
             <motion.div
@@ -74,24 +74,24 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                   <div className="text-center">
                     <div className="text-4xl mb-4">💼</div>
-                    <h3 className="font-display text-lg font-bold text-white mb-2">事業提携</h3>
-                    <p className="text-white/60 text-sm">企業様との連携に関するご相談</p>
+                    <h3 className="font-display text-lg font-bold text-white mb-2">Business Partnership</h3>
+                    <p className="text-white/60 text-sm">Inquiries about corporate partnerships</p>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl mb-4">🤝</div>
-                    <h3 className="font-display text-lg font-bold text-white mb-2">メンバー募集</h3>
-                    <p className="text-white/60 text-sm">プロジェクト参加に関するお問い合わせ</p>
+                    <h3 className="font-display text-lg font-bold text-white mb-2">Member Recruitment</h3>
+                    <p className="text-white/60 text-sm">Inquiries about project participation</p>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl mb-4">💡</div>
-                    <h3 className="font-display text-lg font-bold text-white mb-2">その他</h3>
-                    <p className="text-white/60 text-sm">プロジェクトに関するご質問</p>
+                    <h3 className="font-display text-lg font-bold text-white mb-2">Other Inquiries</h3>
+                    <p className="text-white/60 text-sm">Questions about the project</p>
                   </div>
                 </div>
                 
                 <div className="mt-12 pt-8 border-t border-white/10">
                   <p className="text-white/50 text-sm font-display tracking-wider">
-                    通常24時間以内にご返信いたします
+                    We typically respond within 24 hours
                   </p>
                 </div>
               </div>
@@ -104,11 +104,11 @@ export default function ContactPage() {
               transition={{ duration: 0.8, delay: 1.2 }}
             >
               <p className="text-white/60 text-sm mb-6">
-                プロジェクトの詳細については以下もご覧ください
+                For more details about the project, please also see:
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <motion.a
-                  href="/about"
+                  href="/en/about"
                   className="btn-secondary px-8 py-3 text-sm font-bold tracking-[0.1em] uppercase"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   ABOUT US
                 </motion.a>
                 <motion.a
-                  href="/service"
+                  href="/en/service"
                   className="btn-secondary px-8 py-3 text-sm font-bold tracking-[0.1em] uppercase"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   OUR PROJECTS
                 </motion.a>
                 <motion.a
-                  href="/recruit"
+                  href="/en/recruit"
                   className="btn-secondary px-8 py-3 text-sm font-bold tracking-[0.1em] uppercase"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}

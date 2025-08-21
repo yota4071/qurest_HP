@@ -5,27 +5,27 @@ import { motion } from 'framer-motion';
 const realNews = [
   {
     id: 1,
-    title: 'Nom!Nom! プラットフォーム開発完了のお知らせ',
-    date: '2025年01月15日',
-    summary: '立命館大学OICキャンパス向けキッチンカー評価プラットフォーム「Nom!Nom!」の開発が完了しました。学生の皆様により良いキッチンカー体験をお届けします。',
-    status: '完了',
-    category: 'プロダクト'
+    title: 'Nom!Nom! Platform Development Completed',
+    date: 'January 15, 2025',
+    summary: 'The development of "Nom!Nom!", a food truck rating platform for Ritsumeikan University OIC Campus, has been completed. We aim to provide students with a better food truck experience.',
+    status: 'Completed',
+    category: 'Product'
   },
   {
     id: 2,
-    title: 'Nom!Nom! アプリ化プロジェクト開始',
-    date: '2025年01月20日',
-    summary: 'Nom!Nom!のモバイルアプリ版開発プロジェクトを開始いたします。より便利にキッチンカー情報をチェックできるよう機能を拡張します。',
-    status: '進行中',
-    category: 'プロダクト'
+    title: 'Nom!Nom! Mobile App Project Started',
+    date: 'January 20, 2025',
+    summary: 'We have started the development project for the mobile app version of Nom!Nom!. We will expand features to make food truck information more accessible.',
+    status: 'In Progress',
+    category: 'Product'
   },
   {
     id: 3,
-    title: 'Nom!Nom! 全国展開バージョン開発着手',
-    date: '2025年01月25日',
-    summary: '立命館大学OICキャンパスでの成功を受けて、全国の大学キャンパスで利用できるバージョンの開発に着手しました。',
-    status: '進行中',
-    category: 'プロダクト'
+    title: 'Nom!Nom! Nationwide Expansion Development Started',
+    date: 'January 25, 2025',
+    summary: 'Following the success at Ritsumeikan University OIC Campus, we have started developing a version that can be used at university campuses nationwide.',
+    status: 'In Progress',
+    category: 'Product'
   },
 ];
 
@@ -53,7 +53,7 @@ export default function NewsPage() {
             NEWS & UPDATES
           </h1>
           <p className="text-white/70 text-lg max-w-3xl mx-auto leading-relaxed">
-            Qurestの最新プロジェクトの進捗状況をお知らせします
+            Latest project progress updates from Qurest
           </p>
         </motion.div>
 
@@ -71,7 +71,7 @@ export default function NewsPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
                     <span className={`px-4 py-2 text-xs font-bold tracking-wider uppercase ${
-                      news.status === '完了' 
+                      news.status === 'Completed' 
                         ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' 
                         : 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30'
                     }`}>
@@ -129,18 +129,18 @@ export default function NewsPage() {
                 Nom!Nom!
               </h2>
               <p className="text-white/80 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
-                立命館大学OICキャンパスのキッチンカー評価プラットフォーム
+                Food truck rating platform for Ritsumeikan University OIC Campus
                 <br />
-                学生による、学生のためのグルメガイド
+                A gourmet guide by students, for students
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <div className="px-6 py-3 glass-morphism border border-white/20">
-                  <span className="text-sm text-white/60">ステータス:</span>
-                  <span className="ml-2 text-accent-neon font-bold">ローンチ準備中</span>
+                  <span className="text-sm text-white/60">Status:</span>
+                  <span className="ml-2 text-accent-neon font-bold">Launch Preparation</span>
                 </div>
                 <div className="px-6 py-3 glass-morphism border border-white/20">
-                  <span className="text-sm text-white/60">対象:</span>
-                  <span className="ml-2 text-white font-bold">立命館大学OICキャンパス</span>
+                  <span className="text-sm text-white/60">Target:</span>
+                  <span className="ml-2 text-white font-bold">Ritsumeikan University OIC Campus</span>
                 </div>
               </div>
             </div>

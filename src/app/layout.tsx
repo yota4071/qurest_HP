@@ -5,6 +5,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 
 import Header from "@/components/Header";
+import ScrollToTop from "@/components/ScrollToTop";
+import PageLoader from "@/components/PageLoader";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +32,15 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-800 flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300`}
       >
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <footer/>
-
+        <ThemeProvider>
+          <PageLoader />
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <footer/>
+          <ScrollToTop />
+        </ThemeProvider>
       </body>
     </html>
   );

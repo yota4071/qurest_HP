@@ -8,32 +8,32 @@ const recruitPositions = [
   {
     id: 1,
     category: 'TECHNICAL',
-    title: '技術開発メンバー',
-    subtitle: 'OIC学生歓迎（全学部対象）',
-    description: 'Nom!Nom!の開発に携わる技術メンバーを募集しています。情報理工学部以外の学生も大歓迎！プログラミング初心者でも学習意欲があれば一緒に成長できます。',
+    title: 'Technical Development Member',
+    subtitle: 'OIC Students Welcome (All Majors)',
+    description: 'We are recruiting technical members to work on the development of Nom!Nom!. Students from all majors, not just Information Science and Engineering, are welcome! Even programming beginners can grow together with us if they have the motivation to learn.',
     requirements: [
-      'プログラミングに興味がある',
-      'Webサイトやアプリの仕組みを学びたい',
-      'チームでのものづくりに興味がある',
-      '新しい技術を学ぶ意欲がある'
+      'Interest in programming',
+      'Desire to learn about websites and app mechanisms',
+      'Interest in team-based product creation',
+      'Motivation to learn new technologies'
     ],
     preferredSkills: [
-      'HTML/CSS/JavaScriptの基礎知識',
-      'React、Next.jsの学習経験',
-      'TypeScriptの基礎',
-      'GitHubの使用経験'
+      'Basic knowledge of HTML/CSS/JavaScript',
+      'Learning experience with React, Next.js',
+      'TypeScript basics',
+      'GitHub usage experience'
     ],
     whatYouLearn: [
-      '最新のWeb開発技術',
-      'チーム開発の進め方',
-      'ユーザー目線でのサービス設計',
-      '実際のプロダクト開発プロセス'
+      'Latest web development technologies',
+      'Team development processes',
+      'User-oriented service design',
+      'Real product development processes'
     ],
     highlights: [
-      'ガクチカとして最適',
-      '実際のプロダクト開発経験',
-      '最新技術の学習機会',
-      '学部・学年不問'
+      'Perfect for gaku-chika',
+      'Real product development experience',
+      'Opportunities to learn cutting-edge technology',
+      'Open to all majors and grades'
     ],
     color: 'from-accent-neon to-accent-glow',
     icon: '💻'
@@ -41,32 +41,32 @@ const recruitPositions = [
   {
     id: 2,
     category: 'DESIGN & MARKETING',
-    title: 'デザイン・広報担当',
-    subtitle: 'クリエイティブな学生求む',
-    description: 'Nom!Nom!のブランディング、UI/UXデザイン、SNS運用を担当。デザイン経験がなくても、センスとやる気があれば大丈夫！一緒にサービスの魅力を伝えましょう。',
+    title: 'Design & PR Representative',
+    subtitle: 'Creative Students Wanted',
+    description: 'Responsible for branding, UI/UX design, and SNS management of Nom!Nom!. Even without design experience, if you have a good sense and motivation, you\'ll be fine! Let\'s communicate the appeal of our service together.',
     requirements: [
-      'デザインやマーケティングに興味がある',
-      'SNSを日常的に使用している',
-      'ユーザーの気持ちを考えられる',
-      'コミュニケーション能力がある'
+      'Interest in design and marketing',
+      'Daily use of social media',
+      'Ability to think about user feelings',
+      'Good communication skills'
     ],
     preferredSkills: [
-      'Figma、Canva等のデザインツール使用経験',
-      'Instagram、Twitter等のSNS運用経験',
-      'Photoshop、Illustratorの基礎',
-      'マーケティングの基礎知識'
+      'Experience with design tools like Figma, Canva',
+      'Experience managing SNS like Instagram, Twitter',
+      'Basic knowledge of Photoshop, Illustrator',
+      'Basic marketing knowledge'
     ],
     whatYouLearn: [
-      'UI/UXデザインの基礎',
-      'ブランディング戦略',
-      'SNSマーケティング',
-      'ユーザーリサーチ手法'
+      'UI/UX design basics',
+      'Branding strategy',
+      'SNS marketing',
+      'User research methods'
     ],
     highlights: [
-      '実際のサービスでデザイン経験',
-      '企業との連携経験',
-      'マーケティング実践',
-      'ポートフォリオ作成'
+      'Design experience with real services',
+      'Experience in corporate partnerships',
+      'Marketing practice',
+      'Portfolio creation'
     ],
     color: 'from-accent-highlight to-accent-abstract',
     icon: '🎨'
@@ -74,32 +74,32 @@ const recruitPositions = [
   {
     id: 3,
     category: 'BUSINESS',
-    title: '企業連携・営業担当',
-    subtitle: '企業とのコミュニケーションが得意な学生',
-    description: 'キッチンカー事業者や協力企業との関係構築を担当。将来営業職や企画職を目指す学生に最適！実際のビジネス交渉を経験できます。',
+    title: 'Corporate Partnership & Sales Representative',
+    subtitle: 'Students Good at Corporate Communication',
+    description: 'Responsible for building relationships with food truck operators and partner companies. Perfect for students aiming for sales or planning positions in the future! You can experience real business negotiations.',
     requirements: [
-      '人とのコミュニケーションが得意',
-      'ビジネスに興味がある',
-      '責任感がある',
-      '新しい人との出会いを楽しめる'
+      'Good at communicating with people',
+      'Interest in business',
+      'Sense of responsibility',
+      'Ability to enjoy meeting new people'
     ],
     preferredSkills: [
-      'プレゼンテーション経験',
-      'Excel、PowerPointの基礎',
-      '営業・接客のアルバイト経験',
-      'ビジネスマナーの基礎知識'
+      'Presentation experience',
+      'Basic knowledge of Excel, PowerPoint',
+      'Sales or customer service part-time job experience',
+      'Basic business manners knowledge'
     ],
     whatYouLearn: [
-      '企業との交渉スキル',
-      'ビジネスプロセス全体',
-      'プレゼンテーション技術',
-      'プロジェクト管理'
+      'Corporate negotiation skills',
+      'Overall business processes',
+      'Presentation techniques',
+      'Project management'
     ],
     highlights: [
-      '実際の企業との交渉経験',
-      'ビジネススキル向上',
-      'ネットワーキング機会',
-      '将来のキャリアに直結'
+      'Real corporate negotiation experience',
+      'Business skill improvement',
+      'Networking opportunities',
+      'Directly relevant to future career'
     ],
     color: 'from-white to-gray-400',
     icon: '🤝'
@@ -109,26 +109,26 @@ const recruitPositions = [
 const projectBenefits = [
   {
     id: 1,
-    title: '大学公認プロジェクト',
-    description: '立命館大学OICキャンパスの公認プロジェクトとして活動',
+    title: 'University-Approved Project',
+    description: 'Operating as an approved project at Ritsumeikan University OIC Campus',
     icon: '🏛️'
   },
   {
     id: 2,
-    title: '企業からの注目',
-    description: '複数の企業がプロジェクトに興味を示しており、将来性抜群',
+    title: 'Corporate Attention',
+    description: 'Multiple companies have shown interest in the project, promising great future potential',
     icon: '🚀'
   },
   {
     id: 3,
-    title: 'ガクチカに最適',
-    description: '就活で話せる具体的な成果と経験を積むことができる',
+    title: 'Perfect for Gaku-chika',
+    description: 'You can gain concrete achievements and experiences to talk about in job hunting',
     icon: '📈'
   },
   {
     id: 4,
-    title: '実際のプロダクト開発',
-    description: '机上の空論ではなく、実際に使われるサービスの開発経験',
+    title: 'Real Product Development',
+    description: 'Experience developing services that are actually used, not just theoretical exercises',
     icon: '⚡'
   }
 ];
@@ -136,26 +136,26 @@ const projectBenefits = [
 const workingStyle = [
   {
     id: 1,
-    aspect: '活動時間',
-    detail: '週3〜5時間程度（授業との両立可能）',
+    aspect: 'Working Hours',
+    detail: 'About 3-5 hours per week (compatible with classes)',
     flexible: true
   },
   {
     id: 2,
-    aspect: '活動場所',
-    detail: 'OICキャンパス内 + オンライン（ハイブリッド）',
+    aspect: 'Working Location',
+    detail: 'OIC Campus + Online (Hybrid)',
     flexible: true
   },
   {
     id: 3,
-    aspect: '期間',
-    detail: '最低3ヶ月〜（長期歓迎）',
+    aspect: 'Duration',
+    detail: 'Minimum 3 months (long-term welcome)',
     flexible: false
   },
   {
     id: 4,
-    aspect: '報酬',
-    detail: 'プロジェクトの成果に応じて検討',
+    aspect: 'Compensation',
+    detail: 'To be considered based on project results',
     flexible: true
   }
 ];
@@ -185,9 +185,9 @@ export default function RecruitPage() {
                 Nom!Nom!
               </div>
               <p className="text-white/70 text-xl max-w-4xl mx-auto leading-relaxed">
-                立命館大学OICキャンパスから始まる革新的なプロジェクト
+                An innovative project starting from Ritsumeikan University OIC Campus
                 <br className="hidden md:block" />
-                私たちと一緒に学生生活を変える体験を作りませんか？
+                Would you like to create experiences that change student life with us?
               </p>
             </motion.div>
 
@@ -199,7 +199,7 @@ export default function RecruitPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <h2 className="font-display text-3xl font-bold text-center mb-12 text-gradient-primary">
-                なぜNom!Nom!に参加するべきか
+                Why You Should Join Nom!Nom!
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {projectBenefits.map((benefit, index) => (
@@ -237,7 +237,7 @@ export default function RecruitPage() {
                 RECRUITMENT POSITIONS
               </h2>
               <p className="text-center text-white/70 mb-16 text-lg">
-                あなたの興味や得意分野に合わせて活躍できるポジションを用意しています
+                We have prepared positions where you can thrive according to your interests and strengths
               </p>
               
               <div className="space-y-12">
@@ -276,7 +276,7 @@ export default function RecruitPage() {
 
                       <div className="grid lg:grid-cols-4 gap-8">
                         <div>
-                          <h4 className="font-display text-lg font-bold text-white mb-4">必要な素質</h4>
+                          <h4 className="font-display text-lg font-bold text-white mb-4">Required Qualities</h4>
                           <div className="space-y-2">
                             {position.requirements.map((req, idx) => (
                               <div key={idx} className="flex items-start gap-2 text-sm text-white/70">
@@ -288,7 +288,7 @@ export default function RecruitPage() {
                         </div>
 
                         <div>
-                          <h4 className="font-display text-lg font-bold text-white mb-4">歓迎スキル</h4>
+                          <h4 className="font-display text-lg font-bold text-white mb-4">Preferred Skills</h4>
                           <div className="space-y-2">
                             {position.preferredSkills.map((skill, idx) => (
                               <div key={idx} className="flex items-start gap-2 text-sm text-white/70">
@@ -300,7 +300,7 @@ export default function RecruitPage() {
                         </div>
 
                         <div>
-                          <h4 className="font-display text-lg font-bold text-white mb-4">学べること</h4>
+                          <h4 className="font-display text-lg font-bold text-white mb-4">What You'll Learn</h4>
                           <div className="space-y-2">
                             {position.whatYouLearn.map((learn, idx) => (
                               <div key={idx} className="flex items-start gap-2 text-sm text-white/70">
@@ -312,7 +312,7 @@ export default function RecruitPage() {
                         </div>
 
                         <div>
-                          <h4 className="font-display text-lg font-bold text-white mb-4">特別ポイント</h4>
+                          <h4 className="font-display text-lg font-bold text-white mb-4">Special Points</h4>
                           <div className="space-y-3">
                             {position.highlights.map((highlight, idx) => (
                               <motion.div
@@ -384,9 +384,9 @@ export default function RecruitPage() {
               <div className="max-w-4xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {[
-                    { step: '01', title: 'エントリー', desc: 'お問い合わせフォームから応募' },
-                    { step: '02', title: 'カジュアル面談', desc: 'プロジェクトの詳細説明と質疑応答' },
-                    { step: '03', title: '参加決定', desc: 'チーム参加とプロジェクト開始' }
+                    { step: '01', title: 'Entry', desc: 'Apply through contact form' },
+                    { step: '02', title: 'Casual Interview', desc: 'Project details explanation and Q&A' },
+                    { step: '03', title: 'Join Decision', desc: 'Team participation and project start' }
                   ].map((process, index) => (
                     <motion.div
                       key={index}
@@ -423,11 +423,11 @@ export default function RecruitPage() {
                   READY TO JOIN?
                 </h2>
                 <p className="text-white/70 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
-                  あなたの学生生活を変える、特別なプロジェクトへの参加をお待ちしています。<br />
-                  まずはお気軽にお話ししましょう！
+                  We are waiting for your participation in this special project that will change your student life.<br />
+                  Let's start by having a casual chat!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <Link href="/contact">
+                  <Link href="/en/contact">
                     <motion.button
                       className="btn-primary px-16 py-6 text-lg font-black tracking-[0.15em]"
                       whileHover={{ scale: 1.08, y: -5 }}
@@ -436,7 +436,7 @@ export default function RecruitPage() {
                       APPLY NOW
                     </motion.button>
                   </Link>
-                  <Link href="/service">
+                  <Link href="/en/service">
                     <motion.button
                       className="btn-secondary px-16 py-6 text-lg font-black tracking-[0.15em]"
                       whileHover={{ scale: 1.08, y: -5 }}

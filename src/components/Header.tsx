@@ -4,9 +4,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState<'ja' | 'en'>('ja');
+  const router = useRouter();
+
+  const handleLanguageToggle = () => {
+    const newLang = currentLang === 'ja' ? 'en' : 'ja';
+    setCurrentLang(newLang);
+    
+    // Navigate to the appropriate language version
+    const currentPath = window.location.pathname;
+    if (newLang === 'en') {
+      router.push(`/en${currentPath}`);
+    } else {
+      // Remove /en prefix if switching back to Japanese
+      const jaPath = currentPath.replace(/^\/en/, '') || '/';
+      router.push(jaPath);
+    }
+  };
 
   return (
     <motion.header 
@@ -17,7 +35,7 @@ export default function Header() {
     >
       <div className="w-full max-w-7xl glass-morphism rounded-2xl shadow-xl border border-white/30 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between">
 
-        {/* ロゴとキャッチコピー */}
+        {/* ロゴ */}
         <Link href="/" className="flex items-center gap-4 cursor-pointer group">
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -26,11 +44,11 @@ export default function Header() {
             <Image src="/Qurest.png" alt="Logo" width={40} height={40} />
           </motion.div>
           <div className="flex flex-col text-sm">
-            <span className="text-xs text-gradient-luxury font-medium group-hover:opacity-80 transition-opacity">
-              正しい未来を
+            <span className="font-bangers text-lg text-accent-neon group-hover:opacity-80 transition-opacity">
+              Nom!Nom!
             </span>
-            <span className="text-xl font-display font-bold text-gradient-elegant">
-              Qurest
+            <span className="text-xl font-display font-bold text-gradient-abstract">
+              QUREST
             </span>
           </div>
         </Link>
@@ -40,50 +58,68 @@ export default function Header() {
           className="sm:hidden flex flex-col gap-1 p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <span className={`w-6 h-0.5 bg-gray-700 transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-          <span className={`w-6 h-0.5 bg-gray-700 transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-          <span className={`w-6 h-0.5 bg-gray-700 transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+          <span className={`w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+          <span className={`w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
         </button>
 
         {/* デスクトップメニュー */}
         <div className="hidden sm:flex sm:items-center gap-6 text-sm">
           {/* ナビゲーションリンク */}
           <nav className="flex gap-6">
-            <Link href="/news" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
+            <Link href="/news" className="text-white/80 hover:text-accent-glow transition-all duration-300 font-medium relative group">
               <span>News</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-glow transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/about" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
-              <span>Company</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+            <Link href="/about" className="text-white/80 hover:text-accent-glow transition-all duration-300 font-medium relative group">
+              <span>About</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-glow transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/service" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
-              <span>Service</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+            <Link href="/service" className="text-white/80 hover:text-accent-glow transition-all duration-300 font-medium relative group">
+              <span>Projects</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-glow transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link href="/recruit" className="text-charcoal hover:text-accent-gold transition-all duration-300 font-medium relative group">
+            <Link href="/recruit" className="text-white/80 hover:text-accent-glow transition-all duration-300 font-medium relative group">
               <span>Recruit</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-gold transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-glow transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </nav>
 
           {/* 右側メニュー */}
           <div className="flex items-center gap-4">
-            <span className="text-charcoal text-xs font-medium px-4 py-2 bg-gradient-to-r from-accent-platinum to-warm-gray rounded-full border border-accent-platinum">
-              Qurest Group
+            <span className="text-white/80 text-xs font-medium px-4 py-2 glass-morphism border border-white/20 font-display tracking-wider">
+              STUDENT PROJECT
             </span>
             <div className="flex items-center gap-2 text-xs">
-              <button className="px-2 py-1 bg-blue-100 text-blue-700 rounded font-medium">JP</button>
-              <span className="text-gray-400">|</span>
-              <button className="px-2 py-1 text-gray-500 hover:text-blue-600 transition-colors">EN</button>
+              <button 
+                onClick={handleLanguageToggle}
+                className={`px-2 py-1 font-medium transition-colors ${
+                  currentLang === 'ja' 
+                    ? 'bg-accent-glow/20 text-accent-glow border border-accent-glow/30' 
+                    : 'text-white/60 hover:text-white/80'
+                }`}
+              >
+                JP
+              </button>
+              <span className="text-white/40">|</span>
+              <button 
+                onClick={handleLanguageToggle}
+                className={`px-2 py-1 font-medium transition-colors ${
+                  currentLang === 'en' 
+                    ? 'bg-accent-glow/20 text-accent-glow border border-accent-glow/30' 
+                    : 'text-white/60 hover:text-white/80'
+                }`}
+              >
+                EN
+              </button>
             </div>
             <Link href="/contact">
               <motion.button 
-                className="bg-gradient-to-r from-accent-gold to-yellow-400 text-deep-navy rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                className="btn-primary px-6 py-2 text-sm font-bold tracking-[0.1em] uppercase"
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                お問い合わせ
+                Contact
               </motion.button>
             </Link>
           </div>
@@ -92,38 +128,56 @@ export default function Header() {
         {/* モバイルメニュー */}
         {isMobileMenuOpen && (
           <motion.div
-            className="sm:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 p-6"
+            className="sm:hidden absolute top-full left-0 right-0 mt-2 glass-morphism border border-white/20 p-6"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
             <nav className="flex flex-col gap-4 mb-6">
-              <Link href="/news" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <Link href="/news" className="text-white/80 hover:text-accent-glow transition-colors font-medium">
                 News
               </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Company
+              <Link href="/about" className="text-white/80 hover:text-accent-glow transition-colors font-medium">
+                About
               </Link>
-              <Link href="/service" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Service
+              <Link href="/service" className="text-white/80 hover:text-accent-glow transition-colors font-medium">
+                Projects
               </Link>
-              <Link href="/recruit" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              <Link href="/recruit" className="text-white/80 hover:text-accent-glow transition-colors font-medium">
                 Recruit
               </Link>
             </nav>
             
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600 text-sm">Qurest Group</span>
+                <span className="text-white/60 text-sm font-display tracking-wider">STUDENT PROJECT</span>
                 <div className="flex items-center gap-2 text-xs">
-                  <button className="px-2 py-1 bg-blue-100 text-blue-700 rounded">JP</button>
-                  <span>|</span>
-                  <button className="px-2 py-1 text-gray-500">EN</button>
+                  <button 
+                    onClick={handleLanguageToggle}
+                    className={`px-2 py-1 transition-colors ${
+                      currentLang === 'ja' 
+                        ? 'bg-accent-glow/20 text-accent-glow border border-accent-glow/30' 
+                        : 'text-white/60'
+                    }`}
+                  >
+                    JP
+                  </button>
+                  <span className="text-white/40">|</span>
+                  <button 
+                    onClick={handleLanguageToggle}
+                    className={`px-2 py-1 transition-colors ${
+                      currentLang === 'en' 
+                        ? 'bg-accent-glow/20 text-accent-glow border border-accent-glow/30' 
+                        : 'text-white/60'
+                    }`}
+                  >
+                    EN
+                  </button>
                 </div>
               </div>
               <Link href="/contact" className="w-full">
-                <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full px-6 py-3 font-medium">
-                  お問い合わせ
+                <button className="w-full btn-primary font-medium">
+                  Contact
                 </button>
               </Link>
             </div>
