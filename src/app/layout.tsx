@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Orbitron, Bangers } from "next/font/google";
 import "../styles/globals.css";
 
 import Header from "@/components/Header";
@@ -9,14 +9,25 @@ import ScrollToTop from "@/components/ScrollToTop";
 import PageLoader from "@/components/PageLoader";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const orbitron = Orbitron({
   subsets: ["latin"],
+  variable: "--font-orbitron",
+  weight: ["400", "500", "700", "900"],
+  display: "swap",
+});
+
+const bangers = Bangers({
+  subsets: ["latin"],
+  variable: "--font-bangers",
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300`}
+        className={`${inter.variable} ${orbitron.variable} ${bangers.variable} antialiased bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300`}
       >
         <ThemeProvider>
           <PageLoader />

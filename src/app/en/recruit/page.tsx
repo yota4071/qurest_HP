@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import AbstractBackground from '@/components/AbstractBackground';
+import { LaptopIcon, PaletteIcon, HandshakeIcon, BuildingIcon, RocketIcon, ChartIcon, BoltIcon } from '@/components/icons';
 
 const recruitPositions = [
   {
@@ -36,7 +37,7 @@ const recruitPositions = [
       'Open to all majors and grades'
     ],
     color: 'from-accent-neon to-accent-glow',
-    icon: '💻'
+    icon: <LaptopIcon size={32} className="text-current" />
   },
   {
     id: 2,
@@ -69,7 +70,7 @@ const recruitPositions = [
       'Portfolio creation'
     ],
     color: 'from-accent-highlight to-accent-abstract',
-    icon: '🎨'
+    icon: <PaletteIcon size={32} className="text-current" />
   },
   {
     id: 3,
@@ -102,7 +103,7 @@ const recruitPositions = [
       'Directly relevant to future career'
     ],
     color: 'from-white to-gray-400',
-    icon: '🤝'
+    icon: <HandshakeIcon size={32} className="text-current" />
   }
 ];
 
@@ -111,25 +112,25 @@ const projectBenefits = [
     id: 1,
     title: 'University-Approved Project',
     description: 'Operating as an approved project at Ritsumeikan University OIC Campus',
-    icon: '🏛️'
+    icon: <BuildingIcon size={32} className="text-current" />
   },
   {
     id: 2,
     title: 'Corporate Attention',
     description: 'Multiple companies have shown interest in the project, promising great future potential',
-    icon: '🚀'
+    icon: <RocketIcon size={32} className="text-current" />
   },
   {
     id: 3,
     title: 'Perfect for Gaku-chika',
     description: 'You can gain concrete achievements and experiences to talk about in job hunting',
-    icon: '📈'
+    icon: <ChartIcon size={32} className="text-current" />
   },
   {
     id: 4,
     title: 'Real Product Development',
     description: 'Experience developing services that are actually used, not just theoretical exercises',
-    icon: '⚡'
+    icon: <BoltIcon size={32} className="text-current" />
   }
 ];
 
@@ -212,7 +213,7 @@ export default function RecruitPage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ y: -8, scale: 1.03 }}
                   >
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-white/90 mb-4 group-hover:scale-110 transition-transform duration-300">
                       {benefit.icon}
                     </div>
                     <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-gradient-abstract transition-colors duration-300">
@@ -259,7 +260,7 @@ export default function RecruitPage() {
                       <div className="flex items-start justify-between mb-8">
                         <div>
                           <div className="flex items-center gap-4 mb-2">
-                            <span className="text-4xl">{position.icon}</span>
+                            <div className="text-white/90">{position.icon}</div>
                             <span className="px-4 py-2 bg-white/10 text-white/80 text-xs font-bold tracking-wider uppercase border border-white/20">
                               {position.category}
                             </span>

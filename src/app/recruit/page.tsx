@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import AbstractBackground from '@/components/AbstractBackground';
+import { LaptopIcon, PaletteIcon, HandshakeIcon, BuildingIcon, RocketIcon, ChartIcon, BoltIcon } from '@/components/icons';
 
 const recruitPositions = [
   {
@@ -36,7 +37,7 @@ const recruitPositions = [
       '学部・学年不問'
     ],
     color: 'from-accent-neon to-accent-glow',
-    icon: '💻'
+    icon: <LaptopIcon size={32} className="text-current" />
   },
   {
     id: 2,
@@ -69,7 +70,7 @@ const recruitPositions = [
       'ポートフォリオ作成'
     ],
     color: 'from-accent-highlight to-accent-abstract',
-    icon: '🎨'
+    icon: <PaletteIcon size={32} className="text-current" />
   },
   {
     id: 3,
@@ -102,7 +103,7 @@ const recruitPositions = [
       '将来のキャリアに直結'
     ],
     color: 'from-white to-gray-400',
-    icon: '🤝'
+    icon: <HandshakeIcon size={32} className="text-current" />
   }
 ];
 
@@ -111,25 +112,25 @@ const projectBenefits = [
     id: 1,
     title: '大学公認プロジェクト',
     description: '立命館大学OICキャンパスの公認プロジェクトとして活動',
-    icon: '🏛️'
+    icon: <BuildingIcon size={32} className="text-current" />
   },
   {
     id: 2,
     title: '企業からの注目',
     description: '複数の企業がプロジェクトに興味を示しており、将来性抜群',
-    icon: '🚀'
+    icon: <RocketIcon size={32} className="text-current" />
   },
   {
     id: 3,
     title: 'ガクチカに最適',
     description: '就活で話せる具体的な成果と経験を積むことができる',
-    icon: '📈'
+    icon: <ChartIcon size={32} className="text-current" />
   },
   {
     id: 4,
     title: '実際のプロダクト開発',
     description: '机上の空論ではなく、実際に使われるサービスの開発経験',
-    icon: '⚡'
+    icon: <BoltIcon size={32} className="text-current" />
   }
 ];
 
@@ -212,7 +213,7 @@ export default function RecruitPage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     whileHover={{ y: -8, scale: 1.03 }}
                   >
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-white/90 mb-4 group-hover:scale-110 transition-transform duration-300">
                       {benefit.icon}
                     </div>
                     <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-gradient-abstract transition-colors duration-300">
@@ -259,7 +260,7 @@ export default function RecruitPage() {
                       <div className="flex items-start justify-between mb-8">
                         <div>
                           <div className="flex items-center gap-4 mb-2">
-                            <span className="text-4xl">{position.icon}</span>
+                            <div className="text-white/90">{position.icon}</div>
                             <span className="px-4 py-2 bg-white/10 text-white/80 text-xs font-bold tracking-wider uppercase border border-white/20">
                               {position.category}
                             </span>
