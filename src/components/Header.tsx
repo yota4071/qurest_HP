@@ -90,6 +90,15 @@ export default function Header() {
             <span className="text-white/80 text-xs font-medium px-4 py-2 glass-morphism border border-white/20 font-display tracking-wider">
               STUDENT PROJECT
             </span>
+            <Link href="/s/simple/index.html">
+              <motion.button 
+                className="text-xs font-medium px-3 py-2 border border-accent-abstract/30 text-accent-abstract hover:bg-accent-abstract/10 transition-all duration-300 font-display tracking-wider"
+                whileHover={{ scale: 1.05, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                SIMPLE
+              </motion.button>
+            </Link>
             <div className="flex items-center gap-2 text-xs">
               <button 
                 onClick={handleLanguageToggle}
@@ -151,6 +160,18 @@ export default function Header() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <span className="text-white/60 text-sm font-display tracking-wider">STUDENT PROJECT</span>
+                <Link href="/s/simple/index.html">
+                  <motion.button 
+                    className="text-xs font-medium px-3 py-2 border border-accent-abstract/30 text-accent-abstract hover:bg-accent-abstract/10 transition-all duration-300 font-display tracking-wider"
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    SIMPLE
+                  </motion.button>
+                </Link>
+              </div>
+              <div className="flex items-center justify-between">
+                <div></div>
                 <div className="flex items-center gap-2 text-xs">
                   <button 
                     onClick={handleLanguageToggle}

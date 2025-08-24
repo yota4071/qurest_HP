@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース - QUREST</title>
+    <style>
+        /* 90年代風レガシーデザイン */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            background: #c0c0c0;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #008080;
+            color: white;
+            padding: 5px 0;
+            border-bottom: 3px outset #008080;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: underline;
+            padding: 2px 8px;
+            font-size: 11px;
+            border: 1px outset #008080;
+            background: #008080;
+        }
+
+        .nav-links a:hover {
+            border: 1px inset #008080;
+            background: #006666;
+        }
+
+        .nav-links a.active {
+            background: #006666;
+            border: 1px inset #008080;
+        }
+
+        /* メインコンテンツ */
+        main {
+            margin: 10px;
+            padding: 20px;
+            border: 3px inset #c0c0c0;
+            background: #e0e0e0;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-tag {
+            display: inline-block;
+            background: #000080;
+            color: white;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* ニュース記事 */
+        .news-list {
+            display: block;
+        }
+
+        .news-article {
+            background: white;
+            border: 2px outset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .news-header {
+            border-bottom: 2px solid #000080;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .news-date {
+            color: #800080;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .news-title {
+            font-size: 16px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: #ffff00;
+            color: black;
+            padding: 1px 5px;
+            font-size: 9px;
+            font-weight: bold;
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+
+        .news-content {
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .news-content p {
+            margin-bottom: 10px;
+        }
+
+        .news-content ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .news-content li {
+            margin-bottom: 5px;
+        }
+
+        .news-footer {
+            border-top: 1px dashed #666;
+            padding-top: 8px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* アーカイブ */
+        .archive-section {
+            background: white;
+            border: 2px inset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .archive-section h2 {
+            font-size: 14px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .archive-list {
+            list-style: none;
+        }
+
+        .archive-list li {
+            margin-bottom: 5px;
+            padding-left: 10px;
+            font-size: 11px;
+        }
+
+        .archive-list li:before {
+            content: "■ ";
+            color: #000080;
+            font-weight: bold;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #c0c0c0;
+            color: black;
+            text-decoration: none;
+            border: 2px outset #c0c0c0;
+            font-weight: bold;
+            margin: 0 5px;
+            font-size: 11px;
+        }
+
+        .btn:hover {
+            border: 2px inset #c0c0c0;
+        }
+
+        /* フッター */
+        footer {
+            background: #008080;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border: 3px outset #008080;
+            margin: 10px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-tagline {
+            font-size: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* 90年代風エフェクト */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #ffff00;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 0;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav class="container">
+            <div class="logo">QUREST</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="recruit.html">Recruit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スクロールメッセージ -->
+    <div class="marquee">
+        <span>【重要】Nom!Nom! プロジェクトの最新情報を随時更新中！メンバー募集についてはRecruit ページをご覧ください。</span>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">News &amp; Updates</span>
+                <h1>最新ニュース</h1>
+                <p style="font-size: 11px; color: #666;">QURESTプロジェクトの最新情報をお届けします</p>
+            </div>
+
+            <!-- ニュース一覧 -->
+            <div class="news-list">
+                
+                <!-- ニュース記事 1 -->
+                <article class="news-article">
+                    <div class="news-header">
+                        <div class="news-date">2025年8月15日（金）</div>
+                        <h2 class="news-title">Nom!Nom! プロジェクト正式始動</h2>
+                        <span class="news-category">プロジェクト</span>
+                    </div>
+                    <div class="news-content">
+                        <p>立命館大学OICキャンパスのキッチンカー評価プラットフォーム「Nom!Nom!」の開発を正式に開始いたします。</p>
+                        <p>このプロジェクトは、学生による学生のためのサービスとして企画され、以下の機能を提供予定です：</p>
+                        <ul>
+                            <li>キッチンカーの位置情報・営業時間の確認</li>
+                            <li>学生による評価・レビューシステム</li>
+                            <li>お気に入り登録・通知機能</li>
+                            <li>学生コミュニティ機能</li>
+                        </ul>
+                        <p>現在、プロトタイプの開発を進めており、10月のベータ版リリースを予定しています。</p>
+                    </div>
+                    <div class="news-footer">
+                        投稿者: QUREST開発チーム | カテゴリ: プロジェクト発表
+                    </div>
+                </article>
+
+                <!-- ニュース記事 2 -->
+                <article class="news-article">
+                    <div class="news-header">
+                        <div class="news-date">2025年7月20日（日）</div>
+                        <h2 class="news-title">開発チーム正式結成のお知らせ</h2>
+                        <span class="news-category">チーム</span>
+                    </div>
+                    <div class="news-content">
+                        <p>QUREST開発チームが正式に結成されました。現在のメンバー構成は以下の通りです：</p>
+                        <ul>
+                            <li>統合リーダー (Oz): 1名</li>
+                            <li>技術面リーダー (Waka): 1名</li>
+                            <li>保守運用リーダー (Rei): 1名</li>
+                            <li>アプリ開発リーダー (Ryo): 1名</li>
+                            <li>開発メンバー (Masa): 1名</li>
+                        </ul>
+                        <p>チーム一同、学生生活をより便利で楽しいものにするサービスの実現に向けて全力で取り組んでまいります。</p>
+                        <p>引き続き、技術メンバー・営業担当・デザイナーを募集中です。詳細は採用ページをご覧ください。</p>
+                    </div>
+                    <div class="news-footer">
+                        投稿者: QUREST人事担当 | カテゴリ: チーム情報
+                    </div>
+                </article>
+
+                <!-- ニュース記事 3 -->
+                <article class="news-article">
+                    <div class="news-header">
+                        <div class="news-date">2025年6月10日（火）</div>
+                        <h2 class="news-title">Nom!Nom! Web版開発完了</h2>
+                        <span class="news-category">開発</span>
+                    </div>
+                    <div class="news-content">
+                        <p>Nom!Nom! のWebアプリケーション版の開発が完了いたしました（写真機能を除く）。</p>
+                        <p><strong>実装完了機能：</strong></p>
+                        <ul>
+                            <li>キッチンカー検索・一覧表示機能</li>
+                            <li>ユーザー認証・アカウント管理</li>
+                            <li>レビュー・評価システム</li>
+                            <li>お気に入り登録機能</li>
+                        </ul>
+                        <p>現在は写真アップロード機能の実装を進めており、完成次第2025年秋学期の開始と共に学生向けに公開予定です。</p>
+                        <p>同時に、Flutterを使用したモバイルアプリの開発も並行して進行中です。</p>
+                    </div>
+                    <div class="news-footer">
+                        投稿者: QUREST開発チーム | カテゴリ: 開発進捗
+                    </div>
+                </article>
+
+                <!-- ニュース記事 4 -->
+                <article class="news-article">
+                    <div class="news-header">
+                        <div class="news-date">2025年5月28日（木）</div>
+                        <h2 class="news-title">プロジェクト企画会議開催</h2>
+                        <span class="news-category">企画</span>
+                    </div>
+                    <div class="news-content">
+                        <p>QURESTプロジェクトの初回企画会議を開催いたしました。</p>
+                        <p>会議では以下の項目について議論が行われました：</p>
+                        <ul>
+                            <li>プロジェクトの目的と方向性の確認</li>
+                            <li>ターゲットユーザーの明確化</li>
+                            <li>主要機能の優先順位付け</li>
+                            <li>開発スケジュールの策定</li>
+                            <li>チーム体制の検討</li>
+                        </ul>
+                        <p>参加者全員が積極的に意見を交換し、プロジェクトへの熱い思いを共有することができました。</p>
+                    </div>
+                    <div class="news-footer">
+                        投稿者: QUREST企画チーム | カテゴリ: 企画・会議
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- アーカイブセクション -->
+            <aside class="archive-section">
+                <h2>ニュースアーカイブ</h2>
+                <ul class="archive-list">
+                    <li>2025年8月 (1件)</li>
+                    <li>2025年7月 (1件)</li>
+                    <li>2025年6月 (1件)</li>
+                    <li>2025年5月 (1件)</li>
+                </ul>
+                <p style="text-align: center; margin-top: 15px;">
+                    <a href="index.html" class="btn">ホームに戻る</a>
+                </p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">QUREST</div>
+            <div class="footer-tagline">Creating Digital Experiences</div>
+            <hr>
+            <div class="footer-copyright">© 2025 QUREST. ALL RIGHTS RESERVED.</div>
+            <div style="font-size: 8px; margin-top: 5px;">
+                Last Updated: 2025-08-24 | Best Viewed in Internet Explorer 6.0+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

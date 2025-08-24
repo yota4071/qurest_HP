@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUREST - Nom!Nom! Project</title>
+    <style>
+        /* 90年代風レガシーデザイン */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            background: #c0c0c0;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #008080;
+            color: white;
+            padding: 5px 0;
+            border-bottom: 3px outset #008080;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: underline;
+            padding: 2px 8px;
+            font-size: 11px;
+            border: 1px outset #008080;
+            background: #008080;
+        }
+
+        .nav-links a:hover {
+            border: 1px inset #008080;
+            background: #006666;
+        }
+
+        /* メインヒーローセクション */
+        .hero {
+            background: #ffffff;
+            color: black;
+            padding: 30px 0;
+            text-align: center;
+            border: 3px inset #c0c0c0;
+            margin: 10px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .hero p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #c0c0c0;
+            color: black;
+            text-decoration: none;
+            border: 2px outset #c0c0c0;
+            font-weight: bold;
+            margin: 0 5px;
+            font-size: 11px;
+        }
+
+        .btn:hover {
+            border: 2px inset #c0c0c0;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            border: 2px outset #ffffff;
+        }
+
+        /* セクション共通スタイル */
+        section {
+            padding: 20px 0;
+            margin: 10px;
+            border: 2px inset #c0c0c0;
+            background: #e0e0e0;
+        }
+
+        h2 {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: #000080;
+            color: white;
+            padding: 2px 8px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* ニュース */
+        .news-grid {
+            display: block;
+        }
+
+        .news-card {
+            background: white;
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .news-date {
+            color: #666666;
+            font-size: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .news-title {
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #000080;
+            font-weight: bold;
+        }
+
+        /* プロジェクト */
+        .projects-grid {
+            display: block;
+        }
+
+        .project-card {
+            background: white;
+            border: 3px outset #c0c0c0;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 16px;
+            color: #800080;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 2px 6px;
+            font-size: 9px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border: 1px solid black;
+        }
+
+        .status-launch {
+            background: #00ff00;
+            color: black;
+        }
+
+        .status-dev {
+            background: #ffff00;
+            color: black;
+        }
+
+        .status-plan {
+            background: #808080;
+            color: white;
+        }
+
+        .project-features {
+            list-style: disc;
+            margin: 10px 0 10px 20px;
+        }
+
+        .project-features li {
+            padding: 2px 0;
+            font-size: 11px;
+        }
+
+        /* アプローチ */
+        .approach-grid {
+            display: block;
+        }
+
+        .approach-item {
+            background: white;
+            border: 2px inset #c0c0c0;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .approach-icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .approach-item h3 {
+            font-size: 13px;
+            color: #008000;
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+
+        .approach-item p {
+            font-size: 11px;
+        }
+
+        /* プロジェクト進捗 */
+        .progress-grid {
+            display: block;
+        }
+
+        .progress-item {
+            background: white;
+            padding: 15px;
+            border: 2px outset #c0c0c0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .progress-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000;
+            margin-bottom: 5px;
+        }
+
+        .progress-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #000080;
+            margin-bottom: 3px;
+        }
+
+        /* フッター */
+        footer {
+            background: #008080;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border: 3px outset #008080;
+            margin: 10px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-tagline {
+            font-size: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* テーブル風レイアウト */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+            font-size: 11px;
+        }
+
+        th {
+            background: #c0c0c0;
+            font-weight: bold;
+        }
+
+        /* 90年代風エフェクト */
+        .blink {
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #ffff00;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 0;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 20px;
+            }
+            
+            .container {
+                padding: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav class="container">
+            <div class="logo">QUREST</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="recruit.html">Recruit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スクロールメッセージ -->
+    <div class="marquee">
+        <span>★☆★ 立命館大学OICキャンパスのキッチンカー評価プラットフォーム「Nom!Nom!」開発中！ ★☆★</span>
+    </div>
+
+    <!-- ヒーローセクション -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>QUREST</h1>
+            <p><strong>立命館大学OICキャンパス</strong><br>キッチンカー評価プラットフォーム「Nom!Nom!」を開発中</p>
+            <a href="projects.html" class="btn">プロジェクトを見る</a>
+            <a href="contact.html" class="btn btn-secondary">お問い合わせ</a>
+        </div>
+    </section>
+
+    <!-- ニュース -->
+    <section id="news">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Latest News</span>
+                <h2>最新情報</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">■ 2025-08-15</div>
+                    <div class="news-title">Nom!Nom! プロジェクト始動</div>
+                    <p>立命館大学OICキャンパスのキッチンカー評価プラットフォームの開発を開始しました。学生による学生のためのサービスを目指します。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">■ 2025-07-20</div>
+                    <div class="news-title">チーム結成</div>
+                    <p>5名のコアメンバーによる開発チームが正式に結成されました。技術メンバー・営業・デザイナーも募集中です。</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">■ 2025-06-10</div>
+                    <div class="news-title">Web版開発完了</div>
+                    <p>Nom!Nom! Web版の開発が完了しました（写真機能除く）。現在モバイルアプリの開発も進行中です。</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 15px;">
+                <a href="news.html" class="btn">すべてのニュースを見る</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- 代表挨拶 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Message</span>
+                <h2>代表挨拶</h2>
+            </div>
+            <div style="text-align: center;">
+                <p style="font-size: 13px; line-height: 1.6; margin-bottom: 15px;">
+                    私たちQURESTは、学生生活をより便利で楽しいものにするためのサービス開発に取り組んでいます。<br>
+                    現在開発中の「Nom!Nom!」は、キャンパス内のキッチンカー情報を学生同士で共有できるプラットフォームです。
+                </p>
+                <p style="font-size: 12px; color: #800080; font-weight: bold;">
+                    学生の、学生による、学生のためのサービスを目指して。
+                </p>
+            </div>
+            <p style="text-align: center; margin-top: 15px;">
+                <a href="about.html" class="btn">詳しく見る</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- プロジェクト -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2>プロジェクト</h2>
+            </div>
+            
+            <table style="margin-bottom: 15px;">
+                <tr>
+                    <th>プロジェクト名</th>
+                    <th>ステータス</th>
+                    <th>説明</th>
+                </tr>
+                <tr>
+                    <td><strong>Nom!Nom!</strong></td>
+                    <td><span class="project-status status-launch">ローンチ予定</span></td>
+                    <td>立命館大学OIC向けキッチンカー評価プラットフォーム</td>
+                </tr>
+                <tr>
+                    <td><strong>Nom!Nom! Mobile</strong></td>
+                    <td><span class="project-status status-dev">開発中</span></td>
+                    <td>モバイルアプリ版でより便利な体験を実現</td>
+                </tr>
+                <tr>
+                    <td><strong>Nom!Nom! 全国版</strong></td>
+                    <td><span class="project-status status-plan">計画中</span></td>
+                    <td>全国の大学キャンパス対応版</td>
+                </tr>
+            </table>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Nom!Nom!</h3>
+                    <span class="project-status status-launch">ローンチ予定</span>
+                    <p>立命館大学OICキャンパスのキッチンカー評価プラットフォーム</p>
+                    <ul class="project-features">
+                        <li>キッチンカー検索機能</li>
+                        <li>学生レビューシステム</li>
+                        <li>学生コミュニティ機能</li>
+                        <li>営業時間・場所情報</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Nom!Nom! Mobile App</h3>
+                    <span class="project-status status-dev">開発中</span>
+                    <p>モバイルアプリ版の開発でより便利なユーザー体験を実現</p>
+                    <ul class="project-features">
+                        <li>プッシュ通知機能</li>
+                        <li>オフライン閲覧対応</li>
+                        <li>位置情報連携</li>
+                        <li>お気に入り機能</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 15px;">
+                <a href="projects.html" class="btn">全プロジェクトを見る</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- アプローチ -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Approach</span>
+                <h2>私たちのアプローチ</h2>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <div class="approach-icon">🎨</div>
+                    <h3>ユーザー体験設計</h3>
+                    <p>学生にとって使いやすいインターフェースと機能を追求しています。</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">👥</div>
+                    <h3>コミュニティ構築</h3>
+                    <p>学生間の情報共有とコミュニケーションを促進します。</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">📊</div>
+                    <h3>データ活用</h3>
+                    <p>ユーザーレビューを分析してサービスを継続的に改善します。</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">🚀</div>
+                    <h3>技術革新</h3>
+                    <p>最新のウェブ技術とモバイル技術を組み合わせています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロジェクト進捗 -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Current Status</span>
+                <h2>プロジェクト進捗</h2>
+            </div>
+            <div class="progress-grid">
+                <div class="progress-item">
+                    <div class="progress-number">Nom!Nom!</div>
+                    <div class="progress-label">Main Project</div>
+                    <div>立命館大学OIC向け</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-number">2</div>
+                    <div class="progress-label">Active Projects</div>
+                    <div>アプリ化・全国展開</div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-number blink">?</div>
+                    <div class="progress-label">User Count</div>
+                    <div>ローンチ前のため未定</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2>お問い合わせ</h2>
+                <p>プロジェクトのご相談やお問い合わせはこちらから<br>新しいアイデアをお待ちしています</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="contact.html" class="btn">お問い合わせフォーム</a>
+                <a href="about.html" class="btn btn-secondary">私たちについて</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 採用情報 -->
+    <section id="recruit">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Join Us</span>
+                <h2 class="blink">採用情報</h2>
+                <p>一緒にプロジェクトを作り上げていく仲間を募集しています</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="recruit.html" class="btn">採用に関するお問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">QUREST</div>
+            <div class="footer-tagline">Creating Digital Experiences</div>
+            <hr>
+            <div class="footer-copyright">© 2025 QUREST. ALL RIGHTS RESERVED.</div>
+            <div style="font-size: 8px; margin-top: 5px;">
+                Last Updated: 2025-08-24 | Best Viewed in Internet Explorer 6.0+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

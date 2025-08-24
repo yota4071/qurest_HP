@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - QUREST</title>
+    <style>
+        /* 90年代風レガシーデザイン */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            background: #c0c0c0;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #008080;
+            color: white;
+            padding: 5px 0;
+            border-bottom: 3px outset #008080;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: underline;
+            padding: 2px 8px;
+            font-size: 11px;
+            border: 1px outset #008080;
+            background: #008080;
+        }
+
+        .nav-links a:hover {
+            border: 1px inset #008080;
+            background: #006666;
+        }
+
+        .nav-links a.active {
+            background: #006666;
+            border: 1px inset #008080;
+        }
+
+        /* メインコンテンツ */
+        main {
+            margin: 10px;
+            padding: 20px;
+            border: 3px inset #c0c0c0;
+            background: #e0e0e0;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-tag {
+            display: inline-block;
+            background: #000080;
+            color: white;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* フォーム */
+        .contact-form {
+            background: white;
+            border: 3px inset #c0c0c0;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #000080;
+            font-size: 11px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 5px;
+            border: 2px inset #c0c0c0;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11px;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border: 2px inset #000080;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* お問い合わせ種別 */
+        .contact-type-section {
+            background: white;
+            border: 2px outset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-type-section h2 {
+            font-size: 14px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .contact-types {
+            list-style: none;
+        }
+
+        .contact-types li {
+            margin-bottom: 8px;
+            font-size: 11px;
+            padding-left: 15px;
+        }
+
+        .contact-types li:before {
+            content: "▶ ";
+            color: #000080;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* 連絡先情報 */
+        .contact-info {
+            background: #ffff99;
+            border: 2px double #000000;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info h2 {
+            font-size: 14px;
+            color: #800000;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: block;
+        }
+
+        .info-item {
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .info-item dt {
+            font-weight: bold;
+            color: #000080;
+            margin-bottom: 3px;
+        }
+
+        .info-item dd {
+            margin-left: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* 注意事項 */
+        .notice-box {
+            background: white;
+            border: 2px inset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .notice-box h3 {
+            font-size: 12px;
+            color: #800000;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        .notice-box ul {
+            margin-left: 20px;
+            font-size: 10px;
+        }
+
+        .notice-box li {
+            margin-bottom: 5px;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #c0c0c0;
+            color: black;
+            text-decoration: none;
+            border: 2px outset #c0c0c0;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            border: 2px inset #c0c0c0;
+        }
+
+        .btn-primary {
+            background: #0000ff;
+            color: white;
+            border: 2px outset #0000ff;
+        }
+
+        .btn-primary:hover {
+            border: 2px inset #0000ff;
+        }
+
+        .btn-secondary {
+            background: #008000;
+            color: white;
+            border: 2px outset #008000;
+        }
+
+        .btn-secondary:hover {
+            border: 2px inset #008000;
+        }
+
+        /* フッター */
+        footer {
+            background: #008080;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border: 3px outset #008080;
+            margin: 10px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-tagline {
+            font-size: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* 90年代風エフェクト */
+        .blink {
+            animation: blink 1.5s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #00ff00;
+            color: black;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav class="container">
+            <div class="logo">QUREST</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="recruit.html">Recruit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スクロールメッセージ -->
+    <div class="marquee">
+        <span>お問い合わせお待ちしています！ご不明な点があればお気軽にご連絡ください。</span>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">Get In Touch</span>
+                <h1>お問い合わせ</h1>
+                <p style="font-size: 13px; color: #800080;">
+                    QURESTへのご質問・ご相談は下記のフォームまたは連絡先よりお願いいたします
+                </p>
+            </div>
+
+            <!-- お問い合わせ種別 -->
+            <div class="contact-type-section">
+                <h2>お問い合わせ内容について</h2>
+                <ul class="contact-types">
+                    <li><strong>プロジェクトについて</strong>: Nom!Nom!プロジェクトの詳細・進捗についてのご質問</li>
+                    <li><strong>参加・協力について</strong>: プロジェクトへの参加希望・協力のお申し出</li>
+                    <li><strong>採用について</strong>: チームメンバーとしての参加希望・採用に関するご質問</li>
+                    <li><strong>技術的なご質問</strong>: 使用技術・開発手法についてのお問い合わせ</li>
+                    <li><strong>取材・メディア</strong>: メディア取材・学会発表等のお申し込み</li>
+                    <li><strong>その他</strong>: 上記以外のご質問・ご相談</li>
+                </ul>
+            </div>
+
+            <!-- お問い合わせ方法 -->
+            <div class="contact-form">
+                <h2 style="font-size: 16px; color: #000080; text-decoration: underline; margin-bottom: 15px; text-align: center;">
+                    お問い合わせ方法
+                </h2>
+                
+                <div style="text-align: center; padding: 30px;">
+                    <p style="font-size: 14px; margin-bottom: 20px; line-height: 1.6;">
+                        お問い合わせは下記のメールアドレスまで直接ご連絡ください。<br>
+                        件名に【お問い合わせの種類】を明記していただけるとスムーズです。
+                    </p>
+                    
+                    <div style="background: #ffff99; border: 2px solid #000080; padding: 15px; margin: 20px 0;">
+                        <div style="font-size: 18px; font-weight: bold; color: #000080; margin-bottom: 10px;">
+                            📧 メールアドレス
+                        </div>
+                        <div style="font-size: 16px; font-weight: bold; color: #800000;">
+                            sales@qurest.tech
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left; margin: 20px 0; font-size: 12px;">
+                        <h3 style="color: #000080; margin-bottom: 10px;">件名の例：</h3>
+                        <ul style="margin-left: 20px;">
+                            <li>【プロジェクト参加希望】技術メンバーとして参加を希望</li>
+                            <li>【営業担当応募】営業ポジションへの応募について</li>
+                            <li>【デザイナー応募】デザイナーとして協力したい</li>
+                            <li>【プロジェクト質問】Nom!Nom!の詳細について</li>
+                            <li>【その他】○○について</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="mailto:sales@qurest.tech" class="btn btn-primary" style="font-size: 14px; padding: 10px 30px;">
+                        メールソフトを起動する
+                    </a>
+                </div>
+            </div>
+
+            <!-- 連絡先情報 -->
+            <div class="contact-info">
+                <h2 class="blink">直接連絡先</h2>
+                <dl class="info-item">
+                    <dt>■ 一般的なお問い合わせ</dt>
+                    <dd>Email: sales@qurest.tech</dd>
+                    <dd>※ 24時間以内の返信を心がけています</dd>
+                </dl>
+                
+                <dl class="info-item">
+                    <dt>■ 採用・参加希望</dt>
+                    <dd>Email: sales@qurest.tech</dd>
+                    <dd>※ 採用担当者が直接対応いたします</dd>
+                </dl>
+                
+                <dl class="info-item">
+                    <dt>■ プレス・取材関係</dt>
+                    <dd>Email: sales@qurest.tech</dd>
+                    <dd>※ メディア関係者様向け</dd>
+                </dl>
+                
+                <dl class="info-item">
+                    <dt>■ 技術的なお問い合わせ</dt>
+                    <dd>Email: sales@qurest.tech</dd>
+                    <dd>※ 開発チームが直接回答します</dd>
+                </dl>
+            </div>
+
+            <!-- 注意事項 -->
+            <div class="notice-box">
+                <h3>お問い合わせの際の注意事項</h3>
+                <ul>
+                    <li>学生プロジェクトのため、返信にお時間をいただく場合があります</li>
+                    <li>技術的なご質問の場合は、可能な限り詳細な情報をお教えください</li>
+                    <li>採用に関するお問い合わせは、recruit.htmlページもご確認ください</li>
+                    <li>迷惑メール対策のため、メールが届かない場合があります</li>
+                    <li>個人情報は適切に管理し、お問い合わせ対応以外には使用いたしません</li>
+                    <li>商用目的・営業に関するお問い合わせはお断りしています</li>
+                </ul>
+            </div>
+
+            <!-- よくある質問 -->
+            <div class="contact-form">
+                <h2 style="font-size: 16px; color: #800080; text-decoration: underline; margin-bottom: 15px; text-align: center;">
+                    よくある質問
+                </h2>
+                
+                <dl class="info-item">
+                    <dt>Q: プロジェクトの見学は可能ですか？</dt>
+                    <dd>A: はい、オンラインでの見学会を定期的に開催しています。参加希望の方はお問い合わせください。</dd>
+                </dl>
+                
+                <dl class="info-item">
+                    <dt>Q: 他大学の学生でも参加できますか？</dt>
+                    <dd>A: はい、関西圏の大学生であれば参加可能です。リモートでの参加も歓迎しています。</dd>
+                </dl>
+                
+                <dl class="info-item">
+                    <dt>Q: 技術的なスキルがなくても参加できますか？</dt>
+                    <dd>A: もちろんです。デザイン、企画、マーケティングなど、様々な分野で活動しています。</dd>
+                </dl>
+                
+                <dl class="info-item">
+                    <dt>Q: プロジェクトの成果物は公開されますか？</dt>
+                    <dd>A: はい、オープンソースでの公開を予定しています。詳細は開発進捗に応じてお知らせします。</dd>
+                </dl>
+            </div>
+
+            <!-- アクションボタン -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="recruit.html" class="btn btn-primary">採用情報を見る</a>
+                <a href="about.html" class="btn">チームについて知る</a>
+                <a href="projects.html" class="btn">プロジェクト詳細</a>
+                <a href="index.html" class="btn btn-secondary">ホームに戻る</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">QUREST</div>
+            <div class="footer-tagline">Creating Digital Experiences</div>
+            <hr>
+            <div class="footer-copyright">© 2025 QUREST. ALL RIGHTS RESERVED.</div>
+            <div style="font-size: 8px; margin-top: 5px;">
+                Last Updated: 2025-08-24 | Best Viewed in Internet Explorer 6.0+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

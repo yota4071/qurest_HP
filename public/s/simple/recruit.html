@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>採用情報 - QUREST</title>
+    <style>
+        /* 90年代風レガシーデザイン */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            background: #c0c0c0;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #008080;
+            color: white;
+            padding: 5px 0;
+            border-bottom: 3px outset #008080;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: underline;
+            padding: 2px 8px;
+            font-size: 11px;
+            border: 1px outset #008080;
+            background: #008080;
+        }
+
+        .nav-links a:hover {
+            border: 1px inset #008080;
+            background: #006666;
+        }
+
+        .nav-links a.active {
+            background: #006666;
+            border: 1px inset #008080;
+        }
+
+        /* メインコンテンツ */
+        main {
+            margin: 10px;
+            padding: 20px;
+            border: 3px inset #c0c0c0;
+            background: #e0e0e0;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-tag {
+            display: inline-block;
+            background: #000080;
+            color: white;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* 募集要項 */
+        .job-section {
+            background: white;
+            border: 2px outset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .job-section h2 {
+            font-size: 16px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #800080;
+            padding-bottom: 5px;
+        }
+
+        .job-details {
+            margin-bottom: 15px;
+        }
+
+        .job-details dt {
+            font-weight: bold;
+            color: #000080;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 11px;
+        }
+
+        .job-details dd {
+            margin-left: 15px;
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+
+        /* テーブル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-size: 11px;
+        }
+
+        th {
+            background: #c0c0c0;
+            font-weight: bold;
+            color: #000080;
+        }
+
+        /* 特別セクション */
+        .highlight-section {
+            background: #ffff00;
+            border: 3px double #000000;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .highlight-section h3 {
+            font-size: 14px;
+            color: #800000;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        /* メッセージボックス */
+        .message-box {
+            background: white;
+            border: 2px inset #c0c0c0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .message-box h3 {
+            font-size: 14px;
+            color: #008000;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #c0c0c0;
+            color: black;
+            text-decoration: none;
+            border: 2px outset #c0c0c0;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 11px;
+        }
+
+        .btn:hover {
+            border: 2px inset #c0c0c0;
+        }
+
+        .btn-primary {
+            background: #0000ff;
+            color: white;
+            border: 2px outset #0000ff;
+        }
+
+        .btn-primary:hover {
+            border: 2px inset #0000ff;
+        }
+
+        /* フッター */
+        footer {
+            background: #008080;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border: 3px outset #008080;
+            margin: 10px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-tagline {
+            font-size: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* 90年代風エフェクト */
+        .blink {
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #ff0000;
+            color: white;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 12s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 5px;
+            }
+            
+            table {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav class="container">
+            <div class="logo">QUREST</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="recruit.html" class="active">Recruit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スクロールメッセージ -->
+    <div class="marquee">
+        <span class="blink">【緊急募集】一緒にNom!Nom!を作り上げる仲間を募集しています！学生プロジェクトに参加しませんか？</span>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">Join Our Team</span>
+                <h1 class="blink">採用情報</h1>
+                <p style="font-size: 13px; color: #800080; font-weight: bold;">
+                    学生による、学生のための革新的なプラットフォームを一緒に作りませんか？
+                </p>
+            </div>
+
+            <!-- 特別告知 -->
+            <div class="highlight-section">
+                <h3>★☆★ 現在積極的に募集中 ★☆★</h3>
+                <p style="font-size: 12px;">
+                    QURESTでは、Nom!Nom!プロジェクトを一緒に進めていく<br>
+                    熱意あるメンバーを随時募集しています！
+                </p>
+            </div>
+
+            <!-- 現在の募集職種 -->
+            <div class="job-section">
+                <h2>現在募集中の職種</h2>
+                
+                <table>
+                    <tr>
+                        <th>職種</th>
+                        <th>募集人数</th>
+                        <th>緊急度</th>
+                        <th>応募締切</th>
+                    </tr>
+                    <tr>
+                        <td>技術メンバー</td>
+                        <td>1-2名</td>
+                        <td style="color: red; font-weight: bold;">高</td>
+                        <td>随時募集</td>
+                    </tr>
+                    <tr>
+                        <td>営業担当</td>
+                        <td>1名</td>
+                        <td style="color: red; font-weight: bold;">高</td>
+                        <td>随時募集</td>
+                    </tr>
+                    <tr>
+                        <td>デザイナー</td>
+                        <td>1名</td>
+                        <td style="color: orange; font-weight: bold;">中</td>
+                        <td>随時募集</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 技術メンバー -->
+            <div class="job-section">
+                <h2>技術メンバー</h2>
+                <dl class="job-details">
+                    <dt>■ 仕事内容</dt>
+                    <dd>・Nom!Nom! Web・Mobileアプリの開発</dd>
+                    <dd>・React/Next.js を使用したWeb開発</dd>
+                    <dd>・Flutter を使用したMobileアプリ開発</dd>
+                    <dd>・Minecraftサーバー・MOD開発（希望者）</dd>
+                    
+                    <dt>■ 求める人物像</dt>
+                    <dd>・技術やプログラミングに本当に興味がある方</dd>
+                    <dd>・一からの勉強は大変だが、好きで耐えられる方</dd>
+                    <dd>・学部は問わない（文系でも数学苦手でも OK）</dd>
+                    <dd>・技術は自分から学ぶ意欲のある方</dd>
+                    
+                    <dt>■ 歓迎スキル</dt>
+                    <dd>・プログラミング経験（言語問わず）</dd>
+                    <dd>・AI活用ツールの使用が得意な方</dd>
+                    <dd>・React/Next.js, Flutter の経験</dd>
+                    <dd>・ゲーム開発・MOD制作の興味</dd>
+                    
+                    <dt>■ 活動条件</dt>
+                    <dd>・技術学習への継続的な取り組み</dd>
+                    <dd>・チーム開発への積極的な参加</dd>
+                    <dd>・Discord でのコミュニケーション</dd>
+                </dl>
+            </div>
+
+            <!-- 営業担当 -->
+            <div class="job-section">
+                <h2>営業担当</h2>
+                <dl class="job-details">
+                    <dt>■ 仕事内容</dt>
+                    <dd>・周囲の居酒屋との交渉・連携</dd>
+                    <dd>・スポンサー企業との窓口業務</dd>
+                    <dd>・キッチンカー事業者との関係構築</dd>
+                    <dd>・大学・関係機関との調整</dd>
+                    
+                    <dt>■ 求める人物像</dt>
+                    <dd>・コミュニケーション能力に自信のある方</dd>
+                    <dd>・人との交渉・調整が得意な方</dd>
+                    <dd>・新規開拓や営業活動に興味がある方</dd>
+                    <dd>・責任感を持って継続的に活動できる方</dd>
+                    
+                    <dt>■ 歓迎スキル・経験</dt>
+                    <dd>・営業・接客の経験</dd>
+                    <dd>・学生団体・サークルでの役職経験</dd>
+                    <dd>・地域との連携・イベント企画経験</dd>
+                    <dd>・ビジネスマナー・プレゼンテーション能力</dd>
+                    
+                    <dt>■ 活動条件</dt>
+                    <dd>・定期的な外部との会議・商談への参加</dd>
+                    <dd>・柔軟なスケジュール調整が可能</dd>
+                    <dd>・関西圏での活動が可能</dd>
+                </dl>
+            </div>
+
+            <!-- デザイナー -->
+            <div class="job-section">
+                <h2>デザイナー</h2>
+                <dl class="job-details">
+                    <dt>■ 仕事内容</dt>
+                    <dd>・ポスター・チラシなどの印刷物制作</dd>
+                    <dd>・デジタルサイネージ用コンテンツ制作</dd>
+                    <dd>・ブランディング・ロゴデザイン</dd>
+                    <dd>・SNS投稿用グラフィックデザイン</dd>
+                    
+                    <dt>■ 求める人物像</dt>
+                    <dd>・グラフィックデザインに興味・経験のある方</dd>
+                    <dd>・印刷物制作の知識・経験のある方</dd>
+                    <dd>・クリエイティブな発想力のある方</dd>
+                    <dd>・デザインツールの使用経験がある方</dd>
+                    
+                    <dt>■ 必要スキル</dt>
+                    <dd>・Adobe Creative Suite (Illustrator, Photoshop等)</dd>
+                    <dd>・または Canva, Figma 等のデザインツール</dd>
+                    <dd>・印刷物の基礎知識（CMYK、解像度等）</dd>
+                    <dd>・レイアウト・タイポグラフィの知識</dd>
+                    
+                    <dt>■ 歓迎スキル</dt>
+                    <dd>・UI/UXデザインの経験</dd>
+                    <dd>・動画編集・モーショングラフィックス</dd>
+                    <dd>・Web制作の基礎知識</dd>
+                    <dd>・ブランディング・マーケティングの知識</dd>
+                </dl>
+            </div>
+
+            <!-- プロジェクトの魅力 -->
+            <div class="message-box">
+                <h3>QURESTプロジェクトの魅力</h3>
+                <ul style="margin-left: 15px; margin-top: 10px;">
+                    <li>学生主体の実践的なプロジェクト経験</li>
+                    <li>React/Next.js, Flutter などの最新技術習得</li>
+                    <li>実際のユーザーに使われるサービスの開発体験</li>
+                    <li>Minecraftサーバー・MOD開発などの楽しい活動</li>
+                    <li>ゲーム・技術談義などアットホームな雰囲気</li>
+                    <li>就職活動でのポートフォリオとして活用可能</li>
+                    <li>営業・デザインなど技術以外のスキルも習得可能</li>
+                    <li>Discord中心の自由度の高いコミュニケーション</li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 11px; font-style: italic;">
+                    ※ 学業を最優先とし、無理のない範囲での参加を推奨しています
+                </p>
+            </div>
+
+            <!-- 応募方法 -->
+            <div class="job-section">
+                <h2>応募方法・選考プロセス</h2>
+                
+                <dl class="job-details">
+                    <dt>■ 応募方法</dt>
+                    <dd>1. お問い合わせページまたはメールでご連絡</dd>
+                    <dd>2. 簡単な自己紹介・志望動機をお送りください</dd>
+                    <dd>3. 可能であれば過去の制作物・ポートフォリオを添付</dd>
+                    
+                    <dt>■ 選考プロセス</dt>
+                    <dd>1. 書類選考（1週間程度）</dd>
+                    <dd>2. オンライン面談（30-60分程度）</dd>
+                    <dd>3. 技術面談または課題提出（職種により異なる）</dd>
+                    <dd>4. 最終面談・チームマッチング</dd>
+                    
+                    <dt>■ 選考期間</dt>
+                    <dd>応募から結果通知まで約2-3週間</dd>
+                    
+                    <dt>■ 連絡先</dt>
+                    <dd>Email: sales@qurest.tech</dd>
+                    <dd>件名: [職種名] 応募の件</dd>
+                </dl>
+            </div>
+
+            <!-- FAQ -->
+            <div class="job-section">
+                <h2>よくある質問</h2>
+                
+                <dl class="job-details">
+                    <dt>Q. 未経験でも応募できますか？</dt>
+                    <dd>A. はい、未経験でも学習意欲のある方は大歓迎です。先輩メンバーがサポートします。</dd>
+                    
+                    <dt>Q. 学業との両立は可能ですか？</dt>
+                    <dd>A. もちろんです。学業を最優先とし、スケジュールは柔軟に調整可能です。</dd>
+                    
+                    <dt>Q. 報酬はありますか？</dt>
+                    <dd>A. 現在は学習・経験重視のプロジェクトのため、金銭的報酬はありません。</dd>
+                    
+                    <dt>Q. どのような働き方になりますか？</dt>
+                    <dd>A. リモート中心で、定期的なオンライン会議があります。対面での作業会も予定しています。</dd>
+                    
+                    <dt>Q. プロジェクトはいつまで続きますか？</dt>
+                    <dd>A. 2026年3月のサービス正式リリースまでを予定していますが、その後の継続も検討中です。</dd>
+                </dl>
+            </div>
+
+            <!-- アクションボタン -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="contact.html" class="btn btn-primary">今すぐ応募する</a>
+                <a href="about.html" class="btn">チームについて詳しく知る</a>
+                <a href="projects.html" class="btn">プロジェクト詳細を見る</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">QUREST</div>
+            <div class="footer-tagline">Creating Digital Experiences</div>
+            <hr>
+            <div class="footer-copyright">© 2025 QUREST. ALL RIGHTS RESERVED.</div>
+            <div style="font-size: 8px; margin-top: 5px;">
+                Last Updated: 2025-08-24 | Best Viewed in Internet Explorer 6.0+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

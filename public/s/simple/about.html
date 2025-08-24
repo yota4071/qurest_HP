@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私たちについて - QUREST</title>
+    <style>
+        /* 90年代風レガシーデザイン */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            background: #c0c0c0;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #008080;
+            color: white;
+            padding: 5px 0;
+            border-bottom: 3px outset #008080;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: underline;
+            padding: 2px 8px;
+            font-size: 11px;
+            border: 1px outset #008080;
+            background: #008080;
+        }
+
+        .nav-links a:hover {
+            border: 1px inset #008080;
+            background: #006666;
+        }
+
+        .nav-links a.active {
+            background: #006666;
+            border: 1px inset #008080;
+        }
+
+        /* メインコンテンツ */
+        main {
+            margin: 10px;
+            padding: 20px;
+            border: 3px inset #c0c0c0;
+            background: #e0e0e0;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-tag {
+            display: inline-block;
+            background: #000080;
+            color: white;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* 代表メッセージ */
+        .ceo-message {
+            background: #ffff99;
+            border: 3px double #800080;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .ceo-message h2 {
+            font-size: 18px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .ceo-message .quote {
+            font-style: italic;
+            font-size: 14px;
+            text-align: center;
+            color: #000080;
+            margin-bottom: 15px;
+            border-left: 4px solid #800080;
+            padding-left: 15px;
+        }
+
+        .ceo-message .signature {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #800000;
+        }
+
+        /* 会社概要 */
+        .company-info {
+            background: white;
+            border: 2px outset #c0c0c0;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .company-info h2 {
+            font-size: 16px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #800080;
+            padding-bottom: 5px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .info-table th,
+        .info-table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-size: 11px;
+        }
+
+        .info-table th {
+            background: #c0c0c0;
+            font-weight: bold;
+            color: #000080;
+            width: 30%;
+        }
+
+        /* ミッション・ビジョン */
+        .mission-vision {
+            background: white;
+            border: 2px inset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .mission-vision h3 {
+            font-size: 14px;
+            color: #008000;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .mission-vision p {
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* チームメンバー */
+        .team-members {
+            background: white;
+            border: 3px groove #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .member-grid {
+            display: block;
+        }
+
+        .member-card {
+            border: 2px solid #000080;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f0f0f0;
+        }
+
+        .member-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #800080;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            font-size: 12px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .member-bio {
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* 価値観・文化 */
+        .company-culture {
+            background: white;
+            border: 2px ridge #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .culture-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 4px solid #000080;
+            background: #f9f9f9;
+        }
+
+        .culture-item h4 {
+            font-size: 13px;
+            color: #800000;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .culture-item p {
+            font-size: 11px;
+            color: #333;
+        }
+
+        /* 歴史・沿革 */
+        .company-history {
+            background: white;
+            border: 2px outset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .history-timeline {
+            list-style: none;
+        }
+
+        .history-timeline li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            font-size: 11px;
+            position: relative;
+        }
+
+        .history-timeline li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #000080;
+            font-weight: bold;
+        }
+
+        .history-date {
+            font-weight: bold;
+            color: #800080;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #c0c0c0;
+            color: black;
+            text-decoration: none;
+            border: 2px outset #c0c0c0;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 11px;
+        }
+
+        .btn:hover {
+            border: 2px inset #c0c0c0;
+        }
+
+        .btn-primary {
+            background: #0000ff;
+            color: white;
+            border: 2px outset #0000ff;
+        }
+
+        .btn-primary:hover {
+            border: 2px inset #0000ff;
+        }
+
+        /* フッター */
+        footer {
+            background: #008080;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border: 3px outset #008080;
+            margin: 10px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-tagline {
+            font-size: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* 90年代風エフェクト */
+        .blink {
+            animation: blink 2s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #0000ff;
+            color: white;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 12s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 5px;
+            }
+            
+            .info-table {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav class="container">
+            <div class="logo">QUREST</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="recruit.html">Recruit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スクロールメッセージ -->
+    <div class="marquee">
+        <span>学生の、学生による、学生のためのプロジェクト「QUREST」について詳しくご紹介します！</span>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">About Us</span>
+                <h1>私たちについて</h1>
+                <p style="font-size: 13px; color: #800080;">
+                    QURESTの理念・チーム・これまでの歩みをご紹介
+                </p>
+            </div>
+
+            <!-- 代表メッセージ -->
+            <div class="ceo-message">
+                <h2>代表メッセージ</h2>
+                <div class="quote">
+                    「学生生活をもっと便利で楽しいものに。<br>
+                    テクノロジーの力で、キャンパスライフに新しい価値を創造する。」
+                </div>
+                <p style="font-size: 12px; line-height: 1.6;">
+                    私たちQURESTは、2025年5月に立命館大学OICキャンパスの学生によって結成されたプロジェクトチームです。
+                    日々のキャンパス生活の中で感じた「もっとこうだったらいいのに」という小さな不便を、
+                    テクノロジーの力で解決していきたいという思いから始まりました。
+                </p>
+                <p style="font-size: 12px; line-height: 1.6; margin-top: 10px;">
+                    最初のプロジェクト「Nom!Nom!」は、キッチンカー情報を学生同士で共有できるプラットフォームです。
+                    「今日はどのキッチンカーが来ているの？」「あのキッチンカーの評判はどう？」
+                    そんな日常的な疑問から生まれたサービスです。
+                </p>
+                <p style="font-size: 12px; line-height: 1.6; margin-top: 10px;">
+                    学生だからこそ分かる学生のニーズ。学生だからこそできる自由な発想。
+                    私たちは「学生の、学生による、学生のため」のサービス開発を通じて、
+                    キャンパスライフをより豊かにしていきます。
+                </p>
+                <div class="signature">
+                    QUREST 代表<br>
+                    立命館大学 情報理工学部 3年
+                </div>
+            </div>
+
+            <!-- 団体概要 -->
+            <div class="company-info">
+                <h2>団体概要</h2>
+                <table class="info-table">
+                    <tr>
+                        <th>団体名</th>
+                        <td>QUREST（クレスト）</td>
+                    </tr>
+                    <tr>
+                        <th>設立年月</th>
+                        <td>2025年5月</td>
+                    </tr>
+                    <tr>
+                        <th>代表者</th>
+                        <td>立命館大学 情報理工学部 4回生</td>
+                    </tr>
+                    <tr>
+                        <th>メンバー構成</th>
+                        <td>立命館大学生を中心とした学生団体（現在6名）</td>
+                    </tr>
+                    <tr>
+                        <th>主な活動場所</th>
+                        <td>立命館大学OICキャンパス・オンライン</td>
+                    </tr>
+                    <tr>
+                        <th>活動形態</th>
+                        <td>学生プロジェクト（非営利団体）</td>
+                    </tr>
+                    <tr>
+                        <th>主なプロジェクト</th>
+                        <td>Nom!Nom!（キッチンカー評価プラットフォーム）</td>
+                    </tr>
+                    <tr>
+                        <th>連絡先</th>
+                        <td>sales@qurest.tech</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- ミッション・ビジョン -->
+            <div class="mission-vision">
+                <h3>🎯 ミッション（使命）</h3>
+                <p>
+                    学生の日常的な課題を技術の力で解決し、より快適で充実したキャンパスライフの実現を目指します。
+                    学生目線のサービス開発を通じて、大学コミュニティ全体の活性化に貢献します。
+                </p>
+
+                <h3>🔮 ビジョン（将来像）</h3>
+                <p>
+                    「学生のための学生によるサービス」のパイオニアとして、全国の大学キャンパスに
+                    私たちの開発したサービスを展開し、学生生活のデジタルトランスフォーメーションを
+                    推進するリーディングカンパニーを目指します。
+                </p>
+
+                <h3>💎 バリュー（価値観）</h3>
+                <div class="culture-item">
+                    <h4>学生ファースト</h4>
+                    <p>常に学生の立場に立って考え、学生にとって本当に価値のあるサービスを提供します。</p>
+                </div>
+                
+                <div class="culture-item">
+                    <h4>オープンイノベーション</h4>
+                    <p>透明性を重視し、開発プロセスやソースコードの公開を通じて、コミュニティ全体の学習と成長に貢献します。</p>
+                </div>
+                
+                <div class="culture-item">
+                    <h4>継続的改善</h4>
+                    <p>ユーザーフィードバックを重視し、常にサービスの改善と進化を追求し続けます。</p>
+                </div>
+                
+                <div class="culture-item">
+                    <h4>学習と成長</h4>
+                    <p>プロジェクトを通じてメンバー全員が技術的・人間的に成長できる環境を大切にします。</p>
+                </div>
+            </div>
+
+            <!-- チーム構成 -->
+            <div class="team-members">
+                <h2 style="font-size: 16px; color: #800080; text-decoration: underline; margin-bottom: 15px;">
+                    <span class="blink">★</span> コアチームメンバー <span class="blink">★</span>
+                </h2>
+                
+                <div class="member-grid">
+                    <div class="member-card">
+                        <div class="member-name">Oz</div>
+                        <div class="member-role">統合リーダー</div>
+                        <div class="member-bio">
+                            情報理工学部4回生。プロジェクト全体の統括とチーム運営を担当。
+                            技術的な意思決定と開発方針の決定、メンバー間の調整を行う。
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-name">Waka</div>
+                        <div class="member-role">技術面でのリーダー</div>
+                        <div class="member-bio">
+                            情報理工学部4回生。サーバー/低レイヤー担当として技術面でのリーダーシップを発揮。
+                            インフラ構築や高度な技術的課題の解決を担当している。
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-name">Rei</div>
+                        <div class="member-role">保守運用リーダー</div>
+                        <div class="member-bio">
+                            情報理工学部4回生。システムの保守運用とメンテナンスを担当。
+                            サービスの安定稼働とトラブル対応、継続的な改善を行う。
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-name">Ryo</div>
+                        <div class="member-role">アプリ開発リーダー</div>
+                        <div class="member-bio">
+                            情報理工学部4回生。モバイルアプリケーションの開発を担当。
+                            Flutterを用いたクロスプラットフォーム開発のリーダーとして活動している。
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-name">Masa</div>
+                        <div class="member-role">開発メンバー</div>
+                        <div class="member-bio">
+                            情報理工学部4回生。WebアプリケーションとMobileアプリの開発を担当。
+                            React/Next.jsやFlutterでの実装作業を中心に活動している。
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-name">6人目募集中</div>
+                        <div class="member-role">技術者・営業・デザイナー</div>
+                        <div class="member-bio">
+                            技術に興味がある方、営業担当として居酒屋やスポンサー対応ができる方、
+                            ポスターやサイネージ制作ができるデザイナーを募集中です。
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 11px; color: #666; text-align: center; margin-top: 15px; border-top: 1px solid #ccc; padding-top: 10px;">
+                    現在5名のコアメンバーで活動中です。<br>
+                    <a href="recruit.html" style="color: #000080; text-decoration: underline;">メンバー募集中！</a> 一緒にプロジェクトを作り上げませんか？
+                </p>
+            </div>
+
+            <!-- 団体の歩み -->
+            <div class="company-history">
+                <h2 style="font-size: 16px; color: #800080; text-decoration: underline; margin-bottom: 15px;">
+                    QURESTの歩み
+                </h2>
+                
+                <ul class="history-timeline">
+                    <li>
+                        <span class="history-date">2025年5月</span> - 
+                        立命館大学OICキャンパスでプロジェクト発足。初期メンバー5名でスタート
+                    </li>
+                    <li>
+                        <span class="history-date">2025年6月</span> - 
+                        プロジェクト企画完了・技術選定開始
+                    </li>
+                    <li>
+                        <span class="history-date">2025年7月</span> - 
+                        開発チーム正式結成。コアメンバー5名で本格始動
+                    </li>
+                    <li>
+                        <span class="history-date">2025年8月</span> - 
+                        Nom!Nom! Web版開発完了・Mobile版開発開始
+                    </li>
+                    <li>
+                        <span class="history-date">2025年10月予定</span> - 
+                        秋学期開始と共にサービス公開予定
+                    </li>
+                    <li>
+                        <span class="history-date">2026年3月予定</span> - 
+                        Mobile版リリース・サービス拡大予定
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 今後の展望 -->
+            <div class="mission-vision">
+                <h3>🚀 今後の展望</h3>
+                <p>
+                    「Nom!Nom!」の成功をベースに、学生向けの様々なサービスを展開していく予定です。
+                    学習支援ツール、サークル活動管理システム、アルバイト情報共有プラットフォームなど、
+                    学生生活のあらゆる側面をサポートするエコシステムの構築を目指しています。
+                </p>
+                <p>
+                    また、他大学との連携も視野に入れており、関西圏から全国へとサービスを拡大し、
+                    最終的には「学生向けサービス」の代名詞となる組織に成長していきたいと考えています。
+                </p>
+            </div>
+
+            <!-- アクションボタン -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="recruit.html" class="btn btn-primary">チームに参加する</a>
+                <a href="projects.html" class="btn">プロジェクト詳細</a>
+                <a href="contact.html" class="btn">お問い合わせ</a>
+                <a href="news.html" class="btn">最新ニュース</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">QUREST</div>
+            <div class="footer-tagline">Creating Digital Experiences</div>
+            <hr>
+            <div class="footer-copyright">© 2025 QUREST. ALL RIGHTS RESERVED.</div>
+            <div style="font-size: 8px; margin-top: 5px;">
+                Last Updated: 2025-08-24 | Best Viewed in Internet Explorer 6.0+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

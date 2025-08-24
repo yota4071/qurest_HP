@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロジェクト - QUREST</title>
+    <style>
+        /* 90年代風レガシーデザイン */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            background: #c0c0c0;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #008080;
+            color: white;
+            padding: 5px 0;
+            border-bottom: 3px outset #008080;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: underline;
+            padding: 2px 8px;
+            font-size: 11px;
+            border: 1px outset #008080;
+            background: #008080;
+        }
+
+        .nav-links a:hover {
+            border: 1px inset #008080;
+            background: #006666;
+        }
+
+        .nav-links a.active {
+            background: #006666;
+            border: 1px inset #008080;
+        }
+
+        /* メインコンテンツ */
+        main {
+            margin: 10px;
+            padding: 20px;
+            border: 3px inset #c0c0c0;
+            background: #e0e0e0;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-tag {
+            display: inline-block;
+            background: #000080;
+            color: white;
+            padding: 3px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* プロジェクト概要 */
+        .project-overview {
+            background: #ffff99;
+            border: 3px double #000000;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project-overview h2 {
+            font-size: 24px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .project-overview .subtitle {
+            font-size: 14px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* プロジェクト詳細 */
+        .project-detail {
+            background: white;
+            border: 2px outset #c0c0c0;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .project-detail h2 {
+            font-size: 16px;
+            color: #800080;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #800080;
+            padding-bottom: 5px;
+        }
+
+        /* プロジェクト進捗表 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-size: 11px;
+        }
+
+        th {
+            background: #c0c0c0;
+            font-weight: bold;
+            color: #000080;
+        }
+
+        .status-completed {
+            background: #90EE90;
+            font-weight: bold;
+        }
+
+        .status-in-progress {
+            background: #FFD700;
+            font-weight: bold;
+        }
+
+        .status-planned {
+            background: #D3D3D3;
+        }
+
+        /* 技術仕様 */
+        .tech-specs {
+            background: white;
+            border: 2px inset #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tech-specs h3 {
+            font-size: 14px;
+            color: #008000;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .tech-list {
+            list-style: none;
+            margin-left: 15px;
+        }
+
+        .tech-list li {
+            margin-bottom: 5px;
+            font-size: 11px;
+        }
+
+        .tech-list li:before {
+            content: "▲ ";
+            color: #000080;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* スケジュール */
+        .schedule-section {
+            background: white;
+            border: 3px groove #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            list-style: none;
+        }
+
+        .timeline li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            font-size: 11px;
+            position: relative;
+        }
+
+        .timeline li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #000080;
+            font-weight: bold;
+        }
+
+        .timeline .completed:before {
+            color: #008000;
+        }
+
+        .timeline .in-progress:before {
+            color: #ff8c00;
+        }
+
+        .timeline .planned:before {
+            color: #808080;
+        }
+
+        /* チーム構成 */
+        .team-section {
+            background: white;
+            border: 2px ridge #c0c0c0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .team-grid {
+            display: block;
+        }
+
+        .team-member {
+            border: 1px solid #000080;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .member-role {
+            font-weight: bold;
+            color: #800080;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .member-count {
+            font-size: 11px;
+            color: #000080;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #c0c0c0;
+            color: black;
+            text-decoration: none;
+            border: 2px outset #c0c0c0;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 11px;
+        }
+
+        .btn:hover {
+            border: 2px inset #c0c0c0;
+        }
+
+        .btn-primary {
+            background: #0000ff;
+            color: white;
+            border: 2px outset #0000ff;
+        }
+
+        .btn-primary:hover {
+            border: 2px inset #0000ff;
+        }
+
+        /* フッター */
+        footer {
+            background: #008080;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border: 3px outset #008080;
+            margin: 10px;
+        }
+
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .footer-tagline {
+            font-size: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* 90年代風エフェクト */
+        .blink {
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #800080;
+            color: white;
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 8s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 5px;
+            }
+            
+            table {
+                font-size: 9px;
+            }
+            
+            .project-overview h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav class="container">
+            <div class="logo">QUREST</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="recruit.html">Recruit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スクロールメッセージ -->
+    <div class="marquee">
+        <span>現在開発中のプロジェクト詳細をご覧ください！参加希望者はお気軽にお問い合わせください。</span>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">Our Projects</span>
+                <h1>プロジェクト詳細</h1>
+                <p style="font-size: 13px; color: #800080;">
+                    QURESTが手がける革新的なプロジェクトの詳細情報
+                </p>
+            </div>
+
+            <!-- メインプロジェクト概要 -->
+            <div class="project-overview">
+                <h2 class="blink">Nom!Nom!</h2>
+                <div class="subtitle">立命館大学OICキャンパス キッチンカー評価プラットフォーム</div>
+                <p style="font-size: 13px; margin-bottom: 10px;">
+                    学生による学生のための、キャンパス内キッチンカー情報共有サービス
+                </p>
+                <p style="font-size: 11px; color: #800000;">
+                    <strong>プロジェクト開始:</strong> 2025年5月 | 
+                    <strong>ベータ版予定:</strong> 2025年10月 | 
+                    <strong>正式リリース:</strong> 2026年3月
+                </p>
+            </div>
+
+            <!-- プロジェクト一覧表 -->
+            <div class="project-detail">
+                <h2>プロジェクト一覧</h2>
+                <table>
+                    <tr>
+                        <th>プロジェクト名</th>
+                        <th>概要</th>
+                        <th>ステータス</th>
+                        <th>進捗率</th>
+                        <th>予定リリース</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Nom!Nom! Web版</strong></td>
+                        <td>メインのWebアプリケーション</td>
+                        <td class="status-in-progress">開発中</td>
+                        <td>95%</td>
+                        <td>2025年10月</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nom!Nom! Mobile App</strong></td>
+                        <td>iOS/Android対応モバイルアプリ</td>
+                        <td class="status-in-progress">開発中</td>
+                        <td>40%</td>
+                        <td>2026年1月</td>
+                    </tr>
+                    <tr>
+                        <td><strong>管理者向けダッシュボード</strong></td>
+                        <td>キッチンカー事業者向け管理画面</td>
+                        <td class="status-planned">計画中</td>
+                        <td>5%</td>
+                        <td>2026年4月</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nom!Nom! 全国展開版</strong></td>
+                        <td>他大学キャンパス対応版</td>
+                        <td class="status-planned">構想中</td>
+                        <td>0%</td>
+                        <td>未定</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 主要機能詳細 -->
+            <div class="project-detail">
+                <h2>Nom!Nom! 主要機能</h2>
+                
+                <h3 style="color: #000080; text-decoration: underline; margin-bottom: 8px; font-size: 13px;">
+                    🍽️ キッチンカー検索・閲覧機能
+                </h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 11px;">
+                    <li>リアルタイムでのキッチンカー位置情報表示</li>
+                    <li>営業時間・メニュー情報の確認</li>
+                    <li>カテゴリ別検索（和食・洋食・スイーツ等）</li>
+                    <li>価格帯・評価による絞り込み検索</li>
+                </ul>
+
+                <h3 style="color: #000080; text-decoration: underline; margin-bottom: 8px; font-size: 13px;">
+                    ⭐ レビュー・評価システム
+                </h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 11px;">
+                    <li>5段階評価による総合評価</li>
+                    <li>味・コスパ・接客の個別評価</li>
+                    <li>写真付きレビューの投稿</li>
+                    <li>学生認証によるレビューの信頼性確保</li>
+                </ul>
+
+                <h3 style="color: #000080; text-decoration: underline; margin-bottom: 8px; font-size: 13px;">
+                    👥 コミュニティ機能
+                </h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 11px;">
+                    <li>お気に入りキッチンカーの登録</li>
+                    <li>新着・営業開始の通知機能</li>
+                    <li>友達とのおすすめ共有機能</li>
+                    <li>学年・学部別のランキング表示</li>
+                </ul>
+
+                <h3 style="color: #000080; text-decoration: underline; margin-bottom: 8px; font-size: 13px;">
+                    📱 モバイル対応（予定）
+                </h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 11px;">
+                    <li>ネイティブアプリでの快適な操作</li>
+                    <li>プッシュ通知によるお知らせ</li>
+                    <li>オフライン閲覧対応</li>
+                    <li>GPS連動による現在地からの検索</li>
+                </ul>
+            </div>
+
+            <!-- 技術仕様 -->
+            <div class="tech-specs">
+                <h3>使用技術・開発環境</h3>
+                
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #800080;">フロントエンド:</strong>
+                    <ul class="tech-list">
+                        <li>React.js 18 + TypeScript</li>
+                        <li>Next.js 14 (App Router)</li>
+                        <li>Tailwind CSS</li>
+                        <li>Framer Motion (アニメーション)</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #800080;">バックエンド・インフラ:</strong>
+                    <ul class="tech-list">
+                        <li>Vercel (Webアプリデプロイ)</li>
+                        <li>Cloudflare (CDN・セキュリティ)</li>
+                        <li>Firebase (認証・データベース)</li>
+                        <li>GitHub Actions (CI/CD)</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #800080;">モバイルアプリ:</strong>
+                    <ul class="tech-list">
+                        <li>Flutter (クロスプラットフォーム開発)</li>
+                        <li>Dart (プログラミング言語)</li>
+                        <li>Firebase Integration</li>
+                        <li>iOS/Android対応</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #800080;">その他・コミュニティ:</strong>
+                    <ul class="tech-list">
+                        <li>Minecraftサーバー運用</li>
+                        <li>Discord (チーム連携)</li>
+                        <li>ゲーム開発・MOD制作</li>
+                        <li>AI活用ツール</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 開発スケジュール -->
+            <div class="schedule-section">
+                <h2 style="font-size: 16px; color: #800080; text-decoration: underline; margin-bottom: 15px;">
+                    開発スケジュール・マイルストーン
+                </h2>
+                
+                <ul class="timeline">
+                    <li class="completed"><strong>2025年5月</strong> - プロジェクト企画・チーム結成</li>
+                    <li class="completed"><strong>2025年6月</strong> - Nom!Nom! Web版開発完了（写真機能以外）</li>
+                    <li class="completed"><strong>2025年7月</strong> - 技術選定・モバイルアプリ開発開始</li>
+                    <li class="in-progress"><strong>2025年8月</strong> - モバイルアプリ開発継続中（Flutter使用）</li>
+                    <li class="in-progress"><strong>2025年9月</strong> - Web版最終調整・写真機能実装中</li>
+                    <li class="planned"><strong>2025年10月</strong> - 秋学期開始と共にサービス公開予定</li>
+                    <li class="planned"><strong>2025年11月</strong> - ユーザーフィードバック収集・改善</li>
+                    <li class="planned"><strong>2025年12月</strong> - モバイルアプリベータ版リリース</li>
+                    <li class="planned"><strong>2026年1月</strong> - モバイルアプリ正式リリース</li>
+                    <li class="planned"><strong>2026年2月</strong> - 機能拡張・他大学展開検討</li>
+                    <li class="planned"><strong>2026年3月</strong> - サービス拡大・次期プロジェクト検討</li>
+                </ul>
+            </div>
+
+            <!-- チーム構成 -->
+            <div class="team-section">
+                <h2 style="font-size: 16px; color: #800080; text-decoration: underline; margin-bottom: 15px;">
+                    プロジェクトチーム構成
+                </h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-role">統合リーダー (Oz)</div>
+                        <div class="member-count">1名 - プロジェクト全体統括・意思決定・チーム調整</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-role">技術面リーダー (Waka)</div>
+                        <div class="member-count">1名 - サーバー/低レイヤー担当・技術的課題解決</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-role">保守運用リーダー (Rei)</div>
+                        <div class="member-count">1名 - システム保守・運用・トラブル対応</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-role">アプリ開発リーダー (Ryo)</div>
+                        <div class="member-count">1名 - Flutter開発・モバイルアプリ担当</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-role">開発メンバー (Masa)</div>
+                        <div class="member-count">1名 - Web・Mobile開発・実装作業</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-role">募集中ポジション</div>
+                        <div class="member-count">営業担当・デザイナー・技術メンバー</div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 11px; color: #666; text-align: center;">
+                    <strong>現在のチーム規模: 6名</strong><br>
+                    引き続きメンバーを募集中！詳細は<a href="recruit.html" style="color: #000080; text-decoration: underline;">採用ページ</a>をご覧ください。
+                </p>
+            </div>
+
+            <!-- 現在の課題・今後の展望 -->
+            <div class="project-detail">
+                <h2>現在の課題と今後の展望</h2>
+                
+                <h3 style="color: #cc0000; text-decoration: underline; margin-bottom: 8px; font-size: 13px;">
+                    現在の主要課題
+                </h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 11px;">
+                    <li>キッチンカー事業者との連携・情報収集の仕組み構築</li>
+                    <li>リアルタイム位置情報更新システムの精度向上</li>
+                    <li>学生認証システムの設計・実装</li>
+                    <li>スケーラブルなインフラ設計</li>
+                </ul>
+
+                <h3 style="color: #008000; text-decoration: underline; margin-bottom: 8px; font-size: 13px;">
+                    今後の展望・拡張計画
+                </h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px; font-size: 11px;">
+                    <li>他大学キャンパスへの横展開</li>
+                    <li>AI による個人化推薦システムの導入</li>
+                    <li>キッチンカー事業者向け分析ダッシュボード</li>
+                    <li>イベント・季節限定メニューの連動機能</li>
+                    <li>予約・事前注文システムの検討</li>
+                </ul>
+            </div>
+
+            <!-- アクションボタン -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="recruit.html" class="btn btn-primary">プロジェクトに参加する</a>
+                <a href="contact.html" class="btn">お問い合わせ・質問</a>
+                <a href="about.html" class="btn">チームについて</a>
+                <a href="news.html" class="btn">最新ニュース</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">QUREST</div>
+            <div class="footer-tagline">Creating Digital Experiences</div>
+            <hr>
+            <div class="footer-copyright">© 2025 QUREST. ALL RIGHTS RESERVED.</div>
+            <div style="font-size: 8px; margin-top: 5px;">
+                Last Updated: 2025-08-24 | Best Viewed in Internet Explorer 6.0+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
