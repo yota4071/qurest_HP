@@ -4,32 +4,46 @@ import Link from 'next/link';
 
 const positions = [
   {
-    title: 'Frontend Developer',
-    subtitle: 'フロントエンド開発者',
-    description: 'React/Next.jsを使用したWebアプリケーション開発',
-    requirements: ['React/Next.jsの基礎知識', 'TypeScriptの理解', 'レスポンシブデザインへの理解', '学習意欲とチームワーク'],
-    benefits: ['実践的な開発経験', 'ポートフォリオ作成支援', '技術メンタリング', 'ガクチカとしての経験']
+    title: 'Technical Member',
+    subtitle: 'エンジニア・技術メンバー',
+    description: '技術やプログラミングに興味があり、学習意欲のある方を歓迎します',
+    requirements: [
+      '技術・プログラミングへの強い興味と学習意欲',
+      '一から学ぶ大変さを「好き」で乗り越えられる方',
+      '自分から積極的に学習する姿勢',
+      'AI活用スキル（ChatGPT、GitHub Copilotなど）も歓迎'
+    ],
+    benefits: ['実践的な技術経験', '先輩メンバーによるサポート', '最新技術への触れ合い', '個人の学習スタイルに応じた指導'],
+    note: '情報理工学部でなくても、数学が苦手でも、文系でも問題ありません！好きで耐えられる気持ちが一番大切です。',
+    count: '募集人数：1〜2名'
   },
   {
-    title: 'Backend Developer',
-    subtitle: 'バックエンド開発者', 
-    description: 'API設計・開発とデータベース設計',
-    requirements: ['Node.js/TypeScriptの基礎知識', 'データベースの基本理解', 'RESTful APIの理解', 'コードレビューへの積極性'],
-    benefits: ['サーバーサイド開発経験', 'データベース設計スキル', 'セキュリティに関する知識', 'システム設計の経験']
+    title: 'Business Development',
+    subtitle: '営業・ビジネス開発',
+    description: '周辺の居酒屋やスポンサーとの窓口となり、ビジネス関係を構築していただきます',
+    requirements: [
+      'コミュニケーション能力',
+      '営業・交渉への興味',
+      'ビジネス感覚',
+      '地域のお店との関係構築に意欲がある方'
+    ],
+    benefits: ['実際のビジネス交渉経験', 'ネットワーキングスキル', '営業スキルの向上', '地域ビジネスへの理解'],
+    note: '大学周辺の居酒屋やお店とのパートナーシップを築く、重要な役割です。',
+    count: '募集人数：1〜2名'
   },
   {
-    title: 'UI/UX Designer',
-    subtitle: 'UI/UXデザイナー',
-    description: 'ユーザーインターフェースとユーザー体験の設計',
-    requirements: ['デザインツール（Figma等）の使用経験', 'ユーザー中心設計への理解', 'プロトタイピング経験', 'フィードバックを活かす姿勢'],
-    benefits: ['デザインシステム構築経験', 'ユーザーリサーチスキル', 'プロダクトデザインの実践', '実際のユーザーからのフィードバック']
-  },
-  {
-    title: 'Project Manager',
-    subtitle: 'プロジェクトマネージャー',
-    description: 'プロジェクト全体の進行管理と品質保証',
-    requirements: ['プロジェクト管理への興味', 'コミュニケーション能力', '課題解決思考', 'リーダーシップ経験'],
-    benefits: ['プロジェクト管理手法の習得', 'チームマネジメント経験', 'ステークホルダー調整スキル', 'ビジネススキル向上']
+    title: 'Visual Designer',
+    subtitle: 'デザイナー',
+    description: 'ポスター、サイネージ、アプリUIなどのデザイン制作をお任せします',
+    requirements: [
+      'デザインツール（Figma、Photoshop、Illustratorなど）の使用経験',
+      'ビジュアルデザインへの興味',
+      'ブランディングやUI/UX設計への理解',
+      'フィードバックを受け入れ改善する姿勢'
+    ],
+    benefits: ['実際のプロダクトデザイン経験', 'ブランド構築への参加', 'ポートフォリオ作成', 'デザイン思考の実践'],
+    note: '私たちはデザインの知識が全くないので、デザインの力でプロジェクトを支えてください！',
+    count: '募集人数：1〜2名'
   }
 ];
 
@@ -53,27 +67,110 @@ export default function RecruitPage() {
         {/* Why Join Us */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-8 text-gray-800">なぜQURESTで働くのか</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-white rounded-lg border">
-              <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
-                🚀
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/535558/pencil.svg" alt="ガクチカ" className="w-8 h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">実際のプロダクト開発</h3>
-              <p className="text-sm text-gray-600">理論だけでなく、実際にユーザーが使用するプロダクトの開発に携わることができます</p>
+              <h3 className="text-lg font-bold mb-3 text-gray-800">ガクチカに最強</h3>
+              <p className="text-sm text-gray-600">
+                <strong>「0から1を創る」経験</strong>で就活無双！実際のユーザーを持つサービスを企画〜開発〜運用まで担当できます
+              </p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg border">
-              <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
-                👥
+            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" className="w-8 h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">チーム開発経験</h3>
-              <p className="text-sm text-gray-600">Git、コードレビュー、アジャイル開発など、実務で必要なチーム開発スキルを習得できます</p>
+              <h3 className="text-lg font-bold mb-3 text-gray-800">あなたの意見が形になる</h3>
+              <p className="text-sm text-gray-600">
+                始まったばかりのチームだからこそ、<strong>一人ひとりの提案が製品に直結</strong>。大きな裁量権を持って主体的に活動できます
+              </p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg border">
-              <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl">
-                📈
+            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/498972/people.svg" alt="チーム" className="w-8 h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">成長機会</h3>
-              <p className="text-sm text-gray-600">技術的な成長だけでなく、ビジネス感覚やプロダクト思考も身に付けることができます</p>
+              <h3 className="text-lg font-bold mb-3 text-gray-800">フラットな組織</h3>
+              <p className="text-sm text-gray-600">
+                年次や経験に関係なく、<strong>全員の意見を平等に尊重</strong>。あなたのアイデアがプロジェクトの方向性を決めることも
+              </p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/510170/rocket.svg" alt="成長" className="w-8 h-8 filter brightness-0 invert" />
+              </div>
+              <h3 className="text-lg font-bold mb-3 text-gray-800">リーダーシップ経験</h3>
+              <p className="text-sm text-gray-600">
+                各自が責任を持って領域をリード。<strong>「この機能は〇〇さんが作った」</strong>と言える、オーナーシップ溢れる経験を積めます
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Gakuchika Benefits */}
+        <div className="mb-16 bg-gradient-to-r from-yellow-50 to-orange-50 p-8 rounded-lg border-2 border-orange-200">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <img src="https://www.svgrepo.com/show/510288/trophy.svg" alt="トロフィー" className="w-8 h-8" />
+              <h3 className="text-2xl font-bold text-orange-800">ガクチカ（学生時代に力を入れたこと）として最強な理由</h3>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <img src="https://www.svgrepo.com/show/483421/business-bag-that-can-be-used-for.svg" alt="ビジネス" className="w-5 h-5" />
+                <h4 className="text-lg font-bold text-gray-800">就活で差がつくポイント</h4>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 font-bold">✓</span>
+                  <span><strong>課題発見力：</strong>「大学生の昼食問題」を発見・定義した経験</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 font-bold">✓</span>
+                  <span><strong>企画力：</strong>0からサービスを企画・設計した経験</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 font-bold">✓</span>
+                  <span><strong>実行力：</strong>技術・営業・デザインを組み合わせて実現</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 font-bold">✓</span>
+                  <span><strong>リーダーシップ：</strong>チームを牽引し、結果を出した経験</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="グラフ" className="w-5 h-5" />
+                <h4 className="text-lg font-bold text-gray-800">具体的な成果・数字</h4>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="成長" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <span>「月間○○人のユーザーが利用するサービスを開発」</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <img src="https://www.svgrepo.com/show/520850/money-bag.svg" alt="収益" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <span>「○店舗との提携を実現し、売上○○万円に貢献」</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <img src="https://www.svgrepo.com/show/509956/gear.svg" alt="機能" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <span>「○○の機能開発を担当し、UX改善を実現」</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <img src="https://www.svgrepo.com/show/521876/target.svg" alt="目標" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <span>「チームをまとめ、○ヶ月でMVPをリリース」</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-6 p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded">
+            <div className="flex items-center justify-center gap-2">
+              <img src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" className="w-5 h-5" />
+              <p className="text-yellow-800 font-medium text-center">
+                面接官に「どんなことをしたんですか？」と前のめりで聞かれる、そんなガクチカが作れます！
+              </p>
             </div>
           </div>
         </div>
@@ -101,6 +198,18 @@ export default function RecruitPage() {
                         ))}
                       </ul>
                     </div>
+
+                    {position.note && (
+                      <div className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                        <p className="text-sm text-yellow-800 font-medium">💡 {position.note}</p>
+                      </div>
+                    )}
+                    
+                    {position.count && (
+                      <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded">
+                        <p className="text-sm text-blue-800 font-semibold">{position.count}</p>
+                      </div>
+                    )}
                   </div>
                   
                   <div>
@@ -154,18 +263,36 @@ export default function RecruitPage() {
           </div>
         </div>
 
+        {/* Important Notice */}
+        <div className="mb-12 p-8 bg-red-50 border border-red-200 rounded-lg">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-red-800 mb-4">⚠️ 重要事項</h3>
+            <div className="bg-white p-6 rounded-lg border-2 border-red-300">
+              <p className="text-lg text-red-700 font-semibold">
+                現時点では<span className="underline">給料の支給はありません</span>。
+              </p>
+              <p className="text-sm text-red-600 mt-2">
+                プロジェクトの成長に応じて、将来的な報酬体系の見直しを検討いたします。
+              </p>
+            </div>
+            <p className="text-gray-700 mt-4">
+              それでも一緒にプロダクトを作り上げていきたい、熱意のある方をお待ちしています！
+            </p>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white p-12 rounded-lg">
           <h2 className="text-3xl font-bold mb-6">今すぐ応募する</h2>
           <p className="text-lg mb-8 max-w-3xl mx-auto">
-            Nom!Nom!プロジェクトで、あなたの技術力とアイデアを活かしませんか？<br />
+            Nom!Nom!プロジェクトで、あなたの情熱とスキルを活かしませんか？<br />
             一緒に学生生活をより良くするサービスを作りましょう
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href="/contact" className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
               採用に関するお問い合わせ
             </Link>
-            <a href="mailto:recruit@qurest.com" className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
+            <a href="mailto:sales@qurest.tech?subject=【採用応募】&body=お名前：%0A学年：%0A学部：%0A希望職種：%0A自己紹介・志望理由：%0A%0A" className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
               直接メール
             </a>
           </div>
