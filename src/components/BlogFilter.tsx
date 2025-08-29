@@ -136,7 +136,7 @@ export default function BlogFilter({ categories, tags, posts }: BlogFilterProps)
             )}
             {searchQuery && (
               <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs">
-                "{searchQuery}"
+&ldquo;{searchQuery}&rdquo;
                 <button onClick={() => setSearchQuery('')} className="hover:text-gray-600">
                   ×
                 </button>

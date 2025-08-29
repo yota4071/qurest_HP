@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 const positions = [
   {
@@ -71,7 +72,7 @@ export default function RecruitPage() {
             <div className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-6 min-w-max lg:min-w-0">
             <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
               <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/535558/pencil.svg" alt="ガクチカ" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
+                <Image src="https://www.svgrepo.com/show/535558/pencil.svg" alt="ガクチカ" width={32} height={32} className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
               <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">ガクチカに最強</h3>
               <p className="text-xs lg:text-sm text-gray-600">
@@ -80,7 +81,7 @@ export default function RecruitPage() {
             </div>
             <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
               <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
+                <Image src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" width={32} height={32} className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
               <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">あなたの意見が形になる</h3>
               <p className="text-xs lg:text-sm text-gray-600">
@@ -89,7 +90,7 @@ export default function RecruitPage() {
             </div>
             <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
               <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/498972/people.svg" alt="チーム" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
+                <Image src="https://www.svgrepo.com/show/498972/people.svg" alt="チーム" width={32} height={32} className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
               <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">フラットな組織</h3>
               <p className="text-xs lg:text-sm text-gray-600">
@@ -98,7 +99,7 @@ export default function RecruitPage() {
             </div>
             <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
               <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/510170/rocket.svg" alt="成長" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
+                <Image src="https://www.svgrepo.com/show/510170/rocket.svg" alt="成長" width={32} height={32} className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
               <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">リーダーシップ経験</h3>
               <p className="text-xs lg:text-sm text-gray-600">
@@ -113,14 +114,14 @@ export default function RecruitPage() {
         <div className="mb-12 lg:mb-16 bg-gradient-to-r from-yellow-50 to-orange-50 p-4 lg:p-8 rounded-lg border-2 border-orange-200">
           <div className="text-center mb-6 lg:mb-8">
             <div className="flex items-center justify-center gap-2 lg:gap-3 mb-4">
-              <img src="https://www.svgrepo.com/show/510288/trophy.svg" alt="トロフィー" className="w-6 h-6 lg:w-8 lg:h-8" />
+              <Image src="https://www.svgrepo.com/show/510288/trophy.svg" alt="トロフィー" width={32} height={32} className="w-6 h-6 lg:w-8 lg:h-8" />
               <h3 className="text-lg lg:text-2xl font-bold text-orange-800">ガクチカとして最強な理由</h3>
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
             <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
               <div className="flex items-center gap-2 mb-3">
-                <img src="https://www.svgrepo.com/show/483421/business-bag-that-can-be-used-for.svg" alt="ビジネス" className="w-4 h-4 lg:w-5 lg:h-5" />
+                <Image src="https://www.svgrepo.com/show/483421/business-bag-that-can-be-used-for.svg" alt="ビジネス" width={20} height={20} className="w-4 h-4 lg:w-5 lg:h-5" />
                 <h4 className="text-base lg:text-lg font-bold text-gray-800">就活で差がつくポイント</h4>
               </div>
               <ul className="space-y-2 text-xs lg:text-sm text-gray-700">
@@ -144,24 +145,24 @@ export default function RecruitPage() {
             </div>
             <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
               <div className="flex items-center gap-2 mb-3">
-                <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="グラフ" className="w-4 h-4 lg:w-5 lg:h-5" />
+                <Image src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="グラフ" width={20} height={20} className="w-4 h-4 lg:w-5 lg:h-5" />
                 <h4 className="text-base lg:text-lg font-bold text-gray-800">具体的な成果・数字</h4>
               </div>
               <ul className="space-y-2 text-xs lg:text-sm text-gray-700">
                 <li className="flex items-start gap-2">
-                  <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="成長" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <Image src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="成長" width={16} height={16} className="w-4 h-4 mt-0.5 text-blue-500" />
                   <span>「月間○○人のユーザーが利用するサービスを開発」</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <img src="https://www.svgrepo.com/show/520850/money-bag.svg" alt="収益" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <Image src="https://www.svgrepo.com/show/520850/money-bag.svg" alt="収益" width={16} height={16} className="w-4 h-4 mt-0.5 text-blue-500" />
                   <span>「○店舗との提携を実現し、売上○○万円に貢献」</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <img src="https://www.svgrepo.com/show/509956/gear.svg" alt="機能" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <Image src="https://www.svgrepo.com/show/509956/gear.svg" alt="機能" width={16} height={16} className="w-4 h-4 mt-0.5 text-blue-500" />
                   <span>「○○の機能開発を担当し、UX改善を実現」</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <img src="https://www.svgrepo.com/show/521876/target.svg" alt="目標" className="w-4 h-4 mt-0.5 text-blue-500" />
+                  <Image src="https://www.svgrepo.com/show/521876/target.svg" alt="目標" width={16} height={16} className="w-4 h-4 mt-0.5 text-blue-500" />
                   <span>「チームをまとめ、○ヶ月でMVPをリリース」</span>
                 </li>
               </ul>
@@ -169,7 +170,7 @@ export default function RecruitPage() {
           </div>
           <div className="mt-6 p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded">
             <div className="flex items-center justify-center gap-2">
-              <img src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" className="w-5 h-5" />
+              <Image src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" width={20} height={20} className="w-5 h-5" />
               <p className="text-yellow-800 font-medium text-center">
                 面接官に「どんなことをしたんですか？」と前のめりで聞かれる、そんなガクチカが作れます！
               </p>
