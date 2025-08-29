@@ -65,63 +65,65 @@ export default function RecruitPage() {
 
       <div className="max-w-6xl mx-auto px-6 py-16">
         {/* Why Join Us */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-gray-800">なぜQURESTで働くのか</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/535558/pencil.svg" alt="ガクチカ" className="w-8 h-8 filter brightness-0 invert" />
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-2xl lg:text-3xl font-bold mb-6 lg:mb-8 text-gray-800">なぜQURESTで働くのか</h2>
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-6 min-w-max lg:min-w-0">
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/535558/pencil.svg" alt="ガクチカ" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">ガクチカに最強</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">ガクチカに最強</h3>
+              <p className="text-xs lg:text-sm text-gray-600">
                 <strong>「0から1を創る」経験</strong>で就活無双！実際のユーザーを持つサービスを企画〜開発〜運用まで担当できます
               </p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" className="w-8 h-8 filter brightness-0 invert" />
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/483596/idea-man-person.svg" alt="アイデア" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">あなたの意見が形になる</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">あなたの意見が形になる</h3>
+              <p className="text-xs lg:text-sm text-gray-600">
                 始まったばかりのチームだからこそ、<strong>一人ひとりの提案が製品に直結</strong>。大きな裁量権を持って主体的に活動できます
               </p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/498972/people.svg" alt="チーム" className="w-8 h-8 filter brightness-0 invert" />
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/498972/people.svg" alt="チーム" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">フラットな組織</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">フラットな組織</h3>
+              <p className="text-xs lg:text-sm text-gray-600">
                 年次や経験に関係なく、<strong>全員の意見を平等に尊重</strong>。あなたのアイデアがプロジェクトの方向性を決めることも
               </p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <img src="https://www.svgrepo.com/show/510170/rocket.svg" alt="成長" className="w-8 h-8 filter brightness-0 invert" />
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg border shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center">
+                <img src="https://www.svgrepo.com/show/510170/rocket.svg" alt="成長" className="w-6 h-6 lg:w-8 lg:h-8 filter brightness-0 invert" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-gray-800">リーダーシップ経験</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="text-base lg:text-lg font-bold mb-2 lg:mb-3 text-gray-800">リーダーシップ経験</h3>
+              <p className="text-xs lg:text-sm text-gray-600">
                 各自が責任を持って領域をリード。<strong>「この機能は〇〇さんが作った」</strong>と言える、オーナーシップ溢れる経験を積めます
               </p>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Gakuchika Benefits */}
-        <div className="mb-16 bg-gradient-to-r from-yellow-50 to-orange-50 p-8 rounded-lg border-2 border-orange-200">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <img src="https://www.svgrepo.com/show/510288/trophy.svg" alt="トロフィー" className="w-8 h-8" />
-              <h3 className="text-2xl font-bold text-orange-800">ガクチカ（学生時代に力を入れたこと）として最強な理由</h3>
+        <div className="mb-12 lg:mb-16 bg-gradient-to-r from-yellow-50 to-orange-50 p-4 lg:p-8 rounded-lg border-2 border-orange-200">
+          <div className="text-center mb-6 lg:mb-8">
+            <div className="flex items-center justify-center gap-2 lg:gap-3 mb-4">
+              <img src="https://www.svgrepo.com/show/510288/trophy.svg" alt="トロフィー" className="w-6 h-6 lg:w-8 lg:h-8" />
+              <h3 className="text-lg lg:text-2xl font-bold text-orange-800">ガクチカとして最強な理由</h3>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
               <div className="flex items-center gap-2 mb-3">
-                <img src="https://www.svgrepo.com/show/483421/business-bag-that-can-be-used-for.svg" alt="ビジネス" className="w-5 h-5" />
-                <h4 className="text-lg font-bold text-gray-800">就活で差がつくポイント</h4>
+                <img src="https://www.svgrepo.com/show/483421/business-bag-that-can-be-used-for.svg" alt="ビジネス" className="w-4 h-4 lg:w-5 lg:h-5" />
+                <h4 className="text-base lg:text-lg font-bold text-gray-800">就活で差がつくポイント</h4>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-xs lg:text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 font-bold">✓</span>
                   <span><strong>課題発見力：</strong>「大学生の昼食問題」を発見・定義した経験</span>
@@ -140,12 +142,12 @@ export default function RecruitPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm">
               <div className="flex items-center gap-2 mb-3">
-                <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="グラフ" className="w-5 h-5" />
-                <h4 className="text-lg font-bold text-gray-800">具体的な成果・数字</h4>
+                <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="グラフ" className="w-4 h-4 lg:w-5 lg:h-5" />
+                <h4 className="text-base lg:text-lg font-bold text-gray-800">具体的な成果・数字</h4>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-xs lg:text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <img src="https://www.svgrepo.com/show/520756/graph-up.svg" alt="成長" className="w-4 h-4 mt-0.5 text-blue-500" />
                   <span>「月間○○人のユーザーが利用するサービスを開発」</span>
@@ -176,23 +178,23 @@ export default function RecruitPage() {
         </div>
 
         {/* Positions */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">募集職種</h2>
-          <div className="space-y-8">
+        <div className="mb-12 lg:mb-16">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8 lg:mb-12 text-gray-800">募集職種</h2>
+          <div className="space-y-6 lg:space-y-8">
             {positions.map((position, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 border shadow-sm">
-                <div className="grid lg:grid-cols-3 gap-8">
+              <div key={index} className="bg-white rounded-lg p-4 lg:p-8 border shadow-sm">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
                   <div className="lg:col-span-2">
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">{position.title}</h3>
-                    <p className="text-gray-600 text-lg mb-4">{position.subtitle}</p>
-                    <p className="text-gray-700 mb-6">{position.description}</p>
+                    <h3 className="text-xl lg:text-2xl font-bold mb-2 text-gray-800">{position.title}</h3>
+                    <p className="text-gray-600 text-base lg:text-lg mb-4">{position.subtitle}</p>
+                    <p className="text-gray-700 mb-4 lg:mb-6 text-sm lg:text-base">{position.description}</p>
                     
-                    <div className="mb-6">
-                      <h4 className="text-lg font-bold text-gray-800 mb-3">求める人物像</h4>
+                    <div className="mb-4 lg:mb-6">
+                      <h4 className="text-base lg:text-lg font-bold text-gray-800 mb-2 lg:mb-3">求める人物像</h4>
                       <ul className="space-y-2">
                         {position.requirements.map((req, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-gray-700">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                          <li key={idx} className="flex items-start gap-2 text-sm lg:text-base text-gray-700">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                             {req}
                           </li>
                         ))}
@@ -200,24 +202,24 @@ export default function RecruitPage() {
                     </div>
 
                     {position.note && (
-                      <div className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
-                        <p className="text-sm text-yellow-800 font-medium">💡 {position.note}</p>
+                      <div className="mb-4 lg:mb-6 p-3 lg:p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                        <p className="text-xs lg:text-sm text-yellow-800 font-medium">💡 {position.note}</p>
                       </div>
                     )}
                     
                     {position.count && (
-                      <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded">
-                        <p className="text-sm text-blue-800 font-semibold">{position.count}</p>
+                      <div className="mb-4 lg:mb-6 p-2 lg:p-3 bg-blue-50 border border-blue-200 rounded">
+                        <p className="text-xs lg:text-sm text-blue-800 font-semibold">{position.count}</p>
                       </div>
                     )}
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-4">得られる経験</h4>
-                    <div className="space-y-3">
+                    <h4 className="text-base lg:text-lg font-bold text-gray-800 mb-3 lg:mb-4">得られる経験</h4>
+                    <div className="space-y-2 lg:space-y-3">
                       {position.benefits.map((benefit, idx) => (
-                        <div key={idx} className="p-3 bg-blue-50 rounded border-l-4 border-blue-500">
-                          <span className="text-sm text-gray-700">{benefit}</span>
+                        <div key={idx} className="p-2 lg:p-3 bg-blue-50 rounded border-l-4 border-blue-500">
+                          <span className="text-xs lg:text-sm text-gray-700">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -229,70 +231,72 @@ export default function RecruitPage() {
         </div>
 
         {/* Application Process */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">応募の流れ</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">
+        <div className="mb-12 lg:mb-16">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8 lg:mb-12 text-gray-800">応募の流れ</h2>
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 min-w-max lg:min-w-0">
+            <div className="text-center flex-shrink-0 w-48 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-500 text-white rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center font-bold text-base lg:text-lg">
                 1
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">エントリー</h3>
-              <p className="text-sm text-gray-600">下記フォームまたはメールからご応募ください</p>
+              <h3 className="text-sm lg:text-lg font-bold mb-2 text-gray-800">エントリー</h3>
+              <p className="text-xs lg:text-sm text-gray-600">下記フォームまたはメールからご応募ください</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">
+            <div className="text-center flex-shrink-0 w-48 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-500 text-white rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center font-bold text-base lg:text-lg">
                 2
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">カジュアル面談</h3>
-              <p className="text-sm text-gray-600">プロジェクトや志望動機についてお話しします</p>
+              <h3 className="text-sm lg:text-lg font-bold mb-2 text-gray-800">カジュアル面談</h3>
+              <p className="text-xs lg:text-sm text-gray-600">プロジェクトや志望動機についてお話しします</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">
+            <div className="text-center flex-shrink-0 w-48 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-500 text-white rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center font-bold text-base lg:text-lg">
                 3
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">技術面談</h3>
-              <p className="text-sm text-gray-600">技術レベルの確認と今後の学習プランを相談</p>
+              <h3 className="text-sm lg:text-lg font-bold mb-2 text-gray-800">技術面談</h3>
+              <p className="text-xs lg:text-sm text-gray-600">技術レベルの確認と今後の学習プランを相談</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg">
+            <div className="text-center flex-shrink-0 w-48 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-500 text-white rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center font-bold text-base lg:text-lg">
                 4
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800">参加決定</h3>
-              <p className="text-sm text-gray-600">プロジェクトへの参加とオンボーディング</p>
+              <h3 className="text-sm lg:text-lg font-bold mb-2 text-gray-800">参加決定</h3>
+              <p className="text-xs lg:text-sm text-gray-600">プロジェクトへの参加とオンボーディング</p>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Important Notice */}
-        <div className="mb-12 p-8 bg-red-50 border border-red-200 rounded-lg">
+        <div className="mb-12 p-4 lg:p-8 bg-red-50 border border-red-200 rounded-lg">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-red-800 mb-4">⚠️ 重要事項</h3>
-            <div className="bg-white p-6 rounded-lg border-2 border-red-300">
-              <p className="text-lg text-red-700 font-semibold">
+            <h3 className="text-xl lg:text-2xl font-bold text-red-800 mb-4">⚠️ 重要事項</h3>
+            <div className="bg-white p-4 lg:p-6 rounded-lg border-2 border-red-300">
+              <p className="text-base lg:text-lg text-red-700 font-semibold">
                 現時点では<span className="underline">給料の支給はありません</span>。
               </p>
-              <p className="text-sm text-red-600 mt-2">
+              <p className="text-xs lg:text-sm text-red-600 mt-2">
                 プロジェクトの成長に応じて、将来的な報酬体系の見直しを検討いたします。
               </p>
             </div>
-            <p className="text-gray-700 mt-4">
+            <p className="text-sm lg:text-base text-gray-700 mt-4">
               それでも一緒にプロダクトを作り上げていきたい、熱意のある方をお待ちしています！
             </p>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white p-12 rounded-lg">
-          <h2 className="text-3xl font-bold mb-6">今すぐ応募する</h2>
-          <p className="text-lg mb-8 max-w-3xl mx-auto">
+        <div className="text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 lg:p-12 rounded-lg">
+          <h2 className="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6">今すぐ応募する</h2>
+          <p className="text-base lg:text-lg mb-6 lg:mb-8 max-w-3xl mx-auto">
             Nom!Nom!プロジェクトで、あなたの情熱とスキルを活かしませんか？<br />
             一緒に学生生活をより良くするサービスを作りましょう
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/contact" className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
+          <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
+            <Link href="/contact" className="bg-red-500 hover:bg-red-600 text-white px-6 lg:px-8 py-2 lg:py-3 rounded font-bold uppercase transition-colors text-sm lg:text-base">
               採用に関するお問い合わせ
             </Link>
-            <a href="mailto:sales@qurest.tech?subject=【採用応募】&body=お名前：%0A学年：%0A学部：%0A希望職種：%0A自己紹介・志望理由：%0A%0A" className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
+            <a href="mailto:sales@qurest.tech?subject=【採用応募】&body=お名前：%0A学年：%0A学部：%0A希望職種：%0A自己紹介・志望理由：%0A%0A" className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white px-6 lg:px-8 py-2 lg:py-3 rounded font-bold uppercase transition-colors text-sm lg:text-base">
               直接メール
             </a>
           </div>

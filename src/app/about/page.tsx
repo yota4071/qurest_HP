@@ -10,68 +10,70 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       {/* Hero Section */}
-      <section className="bg-white py-20 border-b">
+      <section className="bg-white py-12 lg:py-20 border-b">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h1 className="text-4xl font-bold mb-6 text-gray-800">私たちについて</h1>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-2xl lg:text-4xl font-bold mb-4 lg:mb-6 text-gray-800">私たちについて</h1>
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4 lg:mb-6"></div>
+          <p className="text-sm lg:text-lg text-gray-600 max-w-3xl mx-auto">
             学生の、学生による、学生のためのサービスを目指して
           </p>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-6 py-12 lg:py-16">
         {/* Main Message */}
-        <div className="text-center mb-16">
-          <div className="max-w-4xl mx-auto bg-gray-50 rounded-lg p-8">
-            <p className="text-lg leading-relaxed mb-6 text-gray-700">
+        <div className="text-center mb-12 lg:mb-16">
+          <div className="max-w-4xl mx-auto bg-gray-50 rounded-lg p-6 lg:p-8">
+            <p className="text-sm lg:text-lg leading-relaxed mb-4 lg:mb-6 text-gray-700">
               私たちQURESTは、学生生活をより便利で楽しいものにするためのサービス開発に取り組んでいます。
               現在開発中の「<NomNomText />」は、キャンパス内のキッチンカー情報を学生同士で共有できるプラットフォームです。
             </p>
-            <p className="text-blue-600 font-medium text-lg">
+            <p className="text-blue-600 font-medium text-base lg:text-lg">
               学生の、学生による、学生のためのサービスを目指して。
             </p>
           </div>
         </div>
 
         {/* Project Values */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">私たちの価値観</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
-                <StudentIcon className="w-8 h-8" />
+        <div className="mb-12 lg:mb-16">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8 lg:mb-12 text-gray-800">私たちの価値観</h2>
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 min-w-max lg:min-w-0">
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center text-white">
+                <StudentIcon className="w-6 h-6 lg:w-8 lg:h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-800">Student First</h3>
-              <p className="text-gray-600 leading-relaxed">学生のニーズと課題を最優先に考え、真に役立つソリューションを提供します</p>
+              <h3 className="text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-gray-800">Student First</h3>
+              <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">学生のニーズと課題を最優先に考え、真に役立つソリューションを提供します</p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
-                <TeamIcon className="w-8 h-8" />
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center text-white">
+                <TeamIcon className="w-6 h-6 lg:w-8 lg:h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-800">Community</h3>
-              <p className="text-gray-600 leading-relaxed">キャンパス内でのつながりを大切にし、学生同士の交流を促進します</p>
+              <h3 className="text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-gray-800">Community</h3>
+              <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">キャンパス内でのつながりを大切にし、学生同士の交流を促進します</p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
-                <InnovationIcon className="w-8 h-8" />
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center text-white">
+                <InnovationIcon className="w-6 h-6 lg:w-8 lg:h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-800">Innovation</h3>
-              <p className="text-gray-600 leading-relaxed">新しい技術と創造性で、学生生活をより豊かにする体験を創造します</p>
+              <h3 className="text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-gray-800">Innovation</h3>
+              <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">新しい技術と創造性で、学生生活をより豊かにする体験を創造します</p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
-                <GrowthIcon className="w-8 h-8" />
+            <div className="text-center p-4 lg:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-64 lg:w-auto">
+              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center text-white">
+                <GrowthIcon className="w-6 h-6 lg:w-8 lg:h-8" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-800">Growth</h3>
-              <p className="text-gray-600 leading-relaxed">プロジェクトを通じて学生としてもエンジニアとしても成長し続けます</p>
+              <h3 className="text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-gray-800">Growth</h3>
+              <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">プロジェクトを通じて学生としてもエンジニアとしても成長し続けます</p>
+            </div>
             </div>
           </div>
         </div>
 
         {/* Project History */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">プロジェクトの歩み</h2>
+        <div className="mb-12 lg:mb-16">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center mb-8 lg:mb-12 text-gray-800">プロジェクトの歩み</h2>
           <div className="space-y-8">
             <div className="bg-white p-6 rounded-lg border-l-4 border-blue-500">
               <div className="font-bold text-blue-600 mb-2">2024年秋</div>

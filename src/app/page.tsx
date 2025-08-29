@@ -75,18 +75,18 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       {/* Hero Section */}
-      <section className="bg-white py-20 border-b">
+      <section className="bg-white py-12 lg:py-20 border-b">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="flex items-center justify-center mb-6">
-            <QurestLogo className="w-12 h-12 text-gray-800 mr-4" />
-            <h1 className="text-4xl font-bold text-gray-800">QUREST</h1>
+            <QurestLogo className="w-8 h-8 lg:w-12 lg:h-12 text-gray-800 mr-2 lg:mr-4" />
+            <h1 className="text-2xl lg:text-4xl font-bold text-gray-800">QUREST</h1>
           </div>
-          <p className="text-lg mb-8 text-gray-600 max-w-3xl mx-auto">立命館大学OICキャンパスのキッチンカー評価プラットフォーム「<NomNomText className="text-xl" />」を開発中</p>
-          <div className="flex gap-4 justify-center">
-            <Link href="#projects" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded transition-colors">
+          <p className="text-sm lg:text-lg mb-6 lg:mb-8 text-gray-600 max-w-3xl mx-auto">立命館大学OICキャンパスのキッチンカー評価プラットフォーム「<NomNomText className="text-base lg:text-xl" />」を開発中</p>
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
+            <Link href="#projects" className="bg-blue-600 hover:bg-blue-700 text-white px-6 lg:px-8 py-2 lg:py-3 rounded transition-colors text-sm lg:text-base">
               プロジェクトを見る
             </Link>
-            <Link href="#contact" className="border-2 border-blue-600 hover:bg-blue-600 hover:text-white text-blue-600 px-8 py-3 rounded transition-colors">
+            <Link href="#contact" className="border-2 border-blue-600 hover:bg-blue-600 hover:text-white text-blue-600 px-6 lg:px-8 py-2 lg:py-3 rounded transition-colors text-sm lg:text-base">
               お問い合わせ
             </Link>
           </div>
@@ -94,38 +94,40 @@ export default function Home() {
       </section>
 
       {/* News Section */}
-      <section id="news" className="py-16 bg-gray-50">
+      <section id="news" className="py-12 lg:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">最新情報</h2>
-            <p className="text-gray-600">最新のプロジェクト情報をお届けします</p>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">最新情報</h2>
+            <p className="text-sm lg:text-base text-gray-600">最新のプロジェクト情報をお届けします</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 min-w-max lg:min-w-0">
             {news.map((item, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-blue-600 text-sm mb-2 font-medium">{item.date}</div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.content}</p>
+              <div key={index} className="bg-white rounded-lg p-4 lg:p-6 shadow-sm hover:shadow-md transition-shadow flex-shrink-0 w-80 lg:w-auto">
+                <div className="text-blue-600 text-xs lg:text-sm mb-2 font-medium">{item.date}</div>
+                <h3 className="text-lg lg:text-xl font-semibold mb-3 text-gray-800">{item.title}</h3>
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed">{item.content}</p>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-white">
+      <section id="about" className="py-12 lg:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">私たちについて</h2>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">私たちについて</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
           </div>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-50 rounded-lg p-8">
-              <p className="text-lg leading-relaxed mb-6 text-gray-700 text-center">
+            <div className="bg-gray-50 rounded-lg p-6 lg:p-8">
+              <p className="text-sm lg:text-lg leading-relaxed mb-4 lg:mb-6 text-gray-700 text-center">
                 私たちQURESTは、学生生活をより便利で楽しいものにするためのサービス開発に取り組んでいます。
                 現在開発中の「<NomNomText />」は、キャンパス内のキッチンカー情報を学生同士で共有できるプラットフォームです。
               </p>
-              <p className="text-center text-blue-600 font-medium text-lg">
+              <p className="text-center text-blue-600 font-medium text-base lg:text-lg">
                 学生の、学生による、学生のためのサービスを目指して。
               </p>
             </div>
@@ -134,116 +136,124 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 bg-gray-50">
+      <section id="projects" className="py-12 lg:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">プロジェクト</h2>
-            <p className="text-gray-600">現在進行中のプロジェクトをご紹介します</p>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">プロジェクト</h2>
+            <p className="text-sm lg:text-base text-gray-600">現在進行中のプロジェクトをご紹介します</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 min-w-max lg:min-w-0">
             {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow text-center">
-                <h3 className={`text-xl font-semibold mb-3 text-gray-800 ${project.useBangers ? 'font-bangers text-blue-600' : ''}`}>{project.title}</h3>
-                <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium mb-4 ${
+              <div key={index} className="bg-white rounded-lg p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow text-center flex-shrink-0 w-80 lg:w-auto">
+                <h3 className={`text-lg lg:text-xl font-semibold mb-3 text-gray-800 ${project.useBangers ? 'font-bangers text-blue-600' : ''}`}>{project.title}</h3>
+                <span className={`inline-block px-3 lg:px-4 py-1 lg:py-2 rounded-full text-xs lg:text-sm font-medium mb-4 ${
                   project.status === 'ローンチ予定' ? 'bg-green-100 text-green-800' :
                   project.status === '開発中' ? 'bg-orange-100 text-orange-800' :
                   'bg-gray-100 text-gray-800'
                 }`}>
                   {project.status}
                 </span>
-                <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
-                <ul className="space-y-3 text-left">
+                <p className="text-sm lg:text-base text-gray-600 mb-4 lg:mb-6 leading-relaxed">{project.description}</p>
+                <ul className="space-y-2 lg:space-y-3 text-left">
                   {project.features.map((feature, idx) => (
-                    <li key={idx} className="text-gray-700 flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                    <li key={idx} className="text-xs lg:text-sm text-gray-700 flex items-center">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-2 lg:mr-3 flex-shrink-0"></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Approach Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">私たちのアプローチ</h2>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">私たちのアプローチ</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 lg:gap-8 min-w-max lg:min-w-0">
             {approaches.map((approach, index) => (
-              <div key={index} className="text-center p-6 hover:shadow-lg transition-shadow rounded-lg">
-                <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
-                  {index === 0 ? <DesignIcon className="w-8 h-8" /> : 
-                   index === 1 ? <TeamIcon className="w-8 h-8" /> : 
-                   index === 2 ? <AnalyticsIcon className="w-8 h-8" /> : 
-                   <InnovationIcon className="w-8 h-8" />}
+              <div key={index} className="text-center p-4 lg:p-6 hover:shadow-lg transition-shadow rounded-lg flex-shrink-0 w-64 lg:w-auto">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-600 rounded-full mx-auto mb-3 lg:mb-4 flex items-center justify-center text-white">
+                  {index === 0 ? <DesignIcon className="w-6 h-6 lg:w-8 lg:h-8" /> : 
+                   index === 1 ? <TeamIcon className="w-6 h-6 lg:w-8 lg:h-8" /> : 
+                   index === 2 ? <AnalyticsIcon className="w-6 h-6 lg:w-8 lg:h-8" /> : 
+                   <InnovationIcon className="w-6 h-6 lg:w-8 lg:h-8" />}
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-800">{approach.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{approach.description}</p>
+                <h3 className="text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-gray-800">{approach.title}</h3>
+                <p className="text-xs lg:text-sm text-gray-600 leading-relaxed">{approach.description}</p>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Status Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">プロジェクト進捗</h2>
-            <p className="text-gray-600">現在のプロジェクト状況をお知らせします</p>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">プロジェクト進捗</h2>
+            <p className="text-sm lg:text-base text-gray-600">現在のプロジェクト状況をお知らせします</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-3xl font-bold mb-2"><NomNomText /></div>
-              <div className="text-sm font-medium text-gray-600 mb-2">メインプロジェクト</div>
-              <div className="text-gray-500">立命館大学OIC向け</div>
+          <div className="overflow-x-auto lg:overflow-x-visible">
+            <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 min-w-max lg:min-w-0">
+            <div className="text-center p-6 lg:p-8 bg-white rounded-lg shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="text-2xl lg:text-3xl font-bold mb-2"><NomNomText /></div>
+              <div className="text-xs lg:text-sm font-medium text-gray-600 mb-2">メインプロジェクト</div>
+              <div className="text-xs lg:text-sm text-gray-500">立命館大学OIC向け</div>
             </div>
-            <div className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-3xl font-bold text-blue-600 mb-2">2</div>
-              <div className="text-sm font-medium text-gray-600 mb-2">進行中プロジェクト</div>
-              <div className="text-gray-500">アプリ化・全国展開</div>
+            <div className="text-center p-6 lg:p-8 bg-white rounded-lg shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">2</div>
+              <div className="text-xs lg:text-sm font-medium text-gray-600 mb-2">進行中プロジェクト</div>
+              <div className="text-xs lg:text-sm text-gray-500">アプリ化・全国展開</div>
             </div>
-            <div className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-3xl font-bold text-blue-600 mb-2">?</div>
-              <div className="text-sm font-medium text-gray-600 mb-2">ユーザー数</div>
-              <div className="text-gray-500">ローンチ前のため未定</div>
+            <div className="text-center p-6 lg:p-8 bg-white rounded-lg shadow-sm flex-shrink-0 w-64 lg:w-auto">
+              <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-2">?</div>
+              <div className="text-xs lg:text-sm font-medium text-gray-600 mb-2">ユーザー数</div>
+              <div className="text-xs lg:text-sm text-gray-500">ローンチ前のため未定</div>
+            </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-white">
+      <section id="contact" className="py-12 lg:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
               プロジェクトのご相談やお問い合わせはこちらから<br />
               新しいアイデアをお待ちしています
             </p>
           </div>
           <div className="text-center">
-            <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded transition-colors mr-4 inline-block">
-              お問い合わせフォーム
-            </Link>
-            <Link href="#about" className="border-2 border-blue-600 hover:bg-blue-600 hover:text-white text-blue-600 px-8 py-3 rounded transition-colors inline-block">
-              私たちについて
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-6 lg:px-8 py-2 lg:py-3 rounded transition-colors text-sm lg:text-base">
+                お問い合わせフォーム
+              </Link>
+              <Link href="#about" className="border-2 border-blue-600 hover:bg-blue-600 hover:text-white text-blue-600 px-6 lg:px-8 py-2 lg:py-3 rounded transition-colors text-sm lg:text-base">
+                私たちについて
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Recruit Section */}
-      <section id="recruit" className="py-16 bg-gray-50">
+      <section id="recruit" className="py-12 lg:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
             <p className="text-gray-600">一緒にプロジェクトを作り上げていく仲間を募集しています</p>
           </div>
           <div className="text-center">
