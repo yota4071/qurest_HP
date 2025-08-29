@@ -1,418 +1,100 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import AbstractBackground from '@/components/AbstractBackground';
+import StudentIcon from "@/components/icons/StudentIcon";
+import TeamIcon from "@/components/icons/TeamIcon";
+import InnovationIcon from "@/components/icons/InnovationIcon";
+import GrowthIcon from "@/components/icons/GrowthIcon";
+import NomNomText from "@/components/NomNomText";
 
-const projectValues = [
-  {
-    id: 1,
-    title: 'Student First',
-    subtitle: '学生第一',
-    description: '学生のニーズと課題を最優先に考え、真に役立つソリューションを提供します',
-    icon: '🎓',
-    color: 'from-accent-neon to-accent-glow'
-  },
-  {
-    id: 2,
-    title: 'Community',
-    subtitle: 'コミュニティ',
-    description: 'キャンパス内でのつながりを大切にし、学生同士の交流を促進します',
-    icon: '🤝',
-    color: 'from-accent-highlight to-accent-abstract'
-  },
-  {
-    id: 3,
-    title: 'Innovation',
-    subtitle: '革新性',
-    description: '新しい技術と創造性で、学生生活をより豊かにする体験を創造します',
-    icon: '💡',
-    color: 'from-accent-glow to-accent-neon'
-  },
-  {
-    id: 4,
-    title: 'Growth',
-    subtitle: '成長',
-    description: 'プロジェクトを通じて学生としてもエンジニアとしても成長し続けます',
-    icon: '🌱',
-    color: 'from-accent-abstract to-accent-highlight'
-  }
-];
-
-const projectHistory = [
-  {
-    year: '2024年秋',
-    title: 'プロジェクト発案',
-    description: 'OICキャンパスのキッチンカー情報不足の課題に気づき、Nom!Nom!プロジェクトを発案'
-  },
-  {
-    year: '2024年10月',
-    title: 'チーム結成',
-    description: '研究室や授業で出会ったメンバーがチームを結成し、プロトタイプ開発開始'
-  },
-  {
-    year: '2024年12月',
-    title: 'プロトタイプ完成',
-    description: '基本機能を実装したプロトタイプが完成、初期ユーザビリティテスト実施'
-  },
-  {
-    year: '2025年1月',
-    title: 'プラットフォーム完成',
-    description: 'レビューシステムや検索機能など本格的な機能を実装完了'
-  },
-  {
-    year: '2025年2月',
-    title: 'ローンチ準備',
-    description: '最終テストとシステム調整を行い、正式ローンチに向けた準備を進行中'
-  },
-  {
-    year: '2025年春',
-    title: 'サービス開始予定',
-    description: 'Nom!Nom!の正式サービス開始、モバイルアプリ開発も並行して進行予定'
-  }
-];
-
-const team = [
-  {
-    name: 'Oz',
-    position: 'プロジェクトリーダー',
-    description: 'Nom!Nom!プロジェクトの企画・運営を担当。新しいプロダクトのアイデア創出から営業戦略まで幅広く手がけ、プロジェクト全体の方向性を決定している。企業との連携や事業展開においても中心的な役割を果たしている。',
-    image: '/team/ceo.jpg',
-    expertise: ['プロダクト企画', '営業戦略', '事業開発']
-  },
-  {
-    name: 'Waka',
-    position: 'テクニカルリーダー',
-    description: 'Nom!Nom!の技術開発を担当。システム設計からフロントエンド・バックエンド開発まで幅広い技術領域をカバーし、プロジェクトの技術的な実現を支えている。',
-    image: '/team/cto.jpg',
-    expertise: ['システム設計', 'Web開発', '技術戦略']
-  }
-];
-
-export default function CompanyIntroduction() {
+export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <AbstractBackground intensity="low" />
-      <div className="relative z-20">
-        {/* ヒーローセクション */}
-        <section className="section-padding">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div
-              className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block px-8 py-4 glass-morphism border border-white/10 text-sm font-bold tracking-[0.3em] uppercase text-white/90 font-display mb-8">
-                ABOUT US
-              </span>
-            </motion.div>
-            
-            <motion.h1
-              className="font-display text-5xl lg:text-7xl font-black mb-8 text-gradient-abstract"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              QUREST
-            </motion.h1>
-            
-            <motion.div
-              className="font-bangers text-6xl lg:text-8xl mb-8 text-accent-neon"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Nom!Nom!
-            </motion.div>
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="bg-white py-20 border-b">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1 className="text-4xl font-bold mb-6 text-gray-800">私たちについて</h1>
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            学生の、学生による、学生のためのサービスを目指して
+          </p>
+        </div>
+      </section>
 
-            <motion.p
-              className="text-lg text-white/70 max-w-4xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              立命館大学OICキャンパスの学生が立ち上げたプロジェクトチーム。<br />
-              キッチンカー評価プラットフォーム「Nom!Nom!」の開発・運営を行っています。
-            </motion.p>
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        {/* Main Message */}
+        <div className="text-center mb-16">
+          <div className="max-w-4xl mx-auto bg-gray-50 rounded-lg p-8">
+            <p className="text-lg leading-relaxed mb-6 text-gray-700">
+              私たちQURESTは、学生生活をより便利で楽しいものにするためのサービス開発に取り組んでいます。
+              現在開発中の「<NomNomText />」は、キャンパス内のキッチンカー情報を学生同士で共有できるプラットフォームです。
+            </p>
+            <p className="text-blue-600 font-medium text-lg">
+              学生の、学生による、学生のためのサービスを目指して。
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* プロジェクト価値観セクション */}
-        <section className="section-padding bg-black relative overflow-hidden">
-          <div className="max-w-7xl mx-auto relative z-20">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-4xl lg:text-5xl font-black mb-6 text-gradient-abstract">
-                OUR VALUES
-              </h2>
-              <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトの行動指針となる4つの価値観
-              </p>
-            </motion.div>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {projectValues.map((value, index) => (
-                <motion.div
-                  key={value.id}
-                  className="luxury-card p-8 hover-lift group relative overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.03 }}
-                >
-                  <div className="text-center relative z-20">
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
-                      {value.icon}
-                    </div>
-                    <h3 className="font-display text-xl font-bold mb-2 text-white group-hover:text-gradient-abstract transition-colors duration-300">
-                      {value.title}
-                    </h3>
-                    <p className="text-sm font-medium text-white/60 mb-4">
-                      {value.subtitle}
-                    </p>
-                    <p className="text-white/70 text-sm leading-relaxed group-hover:text-white/90 transition-colors duration-300">
-                      {value.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+        {/* Project Values */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">私たちの価値観</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
+                <StudentIcon className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">Student First</h3>
+              <p className="text-gray-600 leading-relaxed">学生のニーズと課題を最優先に考え、真に役立つソリューションを提供します</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
+                <TeamIcon className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">Community</h3>
+              <p className="text-gray-600 leading-relaxed">キャンパス内でのつながりを大切にし、学生同士の交流を促進します</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
+                <InnovationIcon className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">Innovation</h3>
+              <p className="text-gray-600 leading-relaxed">新しい技術と創造性で、学生生活をより豊かにする体験を創造します</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white">
+                <GrowthIcon className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-800">Growth</h3>
+              <p className="text-gray-600 leading-relaxed">プロジェクトを通じて学生としてもエンジニアとしても成長し続けます</p>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* プロジェクト履歴セクション */}
-        <section className="section-padding bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
-          <div className="max-w-6xl mx-auto relative z-20">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-4xl lg:text-5xl font-black mb-6 text-gradient-primary">
-                PROJECT HISTORY
-              </h2>
-              <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトの歩みと成長の軌跡
-              </p>
-            </motion.div>
-
-            <div className="space-y-8">
-              {projectHistory.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-col md:flex-row items-center gap-8"
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="luxury-card p-8">
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="bg-gradient-to-r from-accent-highlight to-accent-glow text-black px-4 py-2 font-bold text-lg">
-                          {item.year}
-                        </span>
-                        <h3 className="font-display text-xl font-bold text-white">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="text-white/70 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="w-full h-48 glass-morphism border border-white/10 flex items-center justify-center">
-                      <span className="text-6xl opacity-50">📅</span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+        {/* Project History */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">プロジェクトの歩み</h2>
+          <div className="space-y-8">
+            <div className="bg-white p-6 rounded-lg border-l-4 border-blue-500">
+              <div className="font-bold text-blue-600 mb-2">2024年秋</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">プロジェクト発案</h3>
+              <p className="text-gray-600">OICキャンパスのキッチンカー情報不足の課題に気づき、<NomNomText />プロジェクトを発案</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border-l-4 border-green-500">
+              <div className="font-bold text-green-600 mb-2">2024年10月</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">チーム結成</h3>
+              <p className="text-gray-600">開発メンバーが集まり、本格的なプロダクト開発をスタート</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border-l-4 border-orange-500">
+              <div className="font-bold text-orange-600 mb-2">2025年1月</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">プロトタイプ完成</h3>
+              <p className="text-gray-600">基本機能を実装したプロトタイプが完成し、初期テストを開始</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border-l-4 border-purple-500">
+              <div className="font-bold text-purple-600 mb-2">2025年春</div>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">正式ローンチ予定</h3>
+              <p className="text-gray-600">立命館大学OICキャンパスでの正式サービス開始を予定</p>
             </div>
           </div>
-        </section>
-
-        {/* チームセクション */}
-        <section className="section-padding bg-black relative overflow-hidden">
-          <div className="max-w-6xl mx-auto relative z-20">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-4xl lg:text-5xl font-black mb-6 text-gradient-abstract">
-                PROJECT TEAM
-              </h2>
-              <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトを牽引するコアメンバー
-              </p>
-            </motion.div>
-
-            <div className="grid gap-12 md:grid-cols-2">
-              {team.map((member, index) => (
-                <motion.div
-                  key={index}
-                  className="luxury-card p-8 hover-lift group relative overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                >
-                  <div className="text-center mb-6 relative z-20">
-                    <div className="w-32 h-32 glass-morphism border border-white/20 rounded-full mx-auto mb-6 flex items-center justify-center">
-                      <span className="text-5xl">👤</span>
-                    </div>
-                    <h3 className="font-display text-2xl font-bold mb-2 text-white group-hover:text-gradient-abstract transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    <p className="text-accent-glow font-medium mb-4">
-                      {member.position}
-                    </p>
-                    <p className="text-white/70 leading-relaxed mb-6 group-hover:text-white/90 transition-colors duration-300">
-                      {member.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {member.expertise.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-white/10 text-white/80 text-sm border border-white/20 group-hover:bg-white/20 transition-colors duration-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* プロジェクト概要セクション */}
-        <section className="section-padding bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
-          <div className="max-w-6xl mx-auto relative z-20">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-4xl lg:text-5xl font-black mb-6 text-gradient-primary">
-                PROJECT OVERVIEW
-              </h2>
-              <p className="text-lg text-white/70 max-w-3xl mx-auto">
-                Nom!Nom!プロジェクトの基本情報
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="luxury-card overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="grid md:grid-cols-2 gap-0">
-                {[
-                  { label: 'プロジェクト名', value: 'Nom!Nom!' },
-                  { label: '開始日', value: '2024年秋' },
-                  { label: 'プロジェクトリーダー', value: 'Oz' },
-                  { label: 'テクニカルリーダー', value: 'Waka' },
-                  { label: 'メンバー数', value: '約６名' },
-                  { label: 'ステータス', value: 'ローンチ準備中' },
-                  { label: '対象キャンパス', value: '立命館大学OICキャンパス' },
-                  { label: 'サービス内容', value: 'キッチンカー評価プラットフォームの開発・運営' }
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className={`p-6 ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'} border-b border-white/10 last:border-b-0`}
-                  >
-                    <dt className="text-sm font-medium text-white/60 mb-2">
-                      {item.label}
-                    </dt>
-                    <dd className="text-lg font-semibold text-white">
-                      {item.value}
-                    </dd>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* 大学連携情報 */}
-            <motion.div
-              className="mt-12 luxury-card p-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h3 className="font-display text-2xl font-bold mb-6 text-white text-center">
-                UNIVERSITY CONNECTION
-              </h3>
-              <div className="text-center">
-                <div className="space-y-2 text-white/70">
-                  <p className="text-lg font-semibold text-accent-neon">立命館大学 情報理工学部</p>
-                  <p>研究室・授業で出会ったメンバーで構成</p>
-                  <p>大学の協力のもと、学生主導で進めるプロジェクト</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* CTAセクション */}
-        <section className="section-padding bg-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-accent-highlight/10 to-accent-glow/10" />
-          <div className="max-w-4xl mx-auto text-center relative z-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-4xl lg:text-5xl font-black mb-6 text-gradient-abstract">
-                JOIN OUR PROJECT
-              </h2>
-              <p className="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
-                Nom!Nom!プロジェクトでは、情熱を共にする学生メンバーを募集しています。<br />
-                あなたの力で、学生生活をより豊かにしませんか？
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/recruit">
-                  <motion.button
-                    className="btn-primary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    JOIN US
-                  </motion.button>
-                </Link>
-                <Link href="/contact">
-                  <motion.button
-                    className="btn-secondary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    CONTACT US
-                  </motion.button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        </div>
       </div>
     </div>
   );

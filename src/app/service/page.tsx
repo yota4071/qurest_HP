@@ -1,72 +1,41 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
-import AbstractBackground from '@/components/AbstractBackground';
 
-const currentProjects = [
+const projects = [
   {
-    id: 1,
     title: 'Nom!Nom!',
     description: '立命館大学OICキャンパス向けキッチンカー評価プラットフォーム',
     longDescription: '学生がキッチンカーを簡単に検索・評価できるプラットフォームです。立命館大学の協力のもと、学生のランチタイムをより充実させることを目的としています。多くの企業からも興味を示していただいており、学生の皆さんにとって素晴らしいガクチカにもなる注目のプロジェクトです。',
     status: 'ローンチ準備中',
     features: ['キッチンカー検索機能', 'レビュー・評価システム', '学生コミュニティ機能', 'お気に入り機能', '営業時間・位置情報表示'],
     technologies: ['React', 'Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Vercel'],
-    highlights: ['大学公認プロジェクト', '複数企業が興味を示している', '学生主導の開発', 'ガクチカに最適'],
-    color: 'from-accent-neon to-accent-glow',
-    abstractElement: (
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gradient-to-br from-accent-neon/40 to-accent-glow/40 blur-2xl" />
-        <div className="absolute top-1/4 left-1/4 w-12 h-12 border border-accent-neon animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-8 h-8 bg-accent-glow rounded-full animate-bounce" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bangers text-3xl text-accent-neon/60">Nom!</div>
-      </div>
-    )
+    highlights: ['大学公認プロジェクト', '複数企業が興味を示している', '学生主導の開発', 'ガクチカに最適']
   },
   {
-    id: 2,
     title: 'Nom!Nom! Mobile App',
     description: 'iOS・Android対応のモバイルアプリケーション開発',
     longDescription: 'Webプラットフォームの成功を受けて、より便利なモバイル体験を提供するためのアプリ開発プロジェクトです。プッシュ通知やオフライン機能など、モバイル特有の機能を活用します。',
     status: '開発中',
     features: ['プッシュ通知', 'オフライン閲覧', '位置情報連携', 'カメラ機能', 'ソーシャル共有'],
     technologies: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Push Notifications', 'Maps API'],
-    highlights: ['クロスプラットフォーム開発', 'モバイルUX最適化', '最新技術の習得', 'アプリストア公開予定'],
-    color: 'from-accent-highlight to-accent-abstract',
-    abstractElement: (
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gradient-to-br from-accent-highlight/40 to-accent-abstract/40 blur-xl" />
-        <div className="absolute top-1/3 right-1/3 w-16 h-24 border-2 border-accent-highlight/50 rounded-lg" />
-        <div className="absolute bottom-1/3 left-1/3 w-20 h-2 bg-accent-abstract/60 rounded" />
-      </div>
-    )
+    highlights: ['クロスプラットフォーム開発', 'モバイルUX最適化', '最新技術の習得', 'アプリストア公開予定']
   },
   {
-    id: 3,
     title: 'Nom!Nom! 全国展開',
     description: '全国の大学キャンパス向けスケーラブル版の企画・開発',
     longDescription: 'OICキャンパスでの実績をもとに、全国の大学で利用できるプラットフォームへの拡張を計画しています。各大学の特色に合わせたカスタマイズや、大学間の連携機能も検討中です。',
     status: '企画中',
     features: ['マルチキャンパス対応', '大学個別カスタマイズ', '統合管理システム', '分析ダッシュボード', 'API提供'],
     technologies: ['Microservices', 'GraphQL', 'Redis', 'AWS', 'Docker', 'Kubernetes'],
-    highlights: ['スケーラビリティ設計', '企業との連携強化', 'データ分析活用', '全国規模展開'],
-    color: 'from-white to-gray-400',
-    abstractElement: (
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gradient-to-br from-white/30 to-gray-400/30 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-white/40 rounded-full" />
-        <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-white animate-ping" />
-      </div>
-    )
+    highlights: ['スケーラビリティ設計', '企業との連携強化', 'データ分析活用', '全国規模展開']
   }
 ];
 
 const developmentPhases = [
   {
     id: 1,
-    phase: 'Phase 1',
     title: 'プロトタイプ開発',
     description: '基本機能の実装とユーザビリティテスト',
     status: 'completed',
@@ -75,7 +44,6 @@ const developmentPhases = [
   },
   {
     id: 2,
-    phase: 'Phase 2',
     title: 'プラットフォーム完成',
     description: '本格的な機能実装とシステム最適化',
     status: 'completed',
@@ -84,7 +52,6 @@ const developmentPhases = [
   },
   {
     id: 3,
-    phase: 'Phase 3',
     title: 'ローンチ準備',
     description: 'プロダクション環境での最終テストと調整',
     status: 'in-progress',
@@ -93,7 +60,6 @@ const developmentPhases = [
   },
   {
     id: 4,
-    phase: 'Phase 4',
     title: 'モバイルアプリ開発',
     description: 'iOS・Android対応アプリケーション開発',
     status: 'planned',
@@ -107,293 +73,201 @@ export default function ServicePage() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <AbstractBackground intensity="low" />
-      
-      <div className="relative z-20">
-        <section className="section-padding">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <span className="bg-white bg-opacity-20 px-4 py-2 rounded text-sm font-bold uppercase tracking-wide mb-4 inline-block">
+            Our Services
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Projects & Development</h1>
+          <p className="text-xl text-white opacity-90 max-w-4xl mx-auto">
+            学生主導で進める革新的なプロジェクトと最新技術を活用した開発プロセス
+          </p>
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        {/* Tab Navigation */}
+        <div className="flex justify-center mb-16">
+          <div className="bg-white border border-gray-200 rounded-lg p-1 shadow-sm">
+            <button
+              onClick={() => setActiveTab('projects')}
+              className={`px-8 py-3 font-bold text-sm uppercase rounded-md transition-all ${
+                activeTab === 'projects'
+                  ? 'bg-blue-500 text-white'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
             >
-              <span className="inline-block px-8 py-4 glass-morphism border border-white/10 text-sm font-bold tracking-[0.3em] uppercase text-white/90 font-display mb-8">
-                OUR SERVICES
-              </span>
-              <h1 className="font-display text-5xl lg:text-7xl font-black mb-8 text-gradient-abstract">
-                PROJECTS & DEVELOPMENT
-              </h1>
-              <p className="text-white/70 text-lg max-w-4xl mx-auto leading-relaxed font-display tracking-wide">
-                学生主導で進める革新的なプロジェクトと
-                <br className="hidden md:block" />
-                最新技術を活用した開発プロセス
-              </p>
-            </motion.div>
+              Current Projects
+            </button>
+            <button
+              onClick={() => setActiveTab('development')}
+              className={`px-8 py-3 font-bold text-sm uppercase rounded-md transition-all ${
+                activeTab === 'development'
+                  ? 'bg-blue-500 text-white'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Development Phases
+            </button>
+          </div>
+        </div>
 
-            {/* Tab Navigation */}
-            <div className="flex justify-center mb-16">
-              <div className="glass-morphism border border-white/20 rounded-none p-2">
-                <button
-                  onClick={() => setActiveTab('projects')}
-                  className={`px-8 py-4 font-bold tracking-[0.1em] uppercase transition-all ${
-                    activeTab === 'projects'
-                      ? 'bg-gradient-to-r from-accent-highlight to-accent-glow text-black'
-                      : 'text-white/70 hover:text-white'
-                  }`}
-                >
-                  CURRENT PROJECTS
-                </button>
-                <button
-                  onClick={() => setActiveTab('development')}
-                  className={`px-8 py-4 font-bold tracking-[0.1em] uppercase transition-all ${
-                    activeTab === 'development'
-                      ? 'bg-gradient-to-r from-accent-highlight to-accent-glow text-black'
-                      : 'text-white/70 hover:text-white'
-                  }`}
-                >
-                  DEVELOPMENT PHASES
-                </button>
-              </div>
-            </div>
-
-            {/* Projects Section */}
-            {activeTab === 'projects' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-12"
-              >
-                {currentProjects.map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    className="luxury-card hover-lift p-12 group relative overflow-hidden cursor-pointer"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                  >
-                    {project.abstractElement}
-                    
-                    <div className="relative z-20">
-                      <div className="grid lg:grid-cols-3 gap-8">
-                        {/* Project Info */}
-                        <div className="lg:col-span-2">
-                          <div className="flex items-start justify-between mb-6">
-                            <div>
-                              <h2 className="font-display text-3xl font-black mb-2 text-white group-hover:text-gradient-abstract transition-colors duration-300">
-                                {project.title}
-                              </h2>
-                              <p className="text-white/70 text-lg leading-relaxed group-hover:text-white/90 transition-colors duration-300">
-                                {project.description}
-                              </p>
-                            </div>
-                            <span className={`px-4 py-2 text-xs font-bold tracking-wider uppercase ${
-                              project.status === 'ローンチ準備中' ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' :
-                              project.status === '開発中' ? 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30' :
-                              'bg-accent-glow/20 text-accent-glow border border-accent-glow/30'
-                            }`}>
-                              {project.status}
-                            </span>
-                          </div>
-
-                          <div className="space-y-6">
-                            <div>
-                              <h3 className="font-display text-lg font-bold text-white mb-3">FEATURES</h3>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                {project.features.map((feature, idx) => (
-                                  <motion.div
-                                    key={idx}
-                                    className="px-4 py-2 text-sm text-white/70 border border-white/20 group-hover:border-accent-glow/50 group-hover:text-white/90 transition-all duration-300"
-                                    whileHover={{ x: 5, scale: 1.02 }}
-                                    transition={{ duration: 0.2 }}
-                                  >
-                                    {feature}
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div>
-                              <h3 className="font-display text-lg font-bold text-white mb-3">TECHNOLOGIES</h3>
-                              <div className="flex flex-wrap gap-2">
-                                {project.technologies.map((tech, idx) => (
-                                  <span
-                                    key={idx}
-                                    className="px-3 py-1 bg-white/10 text-white/80 text-sm font-bold border border-white/20 group-hover:bg-white/20 transition-colors duration-300"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Highlights */}
-                        <div>
-                          <h3 className="font-display text-lg font-bold text-white mb-4">PROJECT HIGHLIGHTS</h3>
-                          <div className="space-y-3">
-                            {project.highlights.map((highlight, idx) => (
-                              <motion.div
-                                key={idx}
-                                className="flex items-center gap-3 p-3 glass-morphism border border-white/10 group-hover:border-accent-glow/30 transition-colors duration-300"
-                                whileHover={{ x: 5 }}
-                              >
-                                <div className="w-2 h-2 bg-accent-glow rounded-full animate-pulse" />
-                                <span className="text-sm text-white/80 group-hover:text-white transition-colors duration-300">
-                                  {highlight}
-                                </span>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
+        {/* Projects Section */}
+        {activeTab === 'projects' && (
+          <div className="space-y-12">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-white rounded-lg p-8 border shadow-sm">
+                <div className="grid lg:grid-cols-3 gap-8">
+                  {/* Project Info */}
+                  <div className="lg:col-span-2">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <h2 className="text-2xl font-bold mb-2 text-gray-800">
+                          {project.title}
+                        </h2>
+                        <p className="text-gray-600 text-lg">
+                          {project.description}
+                        </p>
                       </div>
-
-                      <motion.button
-                        onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
-                        className="mt-8 btn-secondary px-8 py-3 font-bold tracking-[0.1em] uppercase"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {expandedProject === project.id ? 'CLOSE DETAILS' : 'VIEW DETAILS'}
-                      </motion.button>
-
-                      {expandedProject === project.id && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.4 }}
-                          className="mt-8 p-8 glass-morphism border border-white/10"
-                        >
-                          <h3 className="font-display text-xl font-bold text-white mb-4">PROJECT DETAILS</h3>
-                          <p className="text-white/80 leading-relaxed">{project.longDescription}</p>
-                        </motion.div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-
-            {/* Development Phases Section */}
-            {activeTab === 'development' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-8"
-              >
-                {developmentPhases.map((phase, index) => (
-                  <motion.div
-                    key={phase.id}
-                    className={`luxury-card p-8 relative overflow-hidden ${
-                      phase.status === 'completed' ? 'border-accent-neon/30' :
-                      phase.status === 'in-progress' ? 'border-accent-highlight/30' :
-                      'border-white/20'
-                    }`}
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <div className="flex items-start gap-8">
-                      <div className={`w-20 h-20 border-2 flex items-center justify-center ${
-                        phase.status === 'completed' ? 'border-accent-neon bg-accent-neon/10' :
-                        phase.status === 'in-progress' ? 'border-accent-highlight bg-accent-highlight/10' :
-                        'border-white/30 bg-white/5'
+                      <span className={`px-3 py-1 text-xs font-bold rounded-full uppercase ${
+                        project.status === 'ローンチ準備中' ? 'bg-green-100 text-green-800' :
+                        project.status === '開発中' ? 'bg-orange-100 text-orange-800' :
+                        'bg-gray-100 text-gray-800'
                       }`}>
-                        <span className={`font-display font-bold ${
-                          phase.status === 'completed' ? 'text-accent-neon' :
-                          phase.status === 'in-progress' ? 'text-accent-highlight' :
-                          'text-white/60'
-                        }`}>
-                          {phase.id}
-                        </span>
-                      </div>
-                      
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 mb-2">
-                          <h3 className="font-display text-2xl font-bold text-white">{phase.title}</h3>
-                          <span className={`px-3 py-1 text-xs font-bold tracking-wider uppercase ${
-                            phase.status === 'completed' ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' :
-                            phase.status === 'in-progress' ? 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30' :
-                            'bg-white/10 text-white/70 border border-white/20'
-                          }`}>
-                            {phase.status === 'completed' ? 'COMPLETED' :
-                             phase.status === 'in-progress' ? 'IN PROGRESS' : 'PLANNED'}
-                          </span>
+                        {project.status}
+                      </span>
+                    </div>
+
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-800 mb-3">Features</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                          {project.features.map((feature, idx) => (
+                            <div key={idx} className="px-3 py-2 text-sm text-gray-700 border border-gray-200 rounded">
+                              {feature}
+                            </div>
+                          ))}
                         </div>
-                        <p className="text-white/70 mb-4">{phase.description}</p>
-                        <div className="text-sm text-white/50 mb-4 font-display tracking-wider">{phase.duration}</div>
-                        
-                        <div>
-                          <h4 className="font-bold text-white mb-2">Deliverables:</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            {phase.deliverables.map((deliverable, idx) => (
-                              <div key={idx} className="flex items-center gap-2 text-sm text-white/80">
-                                <div className={`w-2 h-2 rounded-full ${
-                                  phase.status === 'completed' ? 'bg-accent-neon' :
-                                  phase.status === 'in-progress' ? 'bg-accent-highlight' :
-                                  'bg-white/30'
-                                }`} />
-                                {deliverable}
-                              </div>
-                            ))}
-                          </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-800 mb-3">Technologies</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, idx) => (
+                            <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+                              {tech}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
+                  </div>
 
-            {/* CTA Section */}
-            <motion.div
-              className="mt-20 text-center luxury-card p-16 relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-highlight/10 to-accent-glow/10" />
-              <div className="relative z-10">
-                <h2 className="font-display text-4xl font-black mb-6 text-gradient-abstract">
-                  JOIN OUR TEAM
-                </h2>
-                <p className="text-white/70 text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
-                  私たちと一緒にNom!Nom!を成功に導きませんか？<br />
-                  技術力を磨きながら、実際のプロダクト開発に携わることができます
-                </p>
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <Link href="/recruit">
-                    <motion.button
-                      className="btn-primary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      JOIN US
-                    </motion.button>
-                  </Link>
-                  <Link href="/contact">
-                    <motion.button
-                      className="btn-secondary px-12 py-4 text-base font-bold tracking-[0.1em] uppercase"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      CONTACT US
-                    </motion.button>
-                  </Link>
+                  {/* Highlights */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 mb-4">Project Highlights</h3>
+                    <div className="space-y-3">
+                      {project.highlights.map((highlight, idx) => (
+                        <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                          <span className="text-sm text-gray-700">{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                  className="mt-6 px-6 py-2 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white rounded font-bold uppercase text-sm transition-colors"
+                >
+                  {expandedProject === index ? 'Close Details' : 'View Details'}
+                </button>
+
+                {expandedProject === index && (
+                  <div className="mt-6 p-6 bg-gray-50 rounded border-l-4 border-blue-500">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">Project Details</h3>
+                    <p className="text-gray-700 leading-relaxed">{project.longDescription}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Development Phases Section */}
+        {activeTab === 'development' && (
+          <div className="space-y-8">
+            {developmentPhases.map((phase) => (
+              <div key={phase.id} className={`bg-white rounded-lg p-8 border-l-4 shadow-sm ${
+                phase.status === 'completed' ? 'border-green-500' :
+                phase.status === 'in-progress' ? 'border-orange-500' :
+                'border-gray-300'
+              }`}>
+                <div className="flex items-start gap-8">
+                  <div className={`w-16 h-16 border-2 rounded-full flex items-center justify-center font-bold text-lg ${
+                    phase.status === 'completed' ? 'border-green-500 bg-green-50 text-green-700' :
+                    phase.status === 'in-progress' ? 'border-orange-500 bg-orange-50 text-orange-700' :
+                    'border-gray-300 bg-gray-50 text-gray-500'
+                  }`}>
+                    {phase.id}
+                  </div>
+                  
+                  <div className="flex-1">
+                    <div className="flex items-center gap-4 mb-2">
+                      <h3 className="text-xl font-bold text-gray-800">{phase.title}</h3>
+                      <span className={`px-3 py-1 text-xs font-bold uppercase rounded-full ${
+                        phase.status === 'completed' ? 'bg-green-100 text-green-800' :
+                        phase.status === 'in-progress' ? 'bg-orange-100 text-orange-800' :
+                        'bg-gray-100 text-gray-600'
+                      }`}>
+                        {phase.status === 'completed' ? 'Completed' :
+                         phase.status === 'in-progress' ? 'In Progress' : 'Planned'}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-4">{phase.description}</p>
+                    <div className="text-sm text-gray-500 mb-4 font-medium">{phase.duration}</div>
+                    
+                    <div>
+                      <h4 className="font-bold text-gray-800 mb-2">Deliverables:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {phase.deliverables.map((deliverable, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                            <div className={`w-2 h-2 rounded-full ${
+                              phase.status === 'completed' ? 'bg-green-500' :
+                              phase.status === 'in-progress' ? 'bg-orange-500' :
+                              'bg-gray-300'
+                            }`} />
+                            {deliverable}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            ))}
           </div>
-        </section>
+        )}
+
+        {/* CTA Section */}
+        <div className="mt-20 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white p-12 rounded-lg">
+          <h2 className="text-3xl font-bold mb-6">Join Our Team</h2>
+          <p className="text-lg mb-8 max-w-3xl mx-auto">
+            私たちと一緒にNom!Nom!を成功に導きませんか？<br />
+            技術力を磨きながら、実際のプロダクト開発に携わることができます
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link href="/recruit" className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
+              Join Us
+            </Link>
+            <Link href="/contact" className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-3 rounded font-bold uppercase transition-colors">
+              Contact Us
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

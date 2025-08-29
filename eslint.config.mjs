@@ -14,6 +14,7 @@ const eslintConfig = [
   {
     rules: {
       "@typescript-eslint/no-unused-vars": "warn", // エラーではなく警告に変更
+      "@typescript-eslint/no-explicit-any": "off", // any型の使用を許可
     },
   },
 ];

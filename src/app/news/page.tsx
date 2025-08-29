@@ -1,151 +1,97 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
-const realNews = [
+const news = [
   {
     id: 1,
-    title: 'Nom!Nom! プラットフォーム開発完了のお知らせ',
-    date: '2025年01月15日',
-    summary: '立命館大学OICキャンパス向けキッチンカー評価プラットフォーム「Nom!Nom!」の開発が完了しました。学生の皆様により良いキッチンカー体験をお届けします。',
-    status: '完了',
-    category: 'プロダクト'
+    title: 'Nom!Nom! プロジェクト始動',
+    date: '2025-08-15',
+    summary: '立命館大学OICキャンパスのキッチンカー評価プラットフォームの開発を開始しました。',
+    content: '立命館大学OICキャンパスのキッチンカー評価プラットフォーム「Nom!Nom!」の開発プロジェクトを正式に開始いたします。学生の皆様のキャンパスライフをより豊かにするため、使いやすく便利なプラットフォームの構築を目指します。'
   },
   {
     id: 2,
-    title: 'Nom!Nom! アプリ化プロジェクト開始',
-    date: '2025年01月20日',
-    summary: 'Nom!Nom!のモバイルアプリ版開発プロジェクトを開始いたします。より便利にキッチンカー情報をチェックできるよう機能を拡張します。',
-    status: '進行中',
-    category: 'プロダクト'
+    title: 'チーム結成',
+    date: '2025-07-20',
+    summary: '学生による開発チームが正式に結成され、プロジェクトの企画段階に入りました。',
+    content: '意欲的な学生開発者、デザイナー、プロジェクトマネージャーによる開発チームが結成されました。多様な専攻・学年のメンバーが集まり、それぞれの専門性を活かしたプロダクト開発を進めています。'
   },
   {
     id: 3,
-    title: 'Nom!Nom! 全国展開バージョン開発着手',
-    date: '2025年01月25日',
-    summary: '立命館大学OICキャンパスでの成功を受けて、全国の大学キャンパスで利用できるバージョンの開発に着手しました。',
-    status: '進行中',
-    category: 'プロダクト'
+    title: '市場調査完了',
+    date: '2025-06-10',
+    summary: 'キャンパス内での食事に関する学生のニーズ調査が完了しました。',
+    content: 'OICキャンパスの学生300名を対象とした大規模なアンケート調査を実施しました。キッチンカー利用の現状や課題、求める機能などを詳細に把握し、プロダクト設計に反映させています。'
   },
+  {
+    id: 4,
+    title: 'プロトタイプ開発完了',
+    date: '2025-01-15',
+    summary: '基本機能を実装したプロトタイプが完成し、初期テストを開始しました。',
+    content: 'キッチンカー検索、レビュー機能、ユーザー認証などの基本機能を実装したプロトタイプが完成しました。学内の協力者による初期テストを実施し、ユーザビリティの改善点を特定しています。'
+  },
+  {
+    id: 5,
+    title: '大学との連携協定締結',
+    date: '2024-12-01',
+    summary: '立命館大学との正式な連携協定を締結し、プロジェクトが大学公認となりました。',
+    content: '立命館大学学生部との連携協定を締結し、Nom!Nom!プロジェクトが大学公認の学生プロジェクトとなりました。大学からのサポートを受けながら、より質の高いサービス開発を進めていきます。'
+  }
 ];
 
 export default function NewsPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" />
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-accent-highlight/30 to-accent-glow/30 blur-3xl rounded-full animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-br from-accent-abstract/20 to-accent-neon/20 blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-      
-      <div className="relative z-20 max-w-6xl mx-auto py-32 px-6 sm:px-12">
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <span className="inline-block px-8 py-4 glass-morphism border border-white/10 text-sm font-bold tracking-[0.3em] uppercase text-white/90 font-display mb-8">
-            COMPANY UPDATES
-          </span>
-          <h1 className="font-display text-5xl lg:text-7xl font-black mb-8 text-gradient-abstract">
-            NEWS & UPDATES
-          </h1>
-          <p className="text-white/70 text-lg max-w-3xl mx-auto leading-relaxed">
-            Qurestの最新プロジェクトの進捗状況をお知らせします
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Hero Section */}
+      <section className="bg-white py-20 border-b">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1 className="text-4xl font-bold mb-6 text-gray-800">最新情報</h1>
+          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            QURESTとNom!Nom!プロジェクトの最新情報をお届けします
           </p>
-        </motion.div>
+        </div>
+      </section>
 
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        {/* News List */}
         <div className="space-y-8">
-          {realNews.map((news, index) => (
-            <motion.div
-              key={news.id}
-              className="luxury-card hover-lift p-8 group cursor-pointer relative overflow-hidden"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-            >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          {news.map((item) => (
+            <article key={item.id} className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className={`px-4 py-2 text-xs font-bold tracking-wider uppercase ${
-                      news.status === '完了' 
-                        ? 'bg-accent-neon/20 text-accent-neon border border-accent-neon/30' 
-                        : 'bg-accent-highlight/20 text-accent-highlight border border-accent-highlight/30'
-                    }`}>
-                      {news.status}
-                    </span>
-                    <span className="px-4 py-2 bg-white/10 text-white/80 text-xs font-bold tracking-wider uppercase border border-white/20">
-                      {news.category}
-                    </span>
-                  </div>
-                  
-                  <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-gradient-abstract transition-all duration-300">
-                    {news.title}
-                  </h2>
-                  
-                  <p className="text-white/70 leading-relaxed mb-4 group-hover:text-white/90 transition-colors duration-300">
-                    {news.summary}
-                  </p>
-                  
-                  <p className="text-sm text-white/50 font-display tracking-wider">
-                    {news.date}
-                  </p>
-                </div>
-                
-                <div className="flex-shrink-0">
-                  <motion.div
-                    className="w-12 h-12 border border-white/30 flex items-center justify-center group-hover:border-accent-glow/50 transition-colors duration-300"
-                    whileHover={{ rotate: 90, scale: 1.1 }}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="m9 18 6-6-6-6"/>
-                    </svg>
-                  </motion.div>
+                  <div className="text-blue-600 text-sm font-medium mb-2">{item.date}</div>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-3">{item.title}</h2>
+                  <p className="text-gray-600 text-lg mb-4">{item.summary}</p>
                 </div>
               </div>
               
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-accent-glow to-accent-highlight blur-xl" />
+              <div className="prose prose-gray max-w-none">
+                <p className="text-gray-700 leading-relaxed">{item.content}</p>
               </div>
-            </motion.div>
+            </article>
           ))}
         </div>
 
-        {/* Nom!Nom! Special Section */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <div className="luxury-card p-12 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-highlight/5 to-accent-glow/5" />
-            <div className="relative z-10">
-              <h2 className="font-bangers text-6xl lg:text-8xl mb-6 text-gradient-abstract" style={{ letterSpacing: '0.1em' }}>
-                Nom!Nom!
-              </h2>
-              <p className="text-white/80 text-lg max-w-3xl mx-auto leading-relaxed mb-8">
-                立命館大学OICキャンパスのキッチンカー評価プラットフォーム
-                <br />
-                学生による、学生のためのグルメガイド
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <div className="px-6 py-3 glass-morphism border border-white/20">
-                  <span className="text-sm text-white/60">ステータス:</span>
-                  <span className="ml-2 text-accent-neon font-bold">ローンチ準備中</span>
-                </div>
-                <div className="px-6 py-3 glass-morphism border border-white/20">
-                  <span className="text-sm text-white/60">対象:</span>
-                  <span className="ml-2 text-white font-bold">立命館大学OICキャンパス</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        {/* Newsletter Signup */}
+        <div className="mt-16 bg-gray-50 p-12 rounded-lg text-center border">
+          <h2 className="text-3xl font-bold mb-4 text-gray-800">最新情報を受け取る</h2>
+          <p className="text-gray-600 mb-8">
+            Nom!Nom!プロジェクトの進捗やリリース情報をいち早くお届けします
+          </p>
+          <form className="max-w-md mx-auto flex gap-4">
+            <input
+              type="email"
+              placeholder="メールアドレス"
+              className="flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+            >
+              登録
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

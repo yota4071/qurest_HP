@@ -7,7 +7,12 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "WebFetch(domain:www.svgrepo.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(powershell:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)",
+      "Bash(if exist .next rmdir /s /q .next)"
     ],
     "deny": [],
     "ask": []

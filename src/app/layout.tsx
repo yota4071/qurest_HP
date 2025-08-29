@@ -1,40 +1,30 @@
 // src/app/layout.tsx
 
 import type { Metadata } from "next";
-import { Inter, Orbitron, Bangers } from "next/font/google";
-import "../styles/globals.css";
+import { Sintony, Bangers } from "next/font/google";
+import "@/styles/globals.css";
 
 import Header from "@/components/Header";
-import ScrollToTop from "@/components/ScrollToTop";
-import PageLoader from "@/components/PageLoader";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 
-const inter = Inter({
+const sintony = Sintony({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-orbitron",
-  weight: ["400", "500", "700", "900"],
+  variable: "--font-sintony",
   display: "swap",
 });
 
 const bangers = Bangers({
+  weight: ["400"],
   subsets: ["latin"],
   variable: "--font-bangers",
-  weight: ["400"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "YourCompany",
-  description: "革新的なソリューションを提供する企業サイト",
+  title: "QUREST - Nom!Nom! Project",
+  description: "立命館大学OICキャンパスのキッチンカー評価プラットフォーム「Nom!Nom!」を開発中",
 };
-//変更点
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,16 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${inter.variable} ${orbitron.variable} ${bangers.variable} antialiased bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-100 flex flex-col min-h-screen transition-colors duration-300`}
-      >
-        <ThemeProvider>
-          <PageLoader />
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <footer/>
-          <ScrollToTop />
-        </ThemeProvider>
+      <body className={`${sintony.variable} ${bangers.variable} font-sans antialiased min-h-screen`}>
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );

@@ -1,0 +1,166 @@
+name: Create Blog Post
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-blog-post:
+    if: contains(github.event.issue.labels.*.name, 'blog')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Parse issue and create blog post
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs').promises;
+            const path = require('path');
+            
+            // Issue の内容をパース
+            const issueBody = context.payload.issue.body;
+            const title = context.payload.issue.title.replace('[BLOG] ', '');
+            
+            // 簡単なパースロジック（実際にはより複雑になる可能性があります）
+            const parseField = (fieldName) => {
+              const regex = new RegExp(`### ${fieldName}\\s*\\n\\n([^#]+)`, 'i');
+              const match = issueBody.match(regex);
+              return match ? match[1].trim() : '';
+            };
+            
+            const blogTitle = parseField('記事タイトル') || title;
+            const author = parseField('著者名') || 'QUREST Team';
+            const category = parseField('カテゴリ') || 'お知らせ';
+            const tags = parseField('タグ') || '';
+            const excerpt = parseField('記事の要約') || '';
+            const image = parseField('アイキャッチ画像') || '';
+            const content = parseField('記事の内容') || '';
+            
+            // 現在の日付を取得
+            const now = new Date();
+            const dateString = now.toISOString().split('T')[0];
+            
+            // ファイル名用のスラッグを生成
+            const slug = blogTitle
+              .toLowerCase()
+              .replace(/[^\w\s-]/g, '')
+              .replace(/\s+/g, '-');
+            
+            const filename = `${dateString}-${slug}.md`;
+            
+            // タグの配列化
+            const tagsArray = tags.split(',').map(tag => tag.trim()).filter(Boolean);
+            
+            // フロントマターを含むマークダウンファイルの生成
+            const frontmatter = `---
+title: "${blogTitle}"
+date: "${dateString}"
+author: "${author}"
+categories: ["${category}"]
+tags: [${tagsArray.map(tag => `"${tag}"`).join(', ')}]${image ? `\nimage: "${image}"` : ''}
+excerpt: "${excerpt}"
+---
+
+`;
+            
+            const fullContent = frontmatter + content;
+            
+            // ファイルの書き込み
+            const blogDir = 'content/blog';
+            const filePath = path.join(blogDir, filename);
+            
+            try {
+              await fs.mkdir(blogDir, { recursive: true });
+              await fs.writeFile(filePath, fullContent);
+              
+              console.log(`ブログ記事が作成されました: ${filePath}`);
+              
+              // Issue にコメントを追加
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `✅ ブログ記事が自動作成されました！
+
+📄 **ファイル**: \`${filePath}\`
+📝 **タイトル**: ${blogTitle}
+📅 **公開日**: ${dateString}
+
+記事は以下の手順で公開されます：
+1. このワークフローが自動的にプルリクエストを作成します
+2. レビュー後、マージするとブログが公開されます
+
+🔗 **プレビュー**: プルリクエストのプレビューリンクで記事を確認できます`
+              });
+              
+              // 成功をworkflow output に設定
+              core.setOutput('filename', filename);
+              core.setOutput('filepath', filePath);
+              
+            } catch (error) {
+              console.error('ファイル作成エラー:', error);
+              
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `❌ ブログ記事の自動作成に失敗しました。
+
+エラー: ${error.message}
+
+手動で記事を作成するか、Issue の内容を確認してください。`
+              });
+              
+              throw error;
+            }
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add new blog post: ${{ github.event.issue.title }}"
+          title: "📝 New Blog Post: ${{ github.event.issue.title }}"
+          body: |
+            ## 新しいブログ記事
+
+            Issue #${{ github.event.issue.number }} から自動生成されました。
+
+            ### 記事情報
+            - **タイトル**: ${{ github.event.issue.title }}
+            - **作成者**: @${{ github.event.issue.user.login }}
+            - **Issue**: #${{ github.event.issue.number }}
+
+            ### チェック事項
+            - [ ] 記事の内容を確認
+            - [ ] マークダウンの書式チェック  
+            - [ ] 画像パスの確認（該当する場合）
+            - [ ] カテゴリ・タグの確認
+
+            ---
+            このPRをマージすると記事が公開されます。
+          branch: blog/issue-${{ github.event.issue.number }}
+          delete-branch: true
+
+      - name: Close issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🎉 プルリクエストが作成されました！
+
+記事のレビューとマージをお願いします。マージ後、自動的にVercelにデプロイされます。`
+            });
+            
+            await github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed',
+              labels: [...context.payload.issue.labels.map(l => l.name), 'auto-processed']
+            });

@@ -1,0 +1,103 @@
+name: 📝 ブログ記事の作成
+description: 新しいブログ記事を投稿したい時に使用してください
+title: "[BLOG] "
+labels: ["blog", "content"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 記事タイトル
+      description: ブログ記事のタイトルを入力してください
+      placeholder: "例: Nom!Nom! プロジェクト進捗報告"
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: 著者名
+      description: 記事の著者名を入力してください
+      placeholder: "例: QUREST Team"
+      value: "QUREST Team"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: カテゴリ
+      description: 記事のメインカテゴリを選択してください
+      options:
+        - プロジェクト
+        - 技術
+        - チーム
+        - お知らせ
+        - 開発
+        - イベント
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: タグ
+      description: 記事に関連するタグをカンマ区切りで入力してください
+      placeholder: "例: Nom!Nom!, 開発, Next.js"
+    validations:
+      required: true
+
+  - type: textarea
+    id: excerpt
+    attributes:
+      label: 記事の要約
+      description: 記事の内容を1-2文で要約してください
+      placeholder: "例: Nom!Nom!プロジェクトの開発進捗と今後の予定についてお知らせします。"
+    validations:
+      required: true
+
+  - type: input
+    id: image
+    attributes:
+      label: アイキャッチ画像
+      description: 記事のアイキャッチ画像のパス（オプション）
+      placeholder: "例: /blog/images/project-update.jpg"
+
+  - type: textarea
+    id: content
+    attributes:
+      label: 記事の内容
+      description: Markdown形式で記事の本文を記述してください
+      placeholder: |
+        ## 見出し
+
+        記事の内容をここに記述してください。
+
+        - リスト項目1
+        - リスト項目2
+
+        ### 小見出し
+
+        詳細な内容...
+
+        ```typescript
+        // コード例
+        const example = "Hello World";
+        ```
+      render: markdown
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 確認事項
+      description: 記事投稿前にチェックしてください
+      options:
+        - label: 記事の内容に間違いがないか確認しました
+          required: true
+        - label: 適切なカテゴリとタグを設定しました
+          required: true
+        - label: 画像がある場合、適切なパスを指定しました
+          required: false
+        - label: マークダウン記法が正しく使用されています
+          required: true
