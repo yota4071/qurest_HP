@@ -1,6 +1,7 @@
 'use client';
 
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 import Link from 'next/link';
 import { highlight } from 'sugar-high';
@@ -99,18 +100,47 @@ const components = {
       const language = props.className.replace('language-', '');
       const highlighted = highlight(props.children as string);
       return (
-        <div className="my-6">
-          <div className="bg-gray-800 text-white px-4 py-2 text-sm font-medium rounded-t-lg">
-            {language}
+        <div className="my-8 rounded-lg overflow-hidden shadow-lg border border-gray-200">
+          <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-200 px-6 py-3 text-sm font-medium flex items-center justify-between">
+            <span className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-red-500"></span>
+              <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
+              <span className="w-3 h-3 rounded-full bg-green-500"></span>
+              <span className="ml-4 font-mono">{language}</span>
+            </span>
           </div>
-          <pre className="bg-gray-900 text-gray-100 p-4 rounded-b-lg overflow-x-auto">
-            <code dangerouslySetInnerHTML={{ __html: highlighted }} />
+          <pre 
+            className="bg-gray-950 text-gray-100 px-6 py-6 overflow-x-auto"
+            style={{ 
+              lineHeight: '1.8',
+              fontSize: '14px',
+              fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+            }}
+          >
+            <code 
+              dangerouslySetInnerHTML={{ __html: highlighted }}
+              style={{ 
+                lineHeight: 'inherit',
+                '--sh-class': '#79c0ff',
+                '--sh-identifier': '#e6edf3', 
+                '--sh-sign': '#ff7b72',
+                '--sh-property': '#79c0ff',
+                '--sh-entity': '#ffa657',
+                '--sh-jsxliterals': '#a5d6ff',
+                '--sh-string': '#a5d6ff',
+                '--sh-keyword': '#ff7b72',
+                '--sh-comment': '#8b949e'
+              } as React.CSSProperties }
+            />
           </pre>
         </div>
       );
     }
     return (
-      <code className="bg-gray-200 text-gray-800 px-2 py-1 rounded text-sm" {...props} />
+      <code 
+        className="bg-blue-50 text-blue-800 px-2 py-1 rounded font-mono text-sm border border-blue-200" 
+        {...props} 
+      />
     );
   },
   pre: (props: ComponentProps) => (
@@ -146,7 +176,12 @@ interface MarkdownRendererProps {
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
     <div className="prose prose-lg max-w-none">
-      <ReactMarkdown components={components as any}>{content}</ReactMarkdown>
+      <ReactMarkdown 
+        components={components as any} 
+        remarkPlugins={[remarkGfm]}
+      >
+        {content}
+      </ReactMarkdown>
     </div>
   );
 }
