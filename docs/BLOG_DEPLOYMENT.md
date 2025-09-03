@@ -1,295 +1,408 @@
-# QURESTブログ デプロイメントガイド
+# QURESTブログ 記事作成ガイド
 
-このドキュメントでは、QURESTブログの自動デプロイメント設定と使用方法について説明します。
+このドキュメントでは、QURESTウェブサイトのブログ記事の作成方法について説明します。
 
-## 🚀 デプロイメント概要
+## 🚀 現在のシステム概要
 
-### アーキテクチャ
+### シンプルなワークフロー
 ```
-GitHub Repository → GitHub Actions → Vercel → 本番環境
+記事作成 → Git Push → 自動デプロイ → 公開
 ```
 
-### 自動化レベル
-- ✅ **完全自動化**: ブログ記事をコミットするだけで自動デプロイ
-- ✅ **品質チェック**: ESLint、TypeScript、ブログ検証
-- ✅ **プレビュー**: プルリクエスト毎にプレビュー環境
-- ✅ **簡単記事作成**: GitHub Issue から自動記事生成
+### 特徴
+- ✅ **シンプル**: MarkdownファイルをプッシュするだけでOK
+- ✅ **高速**: Next.js静的生成による高速表示
+- ✅ **自動最適化**: 画像の自動最適化・WebP変換
+- ✅ **SEO対応**: メタデータ自動生成
 
-## 📝 ブログ記事の投稿方法
+## 📝 ブログ記事の作成方法
 
-### 方法1: GitHub Issueから自動作成 ⭐️推奨
-1. GitHubリポジトリで「New Issue」をクリック
-2. 「📝 ブログ記事の作成」テンプレートを選択
-3. フォームに記事情報を入力
-4. Issue作成 → 自動でPR生成 → レビュー → マージ → 公開
-
-### 方法2: 直接ファイル作成
-1. `content/blog/YYYY-MM-DD-slug.md` ファイルを作成
+### 手順
+1. `content/blog/YYYY-MM-DD-記事名.md` ファイルを作成
 2. フロントマターとコンテンツを記述
-3. プルリクエスト作成
-4. レビュー → マージ → 公開
+3. 画像は `public/images/` に配置
+4. Git add → commit → push
+5. 自動的に本番環境にデプロイ・公開
 
-## 🔧 初期セットアップ
+## 📝 記事作成例
 
-### 1. Vercel連携設定
-以下の環境変数をGitHubリポジトリのSecretsに設定：
+### サンプル記事ファイル: `content/blog/2025-09-01-new-feature.md`
 
-```
-VERCEL_TOKEN=your_vercel_token
-VERCEL_ORG_ID=your_org_id  
-VERCEL_PROJECT_ID=your_project_id
-```
-
-#### 取得方法:
-1. [Vercel Dashboard](https://vercel.com/dashboard)にアクセス
-2. **VERCEL_TOKEN**: Settings → Tokens → Create Token
-3. **VERCEL_ORG_ID**: Project Settings → General → Project ID
-4. **VERCEL_PROJECT_ID**: 同上
-
-### 2. GitHub Actions有効化
-- リポジトリの「Actions」タブで有効化
-- 必要な権限の付与
-
-## 📋 ワークフロー詳細
-
-### メインワークフロー (`ci-cd.yml`)
-```yaml
-trigger: push to main/develop, PR to main
-jobs:
-  1. quality-check    # ESLint, TypeScript
-  2. blog-validation  # ブログ記事検証
-  3. build-test      # ビルドテスト
-  4. deploy          # 本番デプロイ (main only)
-```
-
-### プレビューワークフロー (`preview-deploy.yml`)
-```yaml
-trigger: PR作成/更新
-jobs:
-  1. preview-deploy  # Vercelプレビューデプロイ
-  2. PR コメント     # プレビューURLとブログリンク
-```
-
-### ブログ自動作成 (`create-blog-post.yml`)
-```yaml
-trigger: Issue作成 (blog label)
-jobs:
-  1. parse-issue     # Issueコンテンツ解析
-  2. create-file     # マークダウンファイル生成
-  3. create-pr       # プルリクエスト作成
-  4. close-issue     # Issue自動クローズ
-```
-
-## 📄 ブログ記事フォーマット
-
-### フロントマター
-```yaml
----
-title: "記事タイトル"                    # 必須
-date: "YYYY-MM-DD"                      # 必須 
-author: "著者名"                        # 必須
-categories: ["カテゴリ1", "カテゴリ2"]   # 必須
-tags: ["タグ1", "タグ2", "タグ3"]       # 必須
-image: "/blog/images/image.jpg"         # オプション
-excerpt: "記事の要約"                   # 必須
----
-```
-
-### マークダウン記法
 ```markdown
-# 見出し1
-## 見出し2  
-### 見出し3
+---
+title: "新機能のお知らせ"
+date: "2025-09-01"
+author: "開発チーム"
+categories: ["技術", "お知らせ"]
+tags: ["React", "Next.js", "新機能"]
+excerpt: "今回のアップデートで追加された新機能について詳しく解説します。"
+---
+
+# 新機能のお知らせ
+
+こんにちは、開発チームです。
+
+## 新機能の概要
+
+今回のアップデートでは、以下の機能を追加しました。
+
+### 機能1: ダークモード対応
+
+ユーザビリティの向上のため、ダークモードに対応しました。
+
+![ダークモードのスクリーンショット](/images/darkmode-screenshot.webp)
+
+### 機能2: パフォーマンスの向上
+
+- 初期読み込み時間を30%短縮
+- 画像の遅延読み込み実装
+- キャッシュ戦略の最適化
+
+## 技術詳細
+
+使用した技術スタック:
+
+```typescript
+// 新しいコンポーネントの例
+interface FeatureProps {
+  title: string;
+  description: string;
+}
+
+const NewFeature: React.FC<FeatureProps> = ({ title, description }) => {
+  return (
+    <div className="feature">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
+};
+```
+
+詳細な実装については、[技術ブログ](/blog/2025-09-01-technical-details)をご覧ください。
+
+## まとめ
+
+今回のアップデートにより、ユーザー体験が大幅に向上しました。
+今後も継続的に改善を行ってまいります。
+
+---
+
+**お問い合わせ**: [Contact](/contact)
+```
+
+## 📄 記事フォーマット詳細
+
+### 必須フロントマター
+```yaml
+---
+title: "記事タイトル"                    # 必須: SEOにも影響
+date: "YYYY-MM-DD"                      # 必須: 記事の公開日
+author: "著者名"                        # 必須: 記事の執筆者
+categories: ["カテゴリ1", "カテゴリ2"]   # 必須: ブログのカテゴリ分類
+tags: ["タグ1", "タグ2", "タグ3"]       # 必須: 記事のタグ
+excerpt: "記事の要約文"                 # 必須: 記事一覧で表示される要約
+---
+```
+
+### 利用可能なカテゴリ
+- `"技術"` - 技術関連の記事
+- `"プロジェクト"` - プロジェクトの紹介や進捗
+- `"お知らせ"` - 重要な告知や更新情報
+- `"その他"` - その他の記事
+
+### サポートしているマークダウン記法
+
+#### 基本記法
+```markdown
+# 大見出し (h1)
+## 中見出し (h2)  
+### 小見出し (h3)
 
 **太字** *斜体*
 
 - リスト項目1
 - リスト項目2
 
-1. 番号リスト1
-2. 番号リスト2
+1. 番号付きリスト1
+2. 番号付きリスト2
 
-[リンク](https://example.com)
+[外部リンク](https://example.com)
+[内部リンク](/about)
 
-![画像](path/to/image.jpg)
-
-> 引用文
+> 重要な引用文や注意事項
 
 `インラインコード`
-
-```typescript
-// コードブロック
-const example = "Hello World";
 ```
 
-| 表 | の | 例 |
-|---|---|---|
-| A | B | C |
+#### コードブロック
+```markdown
+```javascript
+// JavaScript の例
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+```
+
+```typescript  
+// TypeScript の例
+interface User {
+  id: number;
+  name: string;
+}
+```
+
+```python
+# Python の例
+def calculate_total(items):
+    return sum(item.price for item in items)
+```
+
+#### 表の作成
+```markdown
+| 項目 | 説明 | ステータス |
+|------|------|-----------|
+| 機能A | 基本機能 | ✅ 完了 |
+| 機能B | 拡張機能 | 🚧 開発中 |
 ```
 
 ### カスタムコンポーネント
 ```markdown
-<!-- Nom!Nom!テキスト (Bangerフォント適用) -->
+<!-- Nom!Nom!専用テキスト (Bangerフォント適用) -->
 <NomNomText />
 <!-- または -->
 <NomNomText>Nom!Nom!</NomNomText>
 ```
 
-## 🖼️ 画像の管理
+## 🖼️ 画像の使用方法
 
-### 画像配置
+### 画像ファイルの配置
 ```
-public/blog/images/
-├── nom-nom-launch.jpg
-├── team-photo.jpg
-└── tech-stack.png
+public/images/
+├── screenshot1.webp
+├── feature-demo.jpg  
+└── team-photo.png
 ```
 
-### 使用方法
+### 記事内での画像の使用
 ```markdown
-![画像の説明](/blog/images/filename.jpg)
+![画像の説明](/images/filename.webp)
 ```
 
-### 最適化
-- Next.js Image コンポーネントが自動最適化
+**重要**: 
+- 画像は必ず `public/images/` フォルダに配置
+- パスは `/images/` から始める（先頭の`/`を忘れずに）
+- WebP形式推奨（ファイルサイズが小さく高品質）
+
+### 自動最適化機能
+- Next.js Image コンポーネントによる自動最適化
 - WebP変換、リサイズ、遅延読み込み
+- レスポンシブ画像生成
 
-## 🧪 テスト・検証
+## 🧪 ローカル開発・テスト
 
-### ローカル開発
+### 開発サーバーの起動
 ```bash
+# 開発サーバー起動
 npm run dev
+
+# ブラウザで確認
 # http://localhost:3000/blog
 ```
 
-### ビルドテスト
+### 記事確認方法
+1. ローカルサーバー起動
+2. `http://localhost:3000/blog` でブログ一覧を確認
+3. 新しい記事が表示されているかチェック
+4. 記事リンクをクリックして内容を確認
+
+### ビルドテスト（デプロイ前確認）
 ```bash
+# 本番ビルド実行
 npm run build
+
+# ビルド成功後、プロダクションサーバー起動
 npm run start
 ```
 
-### ブログ検証スクリプト
+## 🚀 デプロイの流れ
+
+### 現在のシンプルなデプロイ
+```
+1. 記事作成・編集
+2. Git でコミット・プッシュ
+   git add .
+   git commit -m "ブログ記事追加: タイトル"
+   git push
+3. Vercel が自動デプロイ
+4. 数分後に本番サイトに反映
+```
+
+### デプロイ状況の確認
+- [Vercel Dashboard](https://vercel.com) でデプロイ状況確認
+- エラーがある場合はビルドログで詳細確認
+
+## ⚠️ よくある問題と解決方法
+
+### 1. 画像が表示されない
+**問題**: `404 Not Found` や画像が表示されない
+
+**解決方法**:
 ```bash
-# 記事の検証
-node -e "
-const { getAllPosts } = require('./src/lib/blog.ts');
-console.log(getAllPosts());
-"
+# ✅ 正しい配置場所
+public/images/filename.webp
+
+# ✅ 正しいMarkdown記法  
+![説明](/images/filename.webp)
+
+# ❌ よくある間違い
+![説明](\images\filename.webp)  # バックスラッシュ使用
+![説明](images/filename.webp)   # 先頭の / がない
 ```
 
-## 🔄 デプロイメントフロー
+### 2. フロントマターエラー
+**問題**: ビルド時にフロントマター関連のエラー
 
-### 通常フロー
-```
-1. 記事作成/編集
-2. プルリクエスト作成
-3. GitHub Actions実行
-   - コード品質チェック
-   - ブログ記事検証  
-   - ビルドテスト
-   - プレビューデプロイ
-4. レビュー・承認
-5. mainブランチにマージ
-6. 本番環境自動デプロイ
-```
-
-### Issue自動作成フロー
-```
-1. GitHub Issueでブログ記事テンプレート入力
-2. Issue作成
-3. GitHub Actions実行
-   - マークダウンファイル生成
-   - プルリクエスト自動作成
-   - Issue自動クローズ
-4. PR レビュー・マージ
-5. 本番環境デプロイ
+**解決方法**:
+```yaml
+# ✅ 必須フィールドを全て記述
+---
+title: "タイトル"        # ダブルクォート必須
+date: "2025-09-01"      # YYYY-MM-DD 形式
+author: "著者名"        # 文字列
+categories: ["技術"]    # 配列形式
+tags: ["React"]         # 配列形式  
+excerpt: "要約文"       # 文字列
+---
 ```
 
-## ⚠️ トラブルシューティング
+### 3. コードブロックが正しく表示されない
+**問題**: シンタックスハイライトが効かない
 
-### よくある問題
-
-#### 1. ビルドエラー
-```bash
-# フロントマター形式チェック
-# 必須フィールド: title, date, author, categories, excerpt
+**解決方法**:
+```markdown
+# ✅ 正しい書き方
+```javascript
+const hello = "world";
 ```
 
-#### 2. 画像が表示されない
-```bash
-# パスを確認: /blog/images/filename.jpg
-# ファイル存在確認: public/blog/images/
+# ❌ 間違った書き方
+```js  # 言語名が不正確
+const hello = "world";
 ```
 
-#### 3. デプロイエラー  
-```bash
-# Vercel環境変数確認
-# GitHub Secrets設定確認
+### 4. リンクエラー
+**問題**: 内部リンクが 404 になる
+
+**解決方法**:
+```markdown
+# ✅ 内部リンク（サイト内）
+[採用情報](/recruit)
+[ブログ一覧](/blog)
+
+# ✅ 外部リンク
+[GitHub](https://github.com/example)
 ```
 
-#### 4. プレビューデプロイ失敗
-```bash
-# プルリクエストのActions ログ確認
-# Vercel Dashboard でエラー詳細確認
-```
-
-### デバッグ方法
-
-#### GitHub Actions ログ
-1. リポジトリの「Actions」タブ
-2. 失敗したワークフローをクリック
-3. ログを確認してエラー箇所を特定
-
-#### Vercel ログ  
-1. [Vercel Dashboard](https://vercel.com/dashboard)
+### 5. デプロイエラーのデバッグ
+**Vercel でのエラー確認**:
+1. [Vercel Dashboard](https://vercel.com/dashboard) にアクセス
 2. プロジェクト → Deployments
 3. 失敗したデプロイをクリック
-4. Build Logs で詳細確認
+4. "Build Logs" でエラー詳細を確認
 
-## 🎯 ベストプラクティス
+## 📝 記事作成のベストプラクティス
 
-### 記事作成
-- **わかりやすいタイトル**: SEO も考慮
-- **適切な要約**: 記事の内容を簡潔に
-- **カテゴリ・タグ**: 一貫性のある分類
-- **画像**: 記事の内容に関連する適切な画像
+### 良い記事を書くためのコツ
 
-### 品質管理
-- **プルリクエストレビュー**: チーム内でのレビュー
-- **プレビュー確認**: マージ前に必ずプレビューで確認
-- **リンクチェック**: 外部リンクの動作確認
+#### タイトル
+- 具体的で分かりやすく
+- SEOを考慮（検索されそうなキーワードを含める）
+- 32文字以内推奨
 
-### SEO対策
-- **メタデータ**: title, description の最適化
-- **適切な見出し構造**: h1 → h2 → h3 の順序
-- **alt属性**: 画像には適切な説明
+#### 要約（excerpt）
+- 記事の内容を2-3行で簡潔に
+- 読み手が「読みたい」と思える内容に
 
-## 📈 運用・保守
+#### カテゴリとタグ
+- カテゴリ: 大まかな分類（"技術", "プロジェクト"等）
+- タグ: 具体的なキーワード（"React", "Next.js"等）
 
-### 定期メンテナンス
-- **依存関係更新**: 月1回程度
-- **セキュリティ更新**: 随時
-- **パフォーマンス確認**: アクセス解析
+#### 見出し構造
+```markdown
+# 記事タイトル (h1) - 1つだけ
+## 大きな章 (h2)
+### 詳細な節 (h3)
+#### 細かい項目 (h4)
+```
 
-### バックアップ
-- **Git履歴**: 自動バックアップ
-- **画像ファイル**: 定期バックアップ推奨
+#### 画像の使用
+- 記事の内容を補完する画像を適切に配置
+- alt属性で画像の説明を記載
+- WebP形式を推奨（ファイルサイズが小さい）
 
-### 監視
-- **Vercel Analytics**: アクセス分析
-- **GitHub Actions**: デプロイ状況監視
+### チェックリスト
+記事公開前に確認：
+
+- [ ] フロントマターの必須項目が全て記載されている
+- [ ] 画像が正しく表示される（`/images/`パス確認）
+- [ ] リンクが正しく動作する
+- [ ] コードブロックが適切にハイライトされている
+- [ ] 誤字脱字がない
+- [ ] ローカルで記事が正しく表示される
+
+## 🚀 クイックスタートガイド
+
+### 初めての記事作成（5分で完了）
+
+1. **ファイル作成**
+   ```bash
+   # content/blog/ フォルダに新しいファイルを作成
+   content/blog/2025-09-03-my-first-post.md
+   ```
+
+2. **基本テンプレートをコピー**
+   ```markdown
+   ---
+   title: "私の最初の記事"
+   date: "2025-09-03"
+   author: "あなたの名前"
+   categories: ["お知らせ"]
+   tags: ["初投稿", "ブログ"]
+   excerpt: "QURESTブログへの初投稿です。よろしくお願いします！"
+   ---
+
+   # 私の最初の記事
+
+   こんにちは！QURESTチームに新しく加わった○○です。
+
+   ## 自己紹介
+
+   - 名前: ○○
+   - 担当: ○○
+   - 好きな技術: ○○
+
+   今後ともよろしくお願いします！
+   ```
+
+3. **保存・プッシュ・完了**
+   ```bash
+   git add content/blog/2025-09-03-my-first-post.md
+   git commit -m "ブログ記事追加: 私の最初の記事"
+   git push
+   ```
 
 ---
 
-## 🤝 貢献方法
+## 💡 質問・サポート
 
-ブログ記事の投稿や改善提案は以下の方法で：
+記事作成で困ったときは：
 
-1. **記事投稿**: GitHub Issue → 自動PR生成
-2. **バグ報告**: GitHub Issue で報告
-3. **機能提案**: GitHub Discussions で議論
-4. **コード改善**: プルリクエスト作成
+1. **このドキュメント**で基本的な書き方を確認
+2. **existing記事**（`content/blog/`内）を参考にする
+3. **チームメンバー**に相談
+4. **GitHub Issues**でバグ報告や機能要望
 
 ---
 
-**質問・サポート**: [GitHub Discussions](リポジトリURL/discussions) で お気軽にご質問ください！
+**Happy Blogging! 🎉**

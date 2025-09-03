@@ -64,7 +64,7 @@ const components = {
     if (!imageSrc) return null;
     
     return (
-      <div className="my-8 relative">
+      <span className="block my-8 relative">
         <Image
           src={imageSrc}
           alt={alt || ''}
@@ -75,11 +75,11 @@ const components = {
           {...restProps}
         />
         {alt && (
-          <p className="text-center text-sm text-gray-500 mt-2 italic">
+          <span className="block text-center text-sm text-gray-500 mt-2 italic">
             {alt}
-          </p>
+          </span>
         )}
-      </div>
+      </span>
     );
   },
   ul: (props: ComponentProps) => (
