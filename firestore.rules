@@ -1,0 +1,109 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // いいね数を保存するコレクション
+    match /likes/{postId} {
+      // 誰でも読み取り可能
+      allow read: if true;
+      
+      // 作成・更新は認証不要だが、特定の条件で制限
+      allow create, update: if 
+        // postIdが空でない
+        postId != null && 
+        postId.size() > 0 &&
+        // countフィールドが存在し、数値である
+        request.resource.data.keys().hasAll(['postId', 'count', 'lastUpdated']) &&
+        request.resource.data.count is number &&
+        request.resource.data.count >= 0 &&
+        // postIdが一致している
+        request.resource.data.postId == postId &&
+        // lastUpdatedが現在時刻に近い（1分以内）
+        request.resource.data.lastUpdated is string;
+      
+      // 削除は禁止
+      allow delete: if false;
+    }
+    
+    // ユーザーの個別いいね記録
+    match /userLikes/{likeId} {
+      // 誰でも読み取り可能（クエリ用）
+      allow read: if true;
+      
+      // 作成は制限付きで許可
+      allow create: if 
+        // 必要なフィールドが存在
+        request.resource.data.keys().hasAll(['postId', 'userId', 'timestamp']) &&
+        // postIdが空でない
+        request.resource.data.postId != null &&
+        request.resource.data.postId.size() > 0 &&
+        // userIdが空でない
+        request.resource.data.userId != null &&
+        request.resource.data.userId.size() > 0 &&
+        // timestampが文字列
+        request.resource.data.timestamp is string &&
+        // 余計なフィールドがない
+        request.resource.data.keys().size() == 3;
+      
+      // 削除は同じユーザーのもののみ許可
+      allow delete: if 
+        resource.data.userId != null &&
+        resource.data.userId.size() > 0;
+      
+      // 更新は禁止
+      allow update: if false;
+    }
+    
+    // コメント機能
+    match /comments/{commentId} {
+      // 誰でも読み取り可能
+      allow read: if true;
+      
+      // 作成は制限付きで許可
+      allow create: if 
+        // 必要なフィールドが存在
+        request.resource.data.keys().hasAll(['postId', 'authorName', 'content', 'userId', 'timestamp', 'createdAt']) &&
+        // postIdが空でない
+        request.resource.data.postId != null &&
+        request.resource.data.postId.size() > 0 &&
+        // authorNameが空でない（1-50文字）
+        request.resource.data.authorName != null &&
+        request.resource.data.authorName.size() > 0 &&
+        request.resource.data.authorName.size() <= 50 &&
+        // contentが空でない（1-1000文字）
+        request.resource.data.content != null &&
+        request.resource.data.content.size() > 0 &&
+        request.resource.data.content.size() <= 1000 &&
+        // userIdが空でない
+        request.resource.data.userId != null &&
+        request.resource.data.userId.size() > 0 &&
+        // timestampが文字列
+        request.resource.data.timestamp is string &&
+        // createdAtがTimestamp
+        request.resource.data.createdAt is timestamp;
+      
+      // 更新は自分のコメントのみ許可
+      allow update: if 
+        resource.data.userId == request.resource.data.userId &&
+        // contentとupdatedAtのみ更新可能
+        request.resource.data.keys().hasAll(['postId', 'authorName', 'content', 'userId', 'timestamp', 'createdAt', 'updatedAt']) &&
+        request.resource.data.postId == resource.data.postId &&
+        request.resource.data.authorName == resource.data.authorName &&
+        request.resource.data.userId == resource.data.userId &&
+        request.resource.data.timestamp == resource.data.timestamp &&
+        request.resource.data.createdAt == resource.data.createdAt &&
+        // contentの長さチェック
+        request.resource.data.content.size() > 0 &&
+        request.resource.data.content.size() <= 1000;
+      
+      // 削除は自分のコメントのみ許可
+      allow delete: if 
+        resource.data.userId != null &&
+        resource.data.userId.size() > 0;
+    }
+    
+    // その他のコレクションへのアクセスは拒否
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

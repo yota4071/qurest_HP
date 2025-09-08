@@ -2,6 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
+import LikeButton from '@/components/LikeButton';
+import CommentSection from '@/components/CommentSection';
+import FloatingActionButtons from '@/components/FloatingActionButtons';
 import { notFound } from 'next/navigation';
 
 interface BlogPostPageProps {
@@ -135,8 +138,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         )}
 
+        {/* Like Button - Top */}
+        <div className="mb-8 flex justify-center">
+          <LikeButton postId={post.slug} />
+        </div>
+
         <div className="bg-white rounded-lg shadow-sm p-8">
           <MarkdownRenderer content={post.content} />
+        </div>
+
+        {/* Like Button - Bottom */}
+        <div className="mt-8 flex justify-center">
+          <LikeButton postId={post.slug} />
         </div>
 
         {/* Tags */}
@@ -156,6 +169,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         )}
 
+        {/* Comments Section */}
+        <div className="mt-12">
+          <CommentSection postId={post.slug} />
+        </div>
+
         {/* Navigation */}
         <div className="mt-12 pt-8 border-t border-gray-200">
           <Link 
@@ -166,6 +184,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </Link>
         </div>
       </article>
+
+      {/* Floating Action Buttons */}
+      <FloatingActionButtons postId={post.slug} />
     </div>
   );
 }
