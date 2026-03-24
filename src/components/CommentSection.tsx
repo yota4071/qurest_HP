@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { MessageCircle, Send, User, Trash2, Edit3 } from 'lucide-react';
 import { addComment, getComments, deleteComment, updateComment, Comment } from '@/lib/comments';
 
@@ -17,6 +17,16 @@ export default function CommentSection({ postId }: CommentSectionProps) {
   const [editContent, setEditContent] = useState('');
   const [userId, setUserId] = useState<string>('');
 
+  // loadComments を useCallback でラップし、postId に依存させる
+  const loadComments = useCallback(async () => {
+    try {
+      const commentsData = await getComments(postId);
+      setComments(commentsData);
+    } catch (error) {
+      console.error('Error loading comments:', error);
+    }
+  }, [postId]);
+
   useEffect(() => {
     let storedUserId = localStorage.getItem('userId');
     if (!storedUserId) {
@@ -31,16 +41,7 @@ export default function CommentSection({ postId }: CommentSectionProps) {
     }
 
     loadComments();
-  }, [postId]);
-
-  const loadComments = async () => {
-    try {
-      const commentsData = await getComments(postId);
-      setComments(commentsData);
-    } catch (error) {
-      console.error('Error loading comments:', error);
-    }
-  };
+  }, [loadComments]); // 依存配列に loadComments を指定
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
